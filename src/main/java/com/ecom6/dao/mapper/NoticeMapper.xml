@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ecom6.dao.notice.NoticeDao">
+<select id="getNoticeCnt" resultType="int">
+	SELECT COUNT(NOTI_NO) FROM NOTICET	
+	<!-- 유효일자에 따라 지난 것은 나오지 않게 하기 -->
+	WHERE TO_DATE(VDATE) >= SYSDATE
+	AND STATE = 'A'
+</select>
+<select id="getNoticeList" parameterType="nvo" resultType="nvo">
+	SELECT * FROM (
+	SELECT ROWNUM RN, A.* FROM (
+	SELECT NOTI_NO, SUBJECT, CONTENT, READCOUNT, WRITER, 
+			<!-- TO_CHAR(VDATE, 'YYYY-MM-DD') VDATE, 
+			TO_CHAR(REGDATE, 'YYYY-MM-DD') REGDATE, STATE -->
+			TO_CHAR(TO_DATE(VDATE), 'YYYY-MM-DD') VDATE,
+			TO_CHAR(TO_DATE(REGDATE), 'YYYY-MM-DD') REGDATE, STATE
+	        FROM NOTICET
+	        WHERE STATE = 'A'
+	        ) A 
+	) 
+	<if test="end>1">
+		<![CDATA[
+		WHERE RN >= #{start} AND RN <= #{end}
+		]]>
+	</if>
+</select>
+
+<insert id="noticeProc" parameterType="nvo">
+	<selectKey keyProperty="noti_no" order="BEFORE" resultType="int">
+		SELECT NVL(MAX(NOTI_NO),0)+1 FROM NOTICET
+	</selectKey> 
+		INSERT INTO NOTICET (NOTI_NO, SUBJECT, CONTENT, READCOUNT, 
+			WRITER, VDATE, REGDATE, STATE)
+		VALUES (#{noti_no}, #{subject}, #{content}, 0, #{writer}, #{vdate},
+		<choose>
+			<when test="regdate!=null and regdate.length()>0">
+				#{regdate},
+			</when>
+			<otherwise>
+				TO_CHAR(SYSDATE, 'YYYY-MM-DD'),
+			</otherwise>
+		</choose>
+		 'A')
+</insert>
+
+
+<select id="noticeDetail" parameterType="nvo" resultType="nvo">
+	SELECT NOTI_NO, SUBJECT, CONTENT, READCOUNT, 
+			WRITER, VDATE, REGDATE, STATE FROM NOTICET
+	WHERE NOTI_NO = #{noti_no}
+	AND TO_DATE(VDATE) >= SYSDATE
+</select>
+
+<update id="upreadCnt" parameterType="nvo">
+	UPDATE NOTICET SET
+	READCOUNT = READCOUNT + 1
+	WHERE NOTI_NO = #{noti_no}
+</update>
+
+<update id="noticeUpProc" parameterType="nvo">
+	UPDATE NOTICET SET
+	SUBJECT = #{subject}, 
+	CONTENT = #{content}, 
+	WRITER = #{writer}, 
+	VDATE = #{vdate}, 
+	REGDATE = #{regdate}
+	WHERE NOTI_NO = #{noti_no}
+</update>
+
+<update id="deleteNotice" parameterType="nvo">
+	UPDATE NOTICET
+	SET STATE = 'D'
+	WHERE NOTI_NO = #{noti_no}
+</update>
+
+<delete id="noticeDelProc" parameterType="nvo">
+	DELETE FROM NOTICET
+	WHERE NOTI_NO = #{noti_no}
+</delete>
+</mapper>
