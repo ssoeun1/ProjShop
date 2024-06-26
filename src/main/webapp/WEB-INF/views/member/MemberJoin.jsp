@@ -8,16 +8,12 @@
 <meta charset="UTF-8">
 <title>Signup</title>
 <link rel="stylesheet" type="text/css" href="css/signup.css" />
+<script type="text/javascript" ></script>
 </head>
 <body>
 <div class="BigConatiner">
-		<c:import url="../header.jsp" />
+		<c:import url="../layouts/header.jsp" />
         <div class="container">
-        	<div class="AsideSign">
-		        <aside>
-					<c:import url="../Aside.jsp"/>
-				</aside>
-        	</div>
 			<div class="MainCont">
 	            <div id="contents">
 					<c:import url="Register.jsp" />
@@ -27,6 +23,6 @@
     </div>
 
 
-<c:import url="../footer.jsp"/>
+<c:import url="../layouts/footer.jsp"/>
 </body>
 </html>
