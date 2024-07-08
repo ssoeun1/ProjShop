@@ -4,14 +4,13 @@ import java.util.List;
 
 import org.apache.ibatis.annotations.Mapper;
 
+import com.ecom6.VO.notice.NoticeVO;
 import com.ecom6.VO.order.OrderVO;
 
 @Mapper
 public interface OrderDao {
 
 	int insertOrders(List<OrderVO> list);
-
-	int getTotalOrders(OrderVO ovo);
 
 	List<OrderVO> getOrders(OrderVO ovo);
 
@@ -22,5 +21,11 @@ public interface OrderDao {
 	int updateState(OrderVO ovo);
 
 	int deleteOrder(OrderVO ovo);
+	
+	List<OrderVO> getOrdersList(NoticeVO nvo);
+
+	int getTotalOrders(OrderVO ovo);
+
+	int getMemOrdersTotal(OrderVO ovo);
 
 }

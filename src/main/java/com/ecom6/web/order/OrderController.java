@@ -3,6 +3,7 @@ package com.ecom6.web.order;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Hashtable;
+import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,8 +14,13 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.ecom6.VO.cart.CartVO;
 import com.ecom6.VO.mem.MemberVO;
+import com.ecom6.VO.notice.NoticeVO;
 import com.ecom6.VO.order.OrderVO;
+import com.ecom6.VO.product.ProductVO;
+import com.ecom6.common.vo.PageInfo;
+import com.ecom6.common.vo.PageVO;
 import com.ecom6.service.cart.CartService;
 import com.ecom6.service.order.OrderService;
 import com.ecom6.wrapper.order.OrderWrapper;
@@ -28,6 +34,7 @@ import oracle.jdbc.proxy.annotation.Post;
 @Slf4j
 @Controller
 public class OrderController {
+
 	// 규칙 1. 서비스에서 트랜잭션을 걸어야 한다.
 	// 규칙 2. 서로 다른 업무에서 해당 업무 이외의 업무를 호출하지 않는다.
 	// 규칙 3. 타 업무가 필요할 때는 Wrapper 클래스를 만들어서 사용한다
@@ -44,16 +51,18 @@ public class OrderController {
 	@GetMapping("/orderProc")
 	public String orderProc(HttpServletRequest req,
 						   HttpServletResponse res,
-						   OrderVO ovo,
+						   OrderVO ovo,PageVO pgVo,
 						   Model model) {
 		HttpSession session = req.getSession();
 		String msg = null;
 		String url = null;
 		MemberVO ssKey = (MemberVO) session.getAttribute("ssKey");
-		Hashtable<Integer, OrderVO> hCartList = null;
 		if(ssKey!=null) {
-			hCartList = cartService.getCartList();
-			HashMap<String, Object> reMap = orderWrapper.orderProc(ovo, hCartList);
+			Map<String, Object> reSet = cartService.getCartItemList(ssKey.getMem_id());
+			ArrayList<CartVO> CartList = (ArrayList<CartVO>) reSet.get("cartList");
+			log.info("cartList=======> "+CartList);
+			HashMap<String, Object> reMap = 
+					orderWrapper.orderProc(ovo, CartList);
 			msg = (String) reMap.get("msg");
 			url = (String) reMap.get("url");
 			// 주문하고 재고는 하나 줄고
@@ -64,39 +73,9 @@ public class OrderController {
 		model.addAttribute("url", url);
 		model.addAttribute("msg", msg);
 		session.setAttribute("ssKey", ssKey);
-		session.setAttribute("hCartList", hCartList);
 		return "MsgPage";
 	}
 	
-	@GetMapping("orderlist")
-	public String orderList(HttpServletRequest req,
-						   HttpServletResponse res,
-						   OrderVO ovo,
-						   Model model) {
-		
-		String msg;
-		String url;
-		String page="Main";
-		HttpSession session = req.getSession();
-		MemberVO ssKey = (MemberVO) session.getAttribute("ssKey");
-		if(ssKey!=null) {
-			// 데이터 받아서 저장
-			ovo.setMem_id(ssKey.getMem_id());
-			ovo.setM_role(ssKey.getM_role());
-			Map<String, Object> reSet = orderService.getOrders(ovo);
-			model.addAttribute("orders", reSet.get("orders"));
-			model.addAttribute("orderTot", reSet.get("orderTot"));
-			model.addAttribute("content", "custom/OrderList.jsp");
-		} else {
-			msg = "로그인이 필요합니다.";
-			url = "/login";
-			page = "MsgPage";
-			model.addAttribute("url", url);
-			model.addAttribute("msg", msg);
-		}
-		session.setAttribute("ssKey", ssKey);
-		return page;
-	}
 	
 	@PostMapping("/custOrderDetail")
 	public String custOrderDetail(HttpServletRequest req,
@@ -135,51 +114,9 @@ public class OrderController {
 		return page;
 	}
 	
-	// ADMIN
-	@GetMapping("/orderMgt")
-	public String getMethodName(HttpServletRequest req,
-							    HttpServletResponse res,
-							    OrderVO ovo,
-							    Model model) {
-		String page = null;
-		String msg;
-		String url;
-		HttpSession session = req.getSession();
-		MemberVO ssKey = (MemberVO) session.getAttribute("ssKey");
-		if(ssKey!=null) {
-			if(ssKey.getM_role().equals("admin")) {
-				ovo.setM_role(ssKey.getM_role());
-				Map<String, Object> reSet = orderService.getOrderList(ovo);
-				model.addAttribute("orders", reSet.get("orders"));
-				model.addAttribute("orderTot", reSet.get("orderTot"));
-				model.addAttribute("content", "admin/OrderList.jsp");
-				page = "Main";				
-			} else {
-				session.removeAttribute("ssKey");
-				session.invalidate();
-				
-				msg = "올바른 접근이 아닙니다.";
-				url = "/login";
-				page = "MsgPage";
-				model.addAttribute("url", url);
-				model.addAttribute("msg", msg);
-			}
-		} else {
-			session.removeAttribute("ssKey");
-			session.invalidate();
-			
-			msg = "세션이 종료되었습니다.";
-			url = "/login";
-			page = "MsgPage";
-			model.addAttribute("url", url);
-			model.addAttribute("msg", msg);
-		}
-		return page;
-	}
-	
-	@PostMapping("orderMgtProc")
+	@PostMapping("orderFIXProc")
 	@ResponseBody
-	public void orderMgtProc(HttpServletRequest req,
+	public void orderFIXProc(HttpServletRequest req,
 							 HttpServletResponse res,
 							 OrderVO ovo,
 							 Model model,
@@ -196,7 +133,7 @@ public class OrderController {
 		}
 	}
 	
-	@PostMapping("/orDetailMgt")
+	@PostMapping("/OrDetailMgt")
 	public String orderDetail(HttpServletRequest req,
 							  HttpServletResponse res,
 							  OrderVO ovo,
@@ -213,7 +150,7 @@ public class OrderController {
 				log.info("+===>"+ovo);
 				OrderVO order = orderService.getOrder(ovo);
 				model.addAttribute("order", order);
-				model.addAttribute("content", "./OrderDetail.jsp");		
+				model.addAttribute("content", "admin/OrderDetail.jsp");		
 			} else {
 				session.removeAttribute("ssKey");
 				session.invalidate();
@@ -256,7 +193,7 @@ public class OrderController {
 					msg = "주문상태 수정완료";		
 				else 
 					msg = "주문상태 수정실패";
-				url = "/orderMgt";		
+				url = "/orderFIX";		
 			} else {
 				session.removeAttribute("ssKey");
 				session.invalidate();
@@ -297,7 +234,7 @@ public class OrderController {
 				// log.info("+===>"+ovo.getState());
 				Map<String, Object> reSet = orderWrapper.orderDelete(ovo);
 				msg = (String) reSet.get("msg");
-				url = "/orderMgt";		
+				url = "/orderFIX";		
 			} else {
 				session.removeAttribute("ssKey");
 				session.invalidate();
@@ -315,4 +252,99 @@ public class OrderController {
 		return page;
 	}
 	
+	@GetMapping("/orderList")
+	public String orderList(HttpServletRequest request,
+			                HttpServletResponse response,
+			                OrderVO ovo,
+			                Model model,
+			                PageVO pgVo) {
+
+		String msg;
+		String url;
+		String page="Main";
+		HttpSession session = request.getSession();
+		MemberVO ssKey = (MemberVO) session.getAttribute("ssKey");
+		if(ssKey!=null) {
+			//데이터 받아서 저장
+			ovo.setMem_id(ssKey.getMem_id());
+			ovo.setM_role(ssKey.getM_role());
+			Map<String, Object> reSet = orderService.getOrders(ovo,pgVo);
+			model.addAttribute("orders", reSet.get("orders"));
+			model.addAttribute("orderTot", reSet.get("orderTot"));
+			model.addAttribute("content", "custom/OrderList.jsp");
+			model.addAttribute("PBlock", PageInfo.PAGE_OF_BLOCK);
+			model.addAttribute("pgVo", pgVo);
+		}else {
+		  msg="로그인이 필요합니다.";
+	      url = "/login";
+	      page="MsgPage";
+	      model.addAttribute("msg", msg);
+	      model.addAttribute("url", url);
+		}
+		session.setAttribute("ssKey", ssKey);
+		return page;
+	}
+
+	@GetMapping(value={"/orderFIX"})
+	public String orderFIX(HttpServletRequest req, 
+							HttpServletResponse res,
+							OrderVO ovo,
+							PageVO pgVo,
+							Model model) {
+		String page = null;
+		String msg = null;
+		String url = null;
+		HttpSession session = req.getSession();
+		MemberVO ssKey = (MemberVO) session.getAttribute("ssKey");
+		if(ssKey!=null) {
+//			session.setAttribute("ssKey", ssKey);
+			if(ssKey.getM_role().equals("admin")) {
+				ovo.setM_role(ssKey.getM_role());
+				Map<String, Object> reSet = orderService.getOrderList(ovo,pgVo);
+				model.addAttribute("orders", reSet.get("orders"));
+				model.addAttribute("orderTot", reSet.get("orderTot"));
+				model.addAttribute("content", "admin/OrderList.jsp");
+				model.addAttribute("PBlock", PageInfo.PAGE_OF_BLOCK);
+				model.addAttribute("pgVo", pgVo);
+				page = "admin/Main";
+			} else {
+				 session.removeAttribute("ssKey");
+				 session.invalidate();
+				 msg="접근이 올바르지 않습니다.";
+				 url = "/login";
+				 page="MsgPage";
+				 model.addAttribute("msg", msg);
+				 model.addAttribute("url", url);
+				}
+			  }else {
+			    session.removeAttribute("ssKey");
+				session.invalidate();
+				msg="세션이 종료되었습니다.\\n 재로그인 필요합니다.";
+			    url = "/login";
+			    page="MsgPage";
+			    model.addAttribute("msg", msg);
+			    model.addAttribute("url", url);
+			  }
+		return page;
+	}
+	@GetMapping("/orderDetail")
+	public String getorderDetail(HttpServletRequest req, 
+							HttpServletResponse res, 
+							Model model) {
+		HttpSession session = req.getSession();
+		String page = null;
+		String url = null;
+		MemberVO ssKey = (MemberVO) session.getAttribute("ssKey");
+		if(ssKey!=null) {
+			Map<String, Object> reSet = cartService.getCartItemList(ssKey.getMem_id());
+			// 주문하고 재고는 하나 줄고
+			model.addAttribute("content", "custom/OrderDetail.jsp");
+			model.addAttribute("cart", reSet.get("cartList"));
+			model.addAttribute("url", url);
+		} else {
+			url = "/login";
+		}
+		session.setAttribute("ssKey", ssKey);
+		return "Main";
+	}
 }

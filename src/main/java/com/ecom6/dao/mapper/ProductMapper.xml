@@ -5,9 +5,17 @@
 		SELECT COUNT(P_NO) FROM PRODUCT
 	</select>
 
-	<select id="getProductList" resultType="pvo" parameterType="pgVo">
-		 SELECT P_NO, STOCK, PRICE, P_NAME, DETAIL, PR_DATE, IMAGE, PATH
-		 FROM PRODUCT	
+	<select id="getProductList" resultType="pvo" parameterType="pvo">
+		  SELECT * FROM ( 
+	      SELECT ROWNUM RN, A.* FROM (
+	      SELECT P_NO, STOCK, PRICE, P_NAME, DETAIL, PR_DATE, IMAGE, PATH
+			FROM PRODUCT	
+			ORDER BY PR_DATE DESC
+	            ) A
+	       )
+		  <![CDATA[       
+	       WHERE RN  >= #{start} AND RN <= #{end}
+	      ]]>  		 
 	</select>
 	
 	<insert id="insertProduct" parameterType="pvo">
@@ -24,7 +32,7 @@
 		 WHERE P_NO=#{p_no}
 	</select>
 	
-	<update id="updateStocks">
+	<update id="updateProdStock">
 		<foreach collection="list" item="ovo" index="index" 
 			separator=";" open="DECLARE BEGIN" close="; END;">
 			UPDATE PRODUCT

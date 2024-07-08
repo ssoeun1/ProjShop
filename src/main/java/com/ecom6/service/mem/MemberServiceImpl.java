@@ -53,4 +53,13 @@ public class MemberServiceImpl implements MemberService {
 		return memberDao.memDeleteProc(mvo);
 	}
 
+	@Override
+	public int updatePasswd(MemberVO mvo) {
+		return memberDao.updatePasswd(mvo);
+	}
+
+	@Override
+	public String searchId(MemberVO mvo) {
+		return memberDao.searchId(mvo);
+	}
 }

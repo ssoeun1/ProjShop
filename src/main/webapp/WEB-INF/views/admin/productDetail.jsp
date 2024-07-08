@@ -26,14 +26,14 @@
 			<tr>
 				<th class="pcol1">재고수량</th>
 				<th class="pcol2">
-					<input type="text" name="stock" class="chk inNum" title="재고수량" value="${product.stock}" readonly="readonly"> 
+					<input type="text" name="stock" class="chk num" title="재고수량" value="${product.stock}" readonly="readonly"> 
 				</th>
 				<th class="pcol3"><font></font></th>
   			</tr>
 			<tr>
 				<th class="pcol1">상품가격</th>
 				<th class="pcol2">
-					<input type="text" name="price" class="chk inNum" title="상품가격" value="${product.price}" readonly="readonly"> 
+					<input type="text" name="price" class="chk num" title="상품가격" value="${product.price}" readonly="readonly"> 
 				</th>
 				<th class="pcol3"><font></font></th>
   			</tr>
@@ -48,7 +48,7 @@
 				<th class="pcol1">상품이미지</th>
 				<th class="pcol2">
 					<a href="#">
-						<img alt="이미지" src="/upload/${product.image}">
+						<img alt="이미지" src="/upload/${product.image}"  height="300" width="300">
 					</a>
 				</th>
 				<th class="pcol3"><font></font></th>
@@ -58,7 +58,7 @@
    	<div class="btnArea">
    		<button type="button" name="update" class="btn-primary">상품수정</button>
    		<button type="button" name="delete" class="btn-second psubmit">상품삭제</button>
-   		<button type="button" class="btn-second" onclick="javascript:location.href='/productMgt'">상품목록</button>
+   		<button type="button" class="btn-second" onclick="location.href='/productList'">상품목록</button>
    	</div>
 	</form>
 </div>

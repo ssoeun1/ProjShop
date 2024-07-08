@@ -9,6 +9,19 @@ ul {
 	list-style-type: none; 
 }
 
+#join .signup-main{
+	margin: auto;
+}
+#join h3{
+	text-align: center;
+}
+
+/* LOGO */
+
+.logo {
+	height: 60px;
+}
+
 /* LOADING */
 
 .load {
@@ -39,6 +52,149 @@ ul {
 	bottom: 0;
 }
 
+
+/* Add Header */
+
+:root {
+    --wk-color-solid-button-label: 255, 255, 255;
+    --wk-color-accent-1: 0, 0, 0;
+    --wk-color-accent-2: 0, 0, 0;
+    --wk-color-outline-button-label: 0, 0, 0;
+    --wk-color-background-1: 255, 255, 255;
+    --wk-color-background-2: 255, 255, 255;
+    --wk-color-text: 0, 0, 0;
+    --wk-button-min-height: 45px;
+    --wk-button-border-width: 1px;
+    --wk-button-border-radius: 0px;
+    --wk-input-min-height: 45px;
+    --wk-input-border-width: 1px;
+    --wk-input-border-radius: 0px;
+    --wk-shadow-opacity: 15%;
+    --wk-shadow-horizontal-offset: 0px;
+    --wk-shadow-vertical-offset: 2px;
+    --wk-shadow-blur: 4px;
+    --wk-font-text-scale: 1.0;
+}
+
+:root {
+    --moma-primary-font: "MoMA Sans", arial, sans-serif;
+    --moma-secondary-font: "MoMA Sans Store", arial, sans-serif;
+    --moma-tertiary-font: arial, helvetica, sans-serif;
+    --sale-color: #d20200;
+    --best-seller-color: #2bb39b;
+    --green: #1AB046;
+}
+
+.header__right {
+    -ms-flex-item-align: center;
+    align-self: center;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-transform: translateY(-2px);
+    transform: translateY(-2px);
+}
+
+.header__search-container {
+    border-bottom: 1px solid #000;
+    padding: 0;
+    display: flex;
+    width: 200px;
+}
+
+.search {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    align-items: center;
+}
+
+.search .input-placeholder {
+    -webkit-box-flex: 1;
+    flex-grow: 1;
+    flex-shrink: 1;
+    flex-basis: 0%;
+}
+
+.input-placeholder {
+    position: relative;
+    z-index: 0;
+}
+
+.screenreader {
+    border: 0;
+    clip: rect(0, 0, 0, 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
+}
+
+.search__input, .search__input:active, .search__input:focus {
+    font-size: 1rem;
+    color: #000;
+    border: 0;
+    outline: none;
+    padding: 0 2.5rem .3125rem 0;
+    width: 100%;
+}
+
+button, input, optgroup, select, textarea {
+    font-family: inherit;
+    font-size: 100%;
+    line-height: 1.15;
+    margin: 0;
+}
+
+[role=button], button[type=button] {
+    cursor: pointer;
+}
+
+.search__input-button {
+    padding-right: .3375rem;
+}
+
+.btn-icon {
+    background-color: transparent;
+    border: 0;
+    cursor: pointer;
+    padding-right: 4px;
+}
+
+.icon--search {
+    width: 1.3125em;
+    height: 1.3125em;
+}
+
+.icon:before {
+    background-repeat: no-repeat;
+    background-size: 14.9375em 96.875em;
+    content: "";
+    display: block;
+    font-size: 1em;
+}
+
+.icon {
+	display: inline-block;
+}
+
+.icon {
+    width: 1.3125em;
+    height: 1.3125em;
+}
+
+.cart-icon {
+	width: 1.3125em;
+    height: 1.3125em;
+}
+
+.header__container {
+	display: flex;
+    justify-content: space-between;
+	
+}
 
 /* Header */
 
@@ -80,6 +236,10 @@ p {
   z-index: 1;
 }
 
+.dropdown-user:hover .dropdown-content {
+	display: block;
+}
+
 .dropdown-content a {
   color: black;
   padding: 12px 16px;
@@ -97,6 +257,7 @@ p {
 
 .dropdown:hover .dropdown-content {
   display: block;
+  z-index: 99;
 }
 
 /* Shop persentation */
@@ -220,7 +381,7 @@ section .site-desc-direction {
 #footer1 {
 	background-color: #333;
 	text-align:center;
-	padding: 50px 15px;
+	padding: 50px 0px;
 }
 #footer2 {
 	background-color: #000;

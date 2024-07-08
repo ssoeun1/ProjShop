@@ -10,10 +10,9 @@ import com.ecom6.common.vo.PageVO;
 @Mapper
 public interface NoticeDao {
 
+	int getNoticeCnt();
 
 	List<NoticeVO> getNoticeList(NoticeVO nvo);
-
-	int getNoticeCnt();
 
 	int noticeProc(NoticeVO nvo);
 

@@ -6,7 +6,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<link rel="stylesheet" type="text/css" href="../css/signup.css" />
+<script type="text/javascript" src="../js/common.js"></script>
 </head>
 <body>
 <form action="memUpdateProc" name="form1" method="post">

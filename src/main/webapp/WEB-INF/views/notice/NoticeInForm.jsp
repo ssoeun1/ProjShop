@@ -57,7 +57,7 @@
    	</table>
    	<div class="btnArea" align="center">
    		<button type="button" class="btn-primary notisubmit1">등록</button>
-   		<button type="button" class="btn-second btn-primary" onclick="location.href='/admin/notice'">공지사항목록</button>
+   		<button type="button" class="btn-second btn-primary" onclick="location.href='/admin/noticeFIX'">공지사항목록</button>
    		<!-- <button type="button" name="update" class="btn-primary psubmit">수정</button> -->
    	</div>
 	</form>

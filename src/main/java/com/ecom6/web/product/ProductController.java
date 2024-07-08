@@ -14,6 +14,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import com.ecom6.VO.mem.MemberVO;
 import com.ecom6.VO.product.ProductVO;
+import com.ecom6.common.vo.PageInfo;
 import com.ecom6.common.vo.PageVO;
 import com.ecom6.service.product.ProductService;
 
@@ -34,8 +35,8 @@ public class ProductController {
 	
 	
 	// 어드민 전용
-	@GetMapping("/productMgt")
-	 public String productMgt(HttpServletRequest request,
+	@GetMapping("/productFIX")
+	 public String productFIX(HttpServletRequest request,
 			 	              HttpServletResponse response,
 			 	              Model model, ProductVO pvo,
 			 	              PageVO pgVo) {
@@ -47,7 +48,7 @@ public class ProductController {
 			 ssKey = (MemberVO) session.getAttribute("ssKey");
 			 session.setAttribute("ssKey", ssKey);
 			 if(ssKey.getM_role().equals("admin")) {
-				 content="admin/productMgt.jsp";
+				 content="admin/ProductList.jsp";
 				 page = "admin/Main";
 			 }else {
 				 page="redirect:/";//최초화면으로 이동
@@ -55,10 +56,11 @@ public class ProductController {
 		 }else {
 			 page="redirect:/";
 		 }
-		 Map<String, Object> reSet =productService.getProductsList(pgVo);
+		 Map<String, Object> reSet =productService.getProductsList(pvo, pgVo);
 		 model.addAttribute("content", content);
 		 model.addAttribute("pcnt", reSet.get("pcnt"));
 		 model.addAttribute("productList", reSet.get("productList"));
+		 model.addAttribute("PBlock", PageInfo.PAGE_OF_BLOCK);
 		 model.addAttribute("pgVo", pgVo);
 		 return page;
 	   }
@@ -66,7 +68,7 @@ public class ProductController {
 	// 고객전용
 	@GetMapping("/productList")
 	public String productList(HttpServletRequest req, 
-			HttpServletResponse res,
+			HttpServletResponse res, ProductVO pvo,
 			Model model, PageVO pgVo) {
 		String content=null;
 		MemberVO ssKey = null;
@@ -76,11 +78,12 @@ public class ProductController {
 			// session이 있을 때 받아서 저장
 			session.setAttribute("ssKey", ssKey);
 		}
-		Map<String, Object> reSet = productService.getProductsList(pgVo);
-		model.addAttribute("pcnt", reSet.get("pcnt"));
+		Map<String, Object> reSet =productService.getProductsList(pvo, pgVo);
 		content = "custom/productList.jsp";
 		model.addAttribute("content", content);
+		model.addAttribute("pcnt", reSet.get("pcnt"));
 		model.addAttribute("productList", reSet.get("productList"));
+		model.addAttribute("PBlock", PageInfo.PAGE_OF_BLOCK);
 		model.addAttribute("pgVo", pgVo);
 		return "Main";
 	}
@@ -88,27 +91,32 @@ public class ProductController {
 	@GetMapping("/productInForm")
 	   public String productInForm(HttpServletRequest request,
 	            HttpServletResponse response,
-	            Model model,
+	            Model model, ProductVO pvo,
 	            PageVO pgVo) {
 		  
-		     String page=null;
+		    	 String page=null;
 			 MemberVO ssKey = null;
+			 String content =null;
 			 HttpSession session = request.getSession();
 			 if(session.getAttribute("ssKey")!=null) {
 				 ssKey = (MemberVO) session.getAttribute("ssKey");
-				 //session이 있을 때 받아서 저장
 				 session.setAttribute("ssKey", ssKey);
 				 if(ssKey.getM_role().equals("admin")) {
-					 model.addAttribute("content", "ProductInForm.jsp");
+					content= "admin/ProductInForm.jsp";
 					 page="admin/Main";
 				 }else {
-					 page="redirect:/";//최초화면으로 이동
+					 page="redirect:/";
 				 }
 			 }else {
 				 page="redirect:/";
 			 }
-			 return page;
-	       }
+			 Map<String, Object> reSet =productService.getProductsList(pvo, pgVo);
+			 model.addAttribute("content", content);
+			 model.addAttribute("pcnt", reSet.get("pcnt"));
+			 model.addAttribute("productList", reSet.get("productList"));
+			 model.addAttribute("pgVo", pgVo);
+		 return page;
+	   }
 	
 	@PostMapping("productMgtProc")
 	public String productInProc(HttpServletRequest req, 
@@ -147,7 +155,7 @@ public class ProductController {
 							msg="상품수정실패!";							
 						}
 					}
-					url = "productMgt";
+					url = "productList";
 				}
 			} else {
 				url = "redirect:/";	// 최초 화면으로 이동
@@ -260,7 +268,7 @@ public class ProductController {
 				} catch (Exception e) {
 					msg="해당 상품을 구매한 고객이 있습니다.";	
 				} finally {					
-					String url = "/productMgt";
+					String url = "/productList";
 					model.addAttribute("msg", msg);
 					model.addAttribute("url", url);
 				}

@@ -59,4 +59,21 @@
 		WHERE RN >= 1 AND RN <= 6
 		]]>
 	</select>
+	<delete id="memDeleteProc" parameterType="mvo">
+      DELETE FROM MEMBER
+   		WHERE
+	<![CDATA[       
+       0 = (SELECT COUNT(*) FROM ORDERT WHERE STATE<5 AND MEM_ID=#{mem_id})
+    ]]>  
+    	AND MEM_ID=#{mem_id}
+    </delete>
+    <select id="searchId" parameterType="mvo" resultType="string">
+   		SELECT MEM_ID FROM MEMBER
+   		WHERE M_NAME = #{m_name} AND M_PHONE=#{m_phone}
+   </select>
+   <update id="updatePasswd" parameterType="mvo">
+   		UPDATE MEMBER
+   		SET M_PASSWD = #{m_passwd}
+   		WHERE MEM_ID = #{mem_id}
+   </update>
 </mapper>

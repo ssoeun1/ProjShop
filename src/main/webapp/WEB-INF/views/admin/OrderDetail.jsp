@@ -41,25 +41,25 @@
 						<tr>
 							<th class="pcol1-1">상품재고수량</th>
 							<th class="pcol2-1">
-								<input type="text" name="stock" class="chk inNum" title="상품재고수량" value="${order.stock}" > 
+								<input type="text" name="stock" class="chk num" title="상품재고수량" value="${order.stock}" > 
 							</th>
 			  			</tr>
 						<tr>
 							<th class="pcol1-1">상품단가</th>
 							<th class="pcol2-1">
-								<input type="text" name="price" class="chk number" title="상품단가" value="${order.price}" > 
+								<input type="text" name="price" class="chk num" title="상품단가" value="${order.price}" > 
 							</th>
 			  			</tr>
 						<tr>
 							<th class="pcol1-1">상품구매수량</th>
 							<th class="pcol2-1">
-								<input type="text" name="quantity" class="chk number" title="상품구매수량" value="${order.quantity}" > 
+								<input type="text" name="quantity" class="chk num" title="상품구매수량" value="${order.quantity}" > 
 							</th>
 			  			</tr>
 						<tr>
 							<th class="pcol1-1">결재금액</th>
 							<th class="pcol2-1">
-								<input type="text" name="amount" class="chk number" title="결재금액" value="${order.amount}" > 
+								<input type="text" name="amount" class="chk num" title="결재금액" value="${order.amount}" > 
 							</th>
 			  			</tr>
 						<tr>
@@ -86,7 +86,7 @@
    		<div align="center" style="margin-top: 20px;">
   			<input name="stateUpdate" type="button" class="psubmit" value="상태수정">
   			<input name="Orderdelete" type="button" class="psubmit" value="주문삭제">
-  			<input type="button" onclick="javascript:location.href='orderMgt'" value="주문목록">
+  			<input type="button" onclick="javascript:location.href='orderFIX'" value="주문목록">
    			
    		</div>
 	</form>

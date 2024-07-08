@@ -1,9 +1,11 @@
 package com.ecom6.dao.product;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.apache.ibatis.annotations.Mapper;
 
+import com.ecom6.VO.cart.CartVO;
 import com.ecom6.VO.order.OrderVO;
 import com.ecom6.VO.product.ProductVO;
 import com.ecom6.common.vo.PageVO;
@@ -13,13 +15,13 @@ public interface ProductDao {
 
 	int getProductCnt();
 
-	List<ProductVO> getProductList(PageVO pgVo);
+	List<ProductVO> getProductList(ProductVO pvo);
 
 	int insertProduct(ProductVO pvo);
 
 	ProductVO productDetail(int p_no);
 
-	void updateStocks(List<OrderVO> list);
+	void updateProdStock(ArrayList<CartVO> cartList);
 
 	int updateProduct(ProductVO pvo);
 

@@ -5,7 +5,6 @@
 <head>
 <meta charset="UTF-8">
 <title>Login</title>
-<link rel="stylesheet" type="text/css" href="css/common.css" />
 <link rel="stylesheet" type="text/css" href="css/aloneLogin.css" />
 <script type="text/javascript" src="js/jquery-3.7.1.min.js"></script>
 </head>
@@ -29,6 +28,9 @@
 			</form>
 			</div>
 		</div>
+		<div id="join_search" style="display: flex; justify-content: center;">
+     <a href="/memSearch" style="color: gray; font-size: 20px; text-decoration: none; padding-left: 270px;">Find ID </a>
+  </div>
 	</div>
 </div>
 </body>

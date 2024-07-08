@@ -72,7 +72,8 @@ public class MemberController {
 	public String joinMember(HttpServletRequest req, 
 							HttpServletResponse res, 
 							MemberVO mvo, Model model) {
-		return "member/MemberJoin";
+		model.addAttribute("content", "member/Register.jsp");
+		return "Main";
 	}
 	
 	@Transactional
@@ -151,7 +152,7 @@ public class MemberController {
 		return "MsgPage";
 	}
 	
-	@GetMapping("/memberMgt")
+	@GetMapping("/memberFIX")
 	public String memberMgt(HttpServletRequest req, 
 							HttpServletResponse res,
 							MemberVO mvo, Model model) {
@@ -188,7 +189,7 @@ public class MemberController {
 		return page;
 	}
 	
-	@PostMapping("/memberMgt")
+	@PostMapping("/memberFIX")
 	public String memberMgtPost(HttpServletRequest req, 
 			HttpServletResponse res,
 			MemberVO mvo, Model model) {
@@ -252,7 +253,7 @@ public class MemberController {
 		if(ssKey!=null) {
 			if(ssKey.getM_role().equals("admin")) {
 				model.addAttribute("mvo", ssKey);	
-				model.addAttribute("content", "../admin/MemberInfo.jsp");	
+				model.addAttribute("content", "/admin/MemberInfo.jsp");	
 				page = "admin/Main";
 			} else {
 				session.removeAttribute("ssKey");
@@ -280,7 +281,7 @@ public class MemberController {
 		if(ssKey!=null) {
 			if(ssKey.getM_role().equals("admin")) {
 				model.addAttribute("mvo", ssKey);	
-				model.addAttribute("content", "../admin/UpdateForm.jsp"); 
+				model.addAttribute("content", "admin/UpdateForm.jsp"); 
 				page = "admin/Main";
 			} else {
 				session.removeAttribute("ssKey");
@@ -346,11 +347,11 @@ public class MemberController {
 		   HttpSession session = request.getSession();
 		   MemberVO ssKey = (MemberVO) session.getAttribute("ssKey");
 		   String msg=null;
-		   int r = memberService.memDeleteProc(mvo);
+		   int r = memberService.memDeleteProc(ssKey);
 		   if(r>0) {
 			   msg = "회원정보가 삭제 되었습니다. \\n 재 로그인이 필요합니다.";
 		   }else {
-			   msg = "회원정보가 수정을 실패했습니다.\\n관리자에게 문의바랍니다.";
+			   msg = "회원정보가 삭제에 실패했습니다.\\n관리자에게 문의바랍니다.";
 		   }
 		   session.removeAttribute("ssKey");
 		   session.invalidate();
@@ -358,4 +359,48 @@ public class MemberController {
 		   model.addAttribute("url", "/");
 		   return "MsgPage";
 	   }
+	
+	@GetMapping("/memSearch")
+	  public String getMemSearch(HttpServletRequest request,
+			  					HttpServletResponse response,
+			  					MemberVO mvo,//커스텀 정보
+			  					Model model) {
+		  return "member/SearchPage";
+	  }
+  @PostMapping("/memSearch")
+	  public String postMemSearch(HttpServletRequest request,
+			  					HttpServletResponse response,
+			  					MemberVO mvo,//커스텀 정보
+			  					Model model) {
+		  return getMemSearch(request, response, mvo, model);
+	  }
+
+  @PostMapping("/searchProc")
+  public String searchProc(HttpServletRequest request,
+		  				HttpServletResponse response,
+		  				MemberVO mvo,
+		  				Model model) {
+	  int r=0;
+	  String id = null;
+	  String msg = null;
+	  String url = "/";
+	  if(mvo!=null) {
+		  if(mvo.getMem_id()!=null) {//비밀번호 설정
+			 r = memberService.updatePasswd(mvo);
+			 if(r>0) {
+				 msg = "비밀번호가 변경 되었습니다";
+			 }else {  //아이디 찾아서 리턴
+				 msg = "비밀번호가 변경오류 입니다 \\n 관리자에게 문의하세요";
+			 }
+		  }else {
+			  id = memberService.searchId(mvo);
+			  if(id!=null) msg = "회원아이디: "+id;
+			  else msg = "회원정보가 없습니다";
+			  url = "memSearch";
+		  }
+	  }
+	  model.addAttribute("msg", msg);
+	  model.addAttribute("url", url);
+	  return "MsgPage";
+  }
 }

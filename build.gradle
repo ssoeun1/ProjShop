@@ -24,6 +24,9 @@ repositories {
 }
 
 dependencies {
+	implementation 'org.sejda.imageio:webp-imageio:0.1.6'
+	// implementation files('libs/libwebp-1.4.0-windows-x64.zip')
+
 	implementation group: 'org.glassfish.web', name: 'jakarta.servlet.jsp.jstl', version: '2.0.0'
 	implementation 'org.springframework.boot:spring-boot-starter'
 	implementation 'org.springframework.boot:spring-boot-starter-data-jdbc'

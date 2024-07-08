@@ -7,9 +7,9 @@
 <head>
 <meta charset="UTF-8">
 <title>쇼핑몰</title>
-<link rel="stylesheet" type="text/css" href="/css/Notice.css" />
-<script type="text/javascript" src="/js/jquery-3.7.1.min.js"></script>
-<script src="/js/notice.js" defer="defer"></script>
+<!-- <link rel="stylesheet" type="text/css" href="../css/Notice.css" /> -->
+<script type="text/javascript" src="../js/jquery-3.7.1.min.js"></script>
+<script src="../js/notice.js" defer="defer"></script>
 </head>
 <body>
 	
@@ -21,8 +21,8 @@
 			<tr>
 				<th class="ncol1">제목</th>
 				<th class="ncol2">작성자</th>
-				<th class="ncol3">작성일자</th>
-				<th class="ncol4">생성일자</th>
+				<th class="ncol3">생성일자</th>
+				<th class="ncol4">종료일자</th>
 				<th class="ncol5">조회수</th>
 			</tr>
 		</thead>
@@ -47,11 +47,11 @@
 						     					class="" readonly="readonly">
 						</td>
 	     				<td class="ncol3">
-     					<input type="text" name="vdate" value="${notice.vdate}"
+     					<input type="text" name="regdate" value="${notice.regdate}"
 	   						class="number" readonly="readonly">
 		   				</td>
 	     				<td class="ncol4">
-     					<input type="text" name="regdate" value="${notice.regdate}"
+     					<input type="text" name="vdate" value="${notice.vdate}"
 	   						class="number" readonly="readonly">
 		   				</td>
 		   				<td class="ncol5">
@@ -64,6 +64,37 @@
 			</c:choose>
 		</tbody>
 	</table>
+	
+	<!-- 페이지  -->
+     <div align="center">
+     <c:if test="${pgVo.startPg>PBlock}">
+	     <font color="4c5317">
+	         <a href="/noticeFIX?curPg=${pgVo.startPg-PBlock}&curBl=${pgVo.curBl-1}">[이전]</a>
+	     </font>
+     </c:if>
+     <c:forEach var="pgno" begin="${pgVo.startPg}" end="${pgVo.endPg}" step="1">
+         <c:set scope="page" var="list" 
+                  value="./noticeFIX?curPg=${pgno}&curBl=${pgVo.curBl}"/> 
+         <a href="${list}" style=" text-decoration:none;">
+          <c:choose>
+              <c:when test="${pgVo.curPg==pgno}">
+                <font color="4c5317" style="font-weight: bold;">[${pgno}]</font>
+              </c:when>
+              <c:otherwise>
+               <font color="4c5317">[${pgno}]</font>
+              </c:otherwise>
+           </c:choose>
+         </a>                  
+    	</c:forEach>
+      <c:if test="${pgVo.endPg<pgVo.pgCnt}">
+             <font color="4c5317">
+               <a href="./noticeFIX?curPg=${pgVo.startPg+PBlock}&curBl=${pgVo.curBl+1}">[다음]</a>
+             </font>
+       </c:if> 
+     </div>
+     <div style="margin-bottom: 15px;"></div>
+     <!-- 페이지 끝 -->
+     
 	<c:if test="${ssKey.getM_role()=='admin'}">
 	<div class="btnArea" align="right">
    		<input name="newForm" type="button" 

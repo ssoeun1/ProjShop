@@ -7,7 +7,7 @@ import com.ecom6.common.vo.PageVO;
 
 public interface NoticeService {
 
-	Map<String, Object> getNotices(NoticeVO nvo, PageVO pgvo);
+	Map<String, Object> getNoticeList(NoticeVO nvo, PageVO pgVo);
 
 	int noticeProc(NoticeVO nvo);
 
@@ -18,5 +18,7 @@ public interface NoticeService {
 	// int noticeDelProc(NoticeVO nvo);
 
 	int deleteNotice(NoticeVO nvo);
+
+
 
 }

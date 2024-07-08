@@ -25,7 +25,7 @@ public class NoticeController {
 	@Autowired
 	NoticeService noticeService;
 	
-	@GetMapping(value={"/noticeFIX", "/admin/noticeFIX"})
+	@GetMapping(value={"/notice", "/noticeFIX"})
 	public String noticeIndex(HttpServletRequest req, 
 							HttpServletResponse res,
 							NoticeVO nvo,
@@ -35,7 +35,7 @@ public class NoticeController {
 		String page = null;
 		HttpSession session = req.getSession();
 		MemberVO ssKey = (MemberVO) session.getAttribute("ssKey");
-		Map<String, Object> reSet = noticeService.getNotices(nvo, pgVo);
+		Map<String, Object> reSet = noticeService.getNoticeList(nvo, pgVo);
 		if(ssKey!=null) {
 			session.setAttribute("ssKey", ssKey);
 			if(ssKey.getM_role().equals("admin")) {
@@ -66,7 +66,7 @@ public class NoticeController {
 		HttpSession session = req.getSession();
 		MemberVO ssKey = (MemberVO) session.getAttribute("ssKey");
 		if (ssKey != null && ssKey.getM_role().equals("admin")) {
-				model.addAttribute("content",  "../notice/NoticeInForm.jsp");
+				model.addAttribute("content",  "/notice/NoticeInForm.jsp");
 				session.setAttribute("ssKey", ssKey);
 				page = "admin/Main";
 		} else {
@@ -79,7 +79,7 @@ public class NoticeController {
 		return page;
 	}
 	
-	@PostMapping("/admin/NoticeProc")
+	@PostMapping("/NoticeProc")
 	public String NoticeInformProc(HttpServletRequest req, 
 									HttpServletResponse res,
 									NoticeVO nvo, PageVO pageVO, 
@@ -97,7 +97,7 @@ public class NoticeController {
 				} else {
 					msg="공지사항 등록실패!";							
 				}
-				url = "/admin/notice";
+				url = "/noticeFIX";
 		} else {
 			msg = "잘못된 접근입니다";
 			url = "/login";
@@ -181,7 +181,7 @@ public class NoticeController {
 			} else {
 				msg="공지사항 수정 실패!";							
 			}
-			url = "/admin/noticeFIX";
+			url = "/noticeFIX";
 		} else {
 			url = "/login";
 			msg = "세션이 종료되었습니다. \\n 로그인이 필요합니다.";
@@ -211,7 +211,7 @@ public class NoticeController {
 			} else {
 				msg="공지사항 삭제 실패!";							
 			}
-			url = "/admin/noticeFIX";
+			url = "/noticeFIX";
 		} else {
 			url = "/login";
 			msg = "세션이 종료되었습니다. \\n 로그인이 필요합니다.";

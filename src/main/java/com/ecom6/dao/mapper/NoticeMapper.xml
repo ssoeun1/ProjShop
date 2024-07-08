@@ -3,27 +3,23 @@
 <mapper namespace="com.ecom6.dao.notice.NoticeDao">
 <select id="getNoticeCnt" resultType="int">
 	SELECT COUNT(NOTI_NO) FROM NOTICET	
-	<!-- 유효일자에 따라 지난 것은 나오지 않게 하기 -->
 	WHERE TO_DATE(VDATE) >= SYSDATE
 	AND STATE = 'A'
+	<!-- 유효일자에 따라 지난 것은 나오지 않게 하기 -->
 </select>
 <select id="getNoticeList" parameterType="nvo" resultType="nvo">
-	SELECT * FROM (
-	SELECT ROWNUM RN, A.* FROM (
-	SELECT NOTI_NO, SUBJECT, CONTENT, READCOUNT, WRITER, 
-			<!-- TO_CHAR(VDATE, 'YYYY-MM-DD') VDATE, 
-			TO_CHAR(REGDATE, 'YYYY-MM-DD') REGDATE, STATE -->
-			TO_CHAR(TO_DATE(VDATE), 'YYYY-MM-DD') VDATE,
-			TO_CHAR(TO_DATE(REGDATE), 'YYYY-MM-DD') REGDATE, STATE
-	        FROM NOTICET
-	        WHERE STATE = 'A'
-	        ) A 
-	) 
-	<if test="end>1">
+	 SELECT * FROM (
+	 SELECT ROWNUM RN, A.* FROM(
+	 SELECT NOTI_NO, SUBJECT, CONTENT, READCOUNT, WRITER,
+	        VDATE, REGDATE, STATE
+	  FROM NOTICET
+	  WHERE TO_DATE(VDATE) >= SYSDATE
+	    	 AND  STATE = 'A'
+	            ) A
+	       ) 
 		<![CDATA[
 		WHERE RN >= #{start} AND RN <= #{end}
-		]]>
-	</if>
+		 ]]> 
 </select>
 
 <insert id="noticeProc" parameterType="nvo">

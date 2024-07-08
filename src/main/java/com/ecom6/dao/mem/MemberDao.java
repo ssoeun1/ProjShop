@@ -24,4 +24,7 @@ public interface MemberDao {
 
 	int memDeleteProc(MemberVO mvo);
 
+	int updatePasswd(MemberVO mvo);
+
+	String searchId(MemberVO mvo);
 }

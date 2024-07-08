@@ -114,7 +114,37 @@ $().ready(function(){
 		}
 	});
 	
-	
+	$('.submit1').on('click', function(){
+		var flen = $("form[name=tabForm1] .chk1").length;
+		for(var i=0; i<flen; i++){
+			if($('.chk1').eq(i).val()=="" ||
+			  $('.chk1').eq(i).val()==null ||
+			  $('.chk1').eq(i).val().trim()==""){
+				alert($('.chk1').eq(i).attr('title')+'을/를 입력하시오');
+				$('.chk1').eq(i).focus();
+			}
+		} 
+		$("form[name=tabForm1]").submit();
+	});
+
+    $('.submit2').on('click',function(){
+		var flen = $("form[name=tabForm2] .chk2").length;
+	 	for(var i=0; i<flen; i++){
+			if($('.chk2').eq(i).val()=="" ||
+		       $('.chk2').eq(i).val()==null ||
+		       $('.chk2').eq(i).val().trim()==""){
+			  alert($('.chk2').eq(i).attr('title')+'를 입력하시오.');
+			  $('.chk2').eq(i).focus();
+			  return false;
+			 }
+		    }
+		    if(!pwcheck){
+				alert("비밀번호가 다릅니다.");
+			}else{
+			  $("form[name=tabForm2]").submit();
+			}
+
+		});
 })
 
 function chkValidate(formNm) {

@@ -5,7 +5,7 @@
 $().ready(function(){
 	$('.notisubmit1').on('click', function(){
 		if(chkValidate('form1')) {
-			$("form[name=form1]").attr('action', 'admin/NoticeProc');
+			$("form[name=form1]").attr('action', 'NoticeProc');
 			$("form[name=form1]").submit();
 		}
 	})

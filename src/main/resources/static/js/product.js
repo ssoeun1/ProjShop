@@ -4,12 +4,12 @@
 
  $().ready(function(){
 	/* 최종일때 주석 해제*/
-	/*var nlen = $('.number').length;
+	var nlen = $('.num').length;
 	for(var i=0; i<nlen; i++) {
-		var n = $('.number').eq(i).val();
+		var n = $('.num').eq(i).val();
 		var to_n = n.toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g,",");
-		$('.number').eq(i).val(to_n);
-	}*/
+		$('.num').eq(i).val(to_n);
+	}
 	
 	$('.psubmit').on('click', function() {
 		var nm = this.name;
@@ -67,7 +67,7 @@
 			var valWithoutComma = $(this).val().replace(/[,]/g, "");
 			$(this).val(valWithoutComma);
 		});
-		$('.number').each(function(){
+		$('.num').each(function(){
 			var valWithoutComma = $(this).val().replace(/[,]/g, "");
 			$(this).val(valWithoutComma);
 		});
@@ -87,6 +87,11 @@
 	});
 
 	$('.pDetail').on('click', function() {
+		var p_no = $(this).closest('h3').find('input[name=p_no]').val();
+		location.href='/productDetail?p_no='+p_no;
+	});
+
+	$('.pDetail2').on('click', function() {
 		var p_no = $(this).closest('tr').find('input[name=p_no]').val();
 		location.href='/productDetail?p_no='+p_no;
 	});

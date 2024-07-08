@@ -7,10 +7,10 @@ $().ready(function(){
 
 function cartUpdate(f, obj) {
 	var url;
-	var quantity = $(obj).closest('tr').find('input[name=quantity]').val();
-	var price = $(obj).closest('tr').find('input[name=price]').val();
-	var pno = $(obj).closest('tr').find('input[name=p_no]').val();
-	var stock = $(obj).closest('tr').find('input[name=stock]').val();
+	var quantity = $(obj).closest('div').parent().find('input[name=quantity]').val();
+	var price = $(obj).closest('div').parent().find('input[name=price]').val();
+	var pno = $(obj).closest('div').parent().find('input[name=p_no]').val();
+	var stock = $(obj).closest('div').parent().find('input[name=stock]').val();
 	var q = quantity.replace(/[,]/g, "");
 	var p = price.replace(/[,]/g, "");
 	var s = stock.replace(/[,]/g, "");
@@ -40,4 +40,19 @@ function cartUpdate(f, obj) {
 	function msgAler() {
 		alert("처리완료했습니다.");
 	}
+}
+
+
+
+function fnCalCount(type, ths){
+    var $input = $(ths).closest(".cart_item_detail").find("input[name='quantity']");
+    var tCount = Number($input.val());
+    
+    if(type == 'p'){
+        $input.val(Number(tCount) + 1);
+    } else {
+        if(tCount > 1) {
+            $input.val(Number(tCount) - 1);
+        }
+    }
 }

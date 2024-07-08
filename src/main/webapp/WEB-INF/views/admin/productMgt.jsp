@@ -64,6 +64,37 @@
         </c:choose>
        </tbody>
      </table>
+     
+      <!-- 페이지  -->
+     <div align="center">
+     <c:if test="${pgVo.startPg>PBlock}">
+	     <font color="4c5317">
+	         <a href="/productMgt?curPg=${pgVo.startPg-PBlock}&curBl=${pgVo.curBl-1}">[이전]</a>
+	     </font>
+     </c:if>
+     <c:forEach var="pgno" begin="${pgVo.startPg}" end="${pgVo.endPg}" step="1">
+         <c:set scope="page" var="list" 
+                  value="./productMgt?curPg=${pgno}&curBl=${pgVo.curBl}"/> 
+         <a href="${list}" style=" text-decoration:none;">
+         <c:choose>
+             <c:when test="${pgVo.curPg==pgno}">
+                <font color="4c5317" style="font-weight: bold;">[${pgno}]</font>
+              </c:when>
+             <c:otherwise>
+               <font color="4c5317">[${pgno}]</font>
+              </c:otherwise>
+           </c:choose>
+         </a>                  
+     </c:forEach>
+      <c:if test="${pgVo.endPg<pgVo.pgCnt}">
+             <font color="4c5317">
+               <a href="./productMgt?curPg=${pgVo.startPg+PBlock}&curBl=${pgVo.curBl+1}">[다음]</a>
+             </font>
+       </c:if> 
+     </div>
+     <div style="margin-bottom: 15px;"></div>
+     <!-- 페이지 끝 -->
+     
      <div class="btnArea">
      <button type="button" class="w-btn w-btn-indigo" onclick="location.href='/productInForm'">
         상품등록

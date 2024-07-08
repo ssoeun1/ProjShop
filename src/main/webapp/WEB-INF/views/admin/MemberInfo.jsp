@@ -6,9 +6,8 @@
 <head>
 <meta charset="UTF-8">
 <title>MYINFO</title>
-<link rel="stylesheet" type="text/css" href="../css/signup.css" />
-<script type="text/javascript" src="js/member.js"></script>
-<script type="text/javascript" src="js/common.js"></script>
+<script type="text/javascript" src="../js/member.js"></script>
+<script type="text/javascript" src="../js/common.js"></script>
 </head>
 <body>
 
