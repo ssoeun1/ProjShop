@@ -15,14 +15,17 @@
 	
 <div id="productmgt">
 	<h2>고객관리</h2>
-	<div class="totalitem" align="right">총 회원수 : ${memTot}</div>
-	<table>
+	<div align="right" class="mb-2">
+       <button class="btn btn-dark">총 회원수 : ${memTot}</button>
+    </div>
+
+	<table class="table table-hover text-center table-bordered border-dark">
 		<thead>
 			<tr>
 				<th class="mcol1">고객명(고객아이디)</th>
-				<th class="mcol3">고객이메일</th>
-				<th class="mcol4">고객연락처</th>
-				<th class="mcol6">고객가입일</th>
+				<th class="mcol2">고객이메일</th>
+				<th class="mcol3">고객연락처</th>
+				<th class="mcol4">고객가입일</th>
 			</tr>
 		</thead>
 		<tbody>
@@ -35,26 +38,26 @@
 				<c:when test="${fn:length(members)>0}">
 					<c:forEach var="member" items="${members}">
 						<tr>
-	   					<td class="mcol1">
-	   					<input type="text" name="m_name" value="${member.m_name}(${member.mem_id})"
-	    					class="mdetail" readonly="readonly">
-	   					<input type="hidden" name="mem_id" value="${member.mem_id}" class="">
-	   					<input type="hidden" name="zipcode" value="${member.zipcode}" class="">
-	   					<input type="hidden" name="address" value="${member.address}" class="">
-	   					<input type="hidden" name="address2" value="${member.address2}" class="">
-	   					<input type="hidden" name="m_job" value="${member.m_job}" class="">
+	   					<td class="tbcol mcol1">
+		   					<input type="text" name="m_name" value="${member.m_name}(${member.mem_id})"
+		    					class="mdetail" readonly="readonly">
+		   					<input type="hidden" name="mem_id" value="${member.mem_id}" class="">
+		   					<input type="hidden" name="zipcode" value="${member.zipcode}" class="">
+		   					<input type="hidden" name="address" value="${member.address}" class="">
+		   					<input type="hidden" name="address2" value="${member.address2}" class="">
+		   					<input type="hidden" name="m_job" value="${member.m_job}" class="">
 	    				</td>
-		   				<td class="mcol3">
-	   					<input type="text" name="m_email" value="${member.m_email}"
-		   					class="" readonly="readonly">
+		   				<td class="tbcol mcol2">
+		   					<input type="text" name="m_email" value="${member.m_email}"
+			   					class="" readonly="readonly">
 		   				</td>
-	     				<td class="mcol4">
-     					<input type="text" name="m_phone" value="${member.m_phone}"
-	   						class="number" readonly="readonly">
+	     				<td class="tbcol mcol3">
+	     					<input type="text" name="m_phone" value="${member.m_phone}"
+		   						class="number" readonly="readonly">
 		   				</td>
-		   				<td class="mcol6">
-	   					<input type="text" name="m_regdate" value="${member.m_regdate}"
-		   					class="number" readonly="readonly">
+		   				<td class="tbcol mcol4">
+		   					<input type="text" name="m_regdate" value="${member.m_regdate}"
+			   					class="number" readonly="readonly">
 		   				</td>
 		   				</tr>
 					</c:forEach> 

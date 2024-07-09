@@ -64,7 +64,7 @@
            class="chk form-control"  title="우편번호"
            placeholder="우편번호를 검색하시오">
        </td>
-       <td class="col3"><button class="btn btn-outline-info" 
+       <td class="col3"><button class="btn btn-outline-dark" 
           type="button" onclick="zipCheck()">우편번호찾기</button> 
         </td>
       </tr>
@@ -107,7 +107,7 @@
 		<tfoot>
 		<tr>
 			<td colspan="3">
-				<button type="button" id="submit1" class="btn-primary">회원가입</button>
+				<button type="button" id="submit1" class="btn btn-dark">회원가입</button>
 			</td>
 		</tr>
 		</tfoot>

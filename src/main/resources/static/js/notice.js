@@ -30,6 +30,11 @@ $().ready(function(){
 		}
 		$("form[name=form1]").submit();
 	})
+	
+	$('.noticeDetail').on('click', function() {
+		var n_no = $(this).closest('tr').find('input[name=noti_no]').val();
+		location.href='/noticeDetail?noti_no='+n_no;
+	});
 })
 
 function chkValidate(formNm) {

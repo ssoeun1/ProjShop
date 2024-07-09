@@ -7,7 +7,7 @@
 <head>
 <meta charset="UTF-8">
 <title>쇼핑몰</title>
-<!-- <link rel="stylesheet" type="text/css" href="../css/Notice.css" /> -->
+<link rel="stylesheet" type="text/css" href="../css/NoticeList.css" />
 <script type="text/javascript" src="../js/jquery-3.7.1.min.js"></script>
 <script src="../js/notice.js" defer="defer"></script>
 </head>
@@ -16,7 +16,7 @@
 <div id="noticemgt">
 	<h2>공지사항</h2>
 	<div class="totalitem" align="right">총 게시물 수 : ${noticeTot}</div>
-	<table>
+	<table class="table table-hover text-center table-bordered border-dark">
 		<thead>
 			<tr>
 				<th class="ncol1">제목</th>
@@ -36,28 +36,27 @@
 				<c:when test="${fn:length(nvo)>0}">
 					<c:forEach var="notice" items="${nvo}">
 						<tr>
-	   					<td class="ncol1">
-	   					<a href="/noticeDetail?noti_no=${notice.noti_no}">
-	   					<input type="text" name="subject" value="${notice.subject}"
-	    					class="" readonly="readonly">
-	   					</a>
-		    			</td>
-	    				<td class="ncol2">
-						<input type="text" name="writer" value="${notice.writer}"
-						     					class="" readonly="readonly">
-						</td>
-	     				<td class="ncol3">
-     					<input type="text" name="regdate" value="${notice.regdate}"
-	   						class="number" readonly="readonly">
-		   				</td>
-	     				<td class="ncol4">
-     					<input type="text" name="vdate" value="${notice.vdate}"
-	   						class="number" readonly="readonly">
-		   				</td>
-		   				<td class="ncol5">
-	   					<input type="text" name="readcount" value="${notice.readcount}"
-		   					class="" readonly="readonly">
-		   				</td>
+	   						<input type="hidden" name="noti_no" value="${notice.noti_no}">
+		   					<td class="tbcol ncol1">
+			   					<input type="text" name="subject" value="${notice.subject}"
+			    					class="noticeDetail" readonly="readonly">
+			    			</td>
+		    				<td class="tbcol ncol2">
+								<input type="text" name="writer" value="${notice.writer}"
+								     					class="noticeDetail" readonly="readonly">
+							</td>
+		     				<td class="tbcol ncol3">
+		     					<input type="text" name="regdate" value="${notice.regdate}"
+			   						class="number" readonly="readonly">
+			   				</td>
+		     				<td class="tbcol ncol4">
+		     					<input type="text" name="vdate" value="${notice.vdate}"
+			   						class="number" readonly="readonly">
+			   				</td>
+			   				<td class="tbcol ncol5">
+			   					<input type="text" name="readcount" value="${notice.readcount}"
+				   					class="" readonly="readonly">
+			   				</td>
 		   				</tr>
 					</c:forEach> 
 				</c:when>

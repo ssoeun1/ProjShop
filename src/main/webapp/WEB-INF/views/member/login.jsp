@@ -23,7 +23,7 @@
 						<input type="password" name="m_passwd" class="pw chk" title="PW" placeholder="PASSWORD">
 					</li>
 				</ul>
-				<button class="btn-primary login-btn">Login</button>
+				<button class="btn btn-dark login-btn">Login</button>
 			
 			</form>
 			</div>

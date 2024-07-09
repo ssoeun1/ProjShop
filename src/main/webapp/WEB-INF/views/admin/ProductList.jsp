@@ -7,25 +7,25 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" type="text/css" href="./css/ProductList.css" />
 <script type="text/javascript" src="./js/jquery-3.7.1.min.js"></script>
 <script type="text/javascript" src="./js/product.js"></script> 
 <title>쇼핑몰</title>
 </head>
 <body>
-  <div style="width:100%">
    <div id="productmgt">
      <h3>상품목록</h3>
-     <div style="text-align:right; margin-right: 20px;">
-       <button class="btn btn-secondary">상품수: ${pcnt}</button>
+     <div align="right" class="mb-2">
+       <button class="btn btn-dark">상품수: ${pcnt}</button>
      </div>
-     <table class="table table-hover text-center table-bordered">
+     <table class="table table-hover text-center table-bordered border-dark">
        <thead>
          <tr>
-            <th class = "pcol1 textBold alignCenter">상품번호</th>
-		    <th class = "textBold alignCenter">상품명</th>
-		    <th class = "pcol3 textBold alignCenter">상품가격</th>
-		    <th class = "pcol4 textBold alignCenter">등록일</th>
-		    <th class = "pcol5 textBold alignCenter">재고</th>
+            <th class="pcol1">상품번호</th>
+		    <th class="pcol2">상품명</th>
+		    <th class="pcol3">상품가격</th>
+		    <th class="pcol4">등록일</th>
+		    <th class="pcol5">재고</th>
          </tr>
        </thead>
        <tbody>
@@ -38,25 +38,25 @@
           <c:when test="${fn:length(productList)>0}">
             <c:forEach var="product" items="${productList}">
              <tr>
-                <th class = "pcol1">
+                <th class="tbcol pcol1">
                  <input type="text" name="p_no" value="${product.p_no}" 
-                     class="form-control-plaintext textBold alignCenter">
+                     class="">
                  </th>
-			    <th class = "pcol2">
+			    <th class="tbcol pcol2">
 			     <input type="text" name="p_name" value=" ${product.p_name}" 
-                     class="form-control-plaintext textBold pDetail2" readonly="readonly">
+                     class="pDetail2" readonly="readonly">
                 </th>
-			    <th class = "pcol3" >
+			    <th class="tbcol pcol3">
 			     <input type="text" name="price" value="${product.price}" 
-                     class="form-control-plaintext alignRight textBold num">
+                     class="num">
 			   </th>
-			    <th class = "pcol4">
+			    <th class="tbcol pcol4">
 			     <input type="text" name="pr_date" value=" ${product.pr_date}" 
-                     class="form-control-plaintext textBold alignCenter">
+                     class="  ">
 			   </th>
-			    <th class = "pcol5">
+			    <th class="tbcol pcol5">
 			     <input type="text" name="stock" value=" ${product.stock}" 
-                     class="form-control-plaintext textBold alignRight num">
+                     class="num">
 			    </th>
              </tr>
             </c:forEach>
@@ -96,12 +96,10 @@
      <!-- 페이지 끝 -->
      
      <div class="btnArea">
-     <button type="button" class="w-btn w-btn-indigo" onclick="location.href='/productInForm'">
+     	<button type="button" class="btn btn-dark mt-2" onclick="location.href='/productInForm'">
         상품등록
-    </button>
+    	</button>
      </div>
    </div>
-  <div class="clear"></div>
-  </div>
 </body>
 </html>

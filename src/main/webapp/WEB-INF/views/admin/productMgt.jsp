@@ -13,7 +13,7 @@
 </head>
 <body>
   <div style="width:100%">
-   <div id="productmgt">
+   <div id="">
      <h3>상품목록</h3>
      <div style="text-align:right; margin-right: 20px;">
        <button class="btn btn-secondary">상품수: ${pcnt}</button>
