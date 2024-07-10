@@ -56,10 +56,6 @@ $().ready(function(){
 	})
 	
 	$('#cancel').on('click', function(){
-		location.href="/info";
-	})
-	
-	$('#cancel2').on('click', function(){
-		location.href="../admin/info";
+		location.href="../info";
 	})
 })
