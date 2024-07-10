@@ -6,17 +6,38 @@
 <link rel="stylesheet" href="../css/layouts.css" />
 <link rel="stylesheet" href="../css/swiper.css" />
 <script type="text/javascript" src="../js/jquery-3.7.1.min.js"></script>
+
 <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+
 <script type="text/javascript" src="../js/zipCheck.js"></script>
+
 <script type="text/javascript" src="../js/member.js"></script>
+
+
+
+
 <!-- <input type="text" id="sample6_postcode" placeholder="우편번호">
+
 <input type="button" onclick="sample6_execDaumPostcode()" value="우편번호 찾기"><br>
+
 <input type="text" id="sample6_address" placeholder="주소"><br>
+
 <input type="text" id="sample6_detailAddress" placeholder="상세주소">
+
 <input type="hidden" id="sample6_extraAddress" placeholder="참고항목"> -->
+
+
+
+
 <body>
+
+
+
+
 	<header class="mb-5 mt-5">
+
 		<div class="header__container">
+
 			<div class="--logo-img">
 				<a href="/"><img class="logo" src="../images/logo-no-background.png"></a>
 			</div>
@@ -55,12 +76,25 @@
 					      	<li class="--nav-item dropdown"><a href="/orderList">Order</a></li>
 							<li class="--nav-item dropdown"><a href="/notice">Notice</a></li>
 					      	<li class="--nav-item dropdown"><a href="/logoutProc">Logout</a></li>
+
 					     </c:when>
+
 					     <c:otherwise>
+
 							<li class="--nav-item dropdown"><a href="/login">Login</a></li>
-	@@ -68,23 +69,9 @@
+
+							<li class="--nav-item dropdown"><a href="/join">Join</a></li>
+
+						 </c:otherwise>
+
+					 </c:choose>
+
+					 </ul>
+
 				    </div>
+
 				</div>
+
 				<div class="header__cart-btn-wrapper">
 					<c:choose>
 						 <c:when test="${ssKey!=null and ssKey.m_role=='admin'}">
@@ -133,13 +167,26 @@
 				</li>
 				<li class="--nav-item dropdown"><a href="/productList">itemList</a></li>
 				<li class="--nav-item dropdown"><a>Item1</a></li>
+
 				<li class="--nav-item dropdown"><a>Item1</a></li>
+
 				<li class="--nav-item dropdown"><a>Item1</a></li>
+
 			</ul>
+
+
+
+
 		</div>
+
 	</div>
+
 	<div class="MainBanner mt-5 mb-5">
+
 		<h1 class="High-Banner">IPHONE & GALAXY COVERS</h1>
+
 		<p>Buy One Case and Get 30% Off the Second Purchase! ... <a>Read more</a></p>
+
 	</div>
+
 </body>
