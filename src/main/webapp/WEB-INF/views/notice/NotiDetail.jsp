@@ -72,8 +72,8 @@
    		</c:if>
    		<c:if test='${ssKey.m_role=="admin"}'>
    			<button type="button" class="btn btn-outline-dark" onclick="location.href='/noticeFIX'">공지사항목록</button>
-   			<button type="button" name="update" class="btn btn-dark">수정</button>
-   			<button type="button" name="delete" class="btn btn-dark">삭제</button>
+   			<button type="button" name="update" class="btn btn-dark notisubmit">수정</button>
+   			<button type="button" name="delete" class="btn btn-dark notisubmit">삭제</button>
    		</c:if>
    	</div>
 	</form>
