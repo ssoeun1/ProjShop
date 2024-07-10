@@ -44,6 +44,7 @@ $().ready(function(){
 			$('#pwck').focus();
 			return false;
 		}
+
 		var pw2 = $("input[name='m_passwd']", opener.document).val();
 		if(pw1==pw2) {
 			$("form[name='form1']", opener.document).submit();
@@ -53,11 +54,11 @@ $().ready(function(){
 			window.close();
 		}
 	})
-
+	
 	$('#cancel').on('click', function(){
 		location.href="/info";
 	})
-
+	
 	$('#cancel2').on('click', function(){
 		location.href="../admin/info";
 	})
