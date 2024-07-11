@@ -50,7 +50,7 @@
 						 	<li class="--nav-item dropdown"><a href="/admin/info">AdminPage</a></li>
 						 	<li class="--nav-item dropdown"><a href="/memberFIX">MemberFIX</a></li>
 							<li class="--nav-item dropdown"><a href="/orderFIX">OrderFIX</a></li>
-	<li class="--nav-item dropdown"><a href="/productFIX">ProductFIX</a></li>
+							<li class="--nav-item dropdown"><a href="/productFIX">ProductFIX</a></li>
 							<li class="--nav-item dropdown"><a href="/noticeFIX">NoticeFIX</a></li>
 						  	<li class="--nav-item dropdown"><a href="/logoutProc">Logout</a></li>
 						 </c:when>
