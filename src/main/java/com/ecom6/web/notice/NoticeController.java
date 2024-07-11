@@ -173,6 +173,7 @@ public class NoticeController {
 		String url = null;
 		HttpSession session = req.getSession();
 		MemberVO ssKey = (MemberVO) session.getAttribute("ssKey");
+		session.setAttribute("ssKey", ssKey);
 		if (ssKey != null && ssKey.getM_role().equals("admin")) {
 			int r = noticeService.noticeUpProc(nvo);
 			/* log.info("nvo==>"+nvo); */
