@@ -30,6 +30,8 @@ public interface CartDao {
 	void updateCartItem(CartVO cvo);
 
 	int getCartItemCnt(String mem_id);
+	
+	int getCartTotalPrcie(String mem_id);
 
 
 }
