@@ -16,7 +16,7 @@
 <body>
 	
 <h2 class="head-title">장바구니목록</h2>
-<p>${cartTot}</p>
+<p>주문 수 : <input name="itemCnt" value="${cartTot}"></p>
 <div id="Cart-form">
 	
 	
@@ -78,7 +78,7 @@
 		</tbody>
 	</table> --%>
 	
-	
+
 	<div class="cart-content">
 		<ul class="cart-list headings">
 		  <li class="cart-item">
@@ -109,6 +109,8 @@
 						<div class="cart-item-copy">
 							<a class="cart-item__title">
 								<input type="text" name="p_name" value="${cart.p_name}" class="" readonly="readonly">
+								<input type="hidden" name="itemName" value="${cart.p_name}" class="" readonly="readonly">
+								<input type="hidden" name="userName" value="${cart.mem_id}" class="" readonly="readonly">
 							</a>
 						</div>
 						<div class="price">
@@ -139,19 +141,32 @@
 		</ul>
 	</div>
 	<div class="cart__additional">
+		<form action="/orderDetail">
 		<div class="cart__summary">
 			<div class="cart__subtotal">
 				<span class="cart__total-label">Subtotal:</span>
-				<span class="cart__total-value">$179.90</span>
+				<span class="cart__total-value">
+					<strong class="total_price"></strong>원
+					<input type="text" class="num" name="amount" value="">
+					<input type="hidden" name="itemName" value="test">
+					<input type="hidden" name="userName" value="${ssKey.mem_id}">
+				</span>
 			</div>
 			<p class="cart__total-note">Shipping &amp; taxes calculated at checkoutIncl. VAT, Free shipping and handling.</p>
+
+			<input class="btn btn-dark" type="submit" value="주문하기">
+			
+			<!-- <input class="btn btn-dark" type="button" onclick="javascript:location.href='orderProc'" value="주문하기"> -->
+
 			<input class="btn btn-dark" type="button" onclick="javascript:location.href='orderProc'" value="주문하기">
+
 			<input class="btn btn-dark" type="button" onclick="javascript:location.href='productList'" value="상품목록으로">
 		</div>
+		</form>
 	</div>
 	
-	
 </div>
+
 			
 </body>
 </html>

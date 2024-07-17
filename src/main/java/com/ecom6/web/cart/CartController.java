@@ -104,6 +104,7 @@ public class CartController {
 			content = "custom/CartList.jsp";
 			model.addAttribute("content", content);
 			model.addAttribute("cartTot", reSet.get("cartTot"));
+//			model.addAttribute("SubTot", reSet.get("subTotal"));	
 			model.addAttribute("cartList", reSet.get("cartList"));
 		} else {
 			return "redirect:/";
