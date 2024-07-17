@@ -22,6 +22,7 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 @Controller
 public class MainController {
+
 	@Autowired
 	SearchWrapper searchWrapper;
 	
@@ -78,7 +79,11 @@ public class MainController {
 						@RequestParam HashMap<String, String> param) {
 		String content = "SearchResult.jsp";
 
+
 		Map<String, Object> reMap = searchWrapper.SearchProc(param, pgVo);
+	
+		
+		
 
 		log.info("TESTING text2 =============>  "+reMap.get("search_list"));
 		model.addAttribute("p_search", reMap.get("p_search"));
@@ -88,5 +93,8 @@ public class MainController {
 		model.addAttribute("content", content);
 		return "Main";
 	}
+
+	
+	
 
 }

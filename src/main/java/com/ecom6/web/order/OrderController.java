@@ -24,6 +24,7 @@ import com.ecom6.VO.mem.MemberVO;
 
 import com.ecom6.VO.order.OrderVO;
 
+
 import com.ecom6.common.vo.PageInfo;
 import com.ecom6.common.vo.PageVO;
 import com.ecom6.service.PaymentSys.PgApiService;
@@ -35,7 +36,6 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
 import lombok.extern.slf4j.Slf4j;
-import oracle.jdbc.proxy.annotation.Post;
 
 @Slf4j
 @Controller
@@ -43,7 +43,10 @@ public class OrderController {
 
 	// 규칙 1. 서비스에서 트랜잭션을 걸어야 한다.
 	// 규칙 2. 서로 다른 업무에서 해당 업무 이외의 업무를 호출하지 않는다.
-	// 규칙 3. 타 업무가 필요할 때는 Wrapper 클래스를 만들어서 사용한다
+	// 규칙 3. 타 업무가 필요할 때는 Wrapper 클래스를 만들어서 사용한다.
+	
+	@Autowired
+	private PgApiService apiService;
 	
 	@Autowired
 	private PgApiService apiService;
@@ -69,7 +72,7 @@ public class OrderController {
 		if(ssKey!=null) {
 			Map<String, Object> reSet = cartService.getCartItemList(ssKey.getMem_id());
 			ArrayList<CartVO> CartList = (ArrayList<CartVO>) reSet.get("cartList");
-		
+
 			HashMap<String, Object> reMap = 
 					orderWrapper.orderProc(ovo, CartList);
 			msg = (String) reMap.get("msg");
@@ -381,6 +384,7 @@ public class OrderController {
 		if(ssKey!=null) {
 			session.setAttribute("ssKey", ssKey);
 
+
 			String Apiurl = "https://api.testpayup.co.kr/ap/api/payment/himedia/order";
 			Map<String, String> apiMap = new HashMap<String, String>();
 			Map<String, Object> apiResult = new HashMap<String, Object>();
@@ -388,6 +392,7 @@ public class OrderController {
 
 			String orderNumber = UUID.randomUUID().toString().substring(0,8).replace("-", "").toUpperCase();
 			apiMap.put("orderNumber", orderNumber);
+
 
 			// String amount = "100000";
 			String amount = param.get("amount");
@@ -405,6 +410,7 @@ public class OrderController {
 			apiMap.put("userAgent", "WP");
 			apiMap.put("returnUrl", "orderProc");
 
+
 			LocalDateTime time = LocalDateTime.now();
 			String Formattime = time.format(DateTimeFormatter.ofPattern("yyyyMMddHHmmss"));
 			apiMap.put("timestamp", Formattime);
@@ -415,11 +421,12 @@ public class OrderController {
 
 			apiResult = apiService.JsonApi(Apiurl, apiMap);
 
+
 			System.out.println("API 통신 주문 값: "+apiResult);
 			mav.addObject("data", apiResult);
 			
 			Map<String, Object> reSet = cartService.getCartItemList(ssKey.getMem_id());
-			
+
 			mav.addObject("content", "custom/OrderDetail.jsp");
 			mav.addObject("cart",reSet.get("cartList"));
 			mav.addObject("SubTot",reSet.get("subTotal"));
@@ -434,6 +441,8 @@ public class OrderController {
 		    mav.addObject("url", url);
 		}
 		return mav;
+
+
 	}
 
 	@PostMapping("/payProc2")

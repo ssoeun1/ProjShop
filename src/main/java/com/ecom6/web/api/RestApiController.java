@@ -1,6 +1,7 @@
 package com.ecom6.web.api;
 
 import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -36,4 +37,5 @@ public class RestApiController {
 		List<NoticeVO> noticeList = noticeService.getNotice(nvo);
 		return noticeList;
 	}
+
 }

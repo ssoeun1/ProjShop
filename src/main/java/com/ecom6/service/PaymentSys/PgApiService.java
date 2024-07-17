@@ -23,6 +23,7 @@ public class PgApiService {
 public Map<String,Object> JsonApi(String url, Map<String,String> map) {
 
 
+
 		Map<String,Object> returnMap = new HashMap<>();
 
 		//api 통신 서비스 만들기
@@ -36,12 +37,35 @@ public Map<String,Object> JsonApi(String url, Map<String,String> map) {
 
         // JSON 데이터를 담은 문자열
 
+
+		
+		
+		Map<String,Object> returnMap = new HashMap<>();
+		
+		//api 통신 서비스 만들기
+		//http 통신
+		
+		//1. 자바 기본 라이브러리 만들수있다. (X)
+		// 쉽게 만들 예정 ( 외부 라이브러리 사용 하여)
+		// okhttp라는 라이브러리를 사용할예정.
+		
+		OkHttpClient client = new OkHttpClient();
+
+        // JSON 데이터를 담은 문자열
+		
+
 		//Map > JSON string 으로 변환
 		ObjectMapper objectMapper = new ObjectMapper();
         String jsonBody = "";
 		try {
 
+
 			jsonBody = objectMapper.writeValueAsString(map);
+
+
+			
+			jsonBody = objectMapper.writeValueAsString(map);
+			
 
 		} catch (JsonProcessingException e) {
 			// TODO Auto-generated catch block
@@ -65,6 +89,7 @@ public Map<String,Object> JsonApi(String url, Map<String,String> map) {
 
             returnMap = objectMapper.readValue(response.body().string(), Map.class);
 
+
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -73,6 +98,18 @@ public Map<String,Object> JsonApi(String url, Map<String,String> map) {
         return returnMap;
 	}
 
+
+
+            
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+		
+        
+        return returnMap;
+	}
+	
+	
 
 	public String getSHA256Hash(String input) throws NoSuchAlgorithmException {
         // SHA-256 해시 함수 생성

@@ -10,6 +10,7 @@
 <script type="text/javascript" src="../js/jquery-3.7.1.min.js"></script>
 <script type="text/javascript" src="../js/product.js"></script>
 <script type="text/javascript" src="../js/cart.js"></script>
+
 </head>
 <script type="text/javascript" src="https://testpay.kcp.co.kr/plugin/payplus_web.jsp"></script>
 <script type="text/javascript">
@@ -66,6 +67,7 @@ function jsf__pay() {
 <h1>주문 상세</h1>
 <div>
 		<br>
+
 
 		<p>responseCode : ${data.responseCode }</p>
 		<p>responseMsg : ${data.responseMsg }</p>

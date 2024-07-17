@@ -24,4 +24,5 @@ public interface NoticeService {
 	List<NoticeVO> getNotice(NoticeVO nvo); // 스크롤 페이징 용
 
 	int getSearch(HashMap<String, String> param);
+
 }

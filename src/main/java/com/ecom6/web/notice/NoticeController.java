@@ -52,7 +52,9 @@ public class NoticeController {
 			page = "Main";
 		}
 		model.addAttribute("content", content);	
+
 		model.addAttribute("PgInfo", PageInfo.ROW_OF_PAGE);
+
 		model.addAttribute("nvo", reSet.get("NoticeList"));	
 		model.addAttribute("pgVo", reSet.get("pgVo"));	
 		model.addAttribute("noticeTot", reSet.get("noticeTot"));	
@@ -177,8 +179,10 @@ public class NoticeController {
 		HttpSession session = req.getSession();
 		MemberVO ssKey = (MemberVO) session.getAttribute("ssKey");
 		if (ssKey != null && ssKey.getM_role().equals("admin")) {
+
 		
 			session.setAttribute("ssKey", ssKey);
+
 			int r = noticeService.noticeUpProc(nvo);
 			/* log.info("nvo==>"+nvo); */
 			if (r > 0) {

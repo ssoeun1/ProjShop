@@ -78,7 +78,7 @@
 		</tbody>
 	</table> --%>
 	
-	
+
 	<div class="cart-content">
 		<ul class="cart-list headings">
 		  <li class="cart-item">
@@ -109,7 +109,9 @@
 						<div class="cart-item-copy">
 							<a class="cart-item__title">
 								<input type="text" name="p_name" value="${cart.p_name}" class="" readonly="readonly">
+
 							    <input type="hidden" name="itemName" value="${cart.p_name}" class="" readonly="readonly">
+
 								<input type="hidden" name="userName" value="${cart.mem_id}" class="" readonly="readonly">
 							</a>
 						</div>
@@ -141,7 +143,9 @@
 		</ul>
 	</div>
 	<div class="cart__additional">
+
 	<form action="/orderDetail">
+
 		<div class="cart__summary">
 			<div class="cart__subtotal">
 				<span class="cart__total-label">Subtotal:</span>
@@ -153,14 +157,16 @@
 				</span>
 			</div>
 			<p class="cart__total-note">Shipping &amp; taxes calculated at checkoutIncl. VAT, Free shipping and handling.</p>
+
 			<input class="btn btn-dark" type="submit" value="주문하기">
+
 			<input class="btn btn-dark" type="button" onclick="javascript:location.href='productList'" value="상품목록으로">
 		</div>
 		</form>
 	</div>
 	
-	
 </div>
+
 			
 </body>
 </html>

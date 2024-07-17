@@ -29,4 +29,5 @@ public interface ProductService {
 	int updateStock(OrderVO ovo);
 
 	int getSearch(HashMap<String, String> param);
+
 }
