@@ -75,7 +75,6 @@
 		 <div class="top_mypage">
 			  <!--  <a href="javascript:;" class="eSearch"> -->
 			    <div class="header__search-container hide-phone" id="searchContainer">
-
 					<form name="search" class="search" role="search" action="search?bucket=1" method="get">
 						<div class="input-placeholder input-placeholder--search">
 						<label class="search__label search__floating-label screenreader" for="searchInput">Search</label>
@@ -90,7 +89,6 @@
 						</button>
 					</form>
 				</div>
-
 				
 		
 			   <!-- </a> -->
@@ -151,5 +149,4 @@
       
     </div>
   </div> 
-
 </body>
