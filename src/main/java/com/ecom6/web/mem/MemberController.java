@@ -73,7 +73,7 @@ public class MemberController {
 							HttpServletResponse res, 
 							MemberVO mvo, Model model) {
 		model.addAttribute("content", "member/Register.jsp");
-		return "Main";
+		return "member/MemberJoin";
 	}
 	
 	@Transactional

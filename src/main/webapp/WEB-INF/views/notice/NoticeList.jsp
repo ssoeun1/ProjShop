@@ -66,7 +66,7 @@
 	</table>
 	<input id="PgInfo" type="hidden" value="${PgInfo}">
 	<!-- 페이지  -->
-    <%--  <div align="center">
+     <%-- <div align="center">
      <c:if test="${pgVo.startPg>PBlock}">
 	     <font color="4c5317">
 	         <a href="/noticeFIX?curPg=${pgVo.startPg-PBlock}&curBl=${pgVo.curBl-1}">[이전]</a>

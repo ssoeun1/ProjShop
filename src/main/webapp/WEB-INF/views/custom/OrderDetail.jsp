@@ -10,66 +10,63 @@
 <script type="text/javascript" src="../js/jquery-3.7.1.min.js"></script>
 <script type="text/javascript" src="../js/product.js"></script>
 <script type="text/javascript" src="../js/cart.js"></script>
-
 </head>
 <script type="text/javascript" src="https://testpay.kcp.co.kr/plugin/payplus_web.jsp"></script>
 <script type="text/javascript">
-	/****************************************************************/
-	/* m_Completepayment 설명 */
-	/****************************************************************/
-	/* 인증완료시 재귀 함수 */
-	/* 해당 함수명은 절대 변경하면 안됩니다. */
-	/* 해당 함수의 위치는 payplus.js 보다먼저 선언되어여 합니다. */
-	/* Web 방식의 경우 리턴 값이 form 으로 넘어옴 */
-	/****************************************************************/
-	function m_Completepayment(FormOrJson, closeEvent) {
-		var frm = document.kcp_order_info;
-		/********************************************************************/
-		/* FormOrJson은 가맹점 임의 활용 금지 */
-		/* frm 값에 FormOrJson 값이 설정 됨 frm 값으로 활용 하셔야 됩니다. */
-		/********************************************************************/
-		GetField(frm, FormOrJson);
-		console.log(frm);
-		// alert("m_Completepayment : " + frm.res_cd.value);
-		if (frm.res_cd.value == "0000") {
-			/*
-			[가맹점 리턴값 처리 영역] 
-			인증이 완료되면 frm에 인증값이 들어갑니다. 해당 데이터를 가지고
-			승인요청을 진행 해주시면 됩니다.
-			
-			 */
-			//폼 id = kcp_order_info
-			var form = document.getElementById("kcp_order_info");
-			closeEvent();
-			
-			// 
-			frm.action = "/payProc2";
-			frm.submit();
-
-		} else {
-			/*
-			(인증실패) 인증 실패 처리 진행
-			 */
-			alert("[" + frm.res_cd.value + "] " + frm.res_msg.value);
-
-			closeEvent();
-		}
+/****************************************************************/
+/* m_Completepayment 설명 */
+/****************************************************************/
+/* 인증완료시 재귀 함수 */
+/* 해당 함수명은 절대 변경하면 안됩니다. */
+/* 해당 함수의 위치는 payplus.js 보다먼저 선언되어여 합니다. */
+/* Web 방식의 경우 리턴 값이 form 으로 넘어옴 */
+/****************************************************************/
+function m_Completepayment(FormOrJson, closeEvent) {
+	var frm = document.kcp_order_info;
+	/********************************************************************/
+	/* FormOrJson은 가맹점 임의 활용 금지 */
+	/* frm 값에 FormOrJson 값이 설정 됨 frm 값으로 활용 하셔야 됩니다. */
+	/********************************************************************/
+	GetField(frm, FormOrJson);
+	console.log(frm);
+	// alert("m_Completepayment : " + frm.res_cd.value);
+	if (frm.res_cd.value == "0000") {
+		/*
+		[가맹점 리턴값 처리 영역] 
+		인증이 완료되면 frm에 인증값이 들어갑니다. 해당 데이터를 가지고
+		승인요청을 진행 해주시면 됩니다.
+		
+		 */
+		//폼 id = kcp_order_info
+		var form = document.getElementById("kcp_order_info");
+		closeEvent();
+		
+		// 
+		frm.action = "/payProc2";
+		frm.submit();
+	} else {
+		/*
+		(인증실패) 인증 실패 처리 진행
+		 */
+		alert("[" + frm.res_cd.value + "] " + frm.res_msg.value);
+		closeEvent();
 	}
-	/* 이 함수를 실행하여 표준웹 실행 */
-	function jsf__pay() {
-		try {
-			var form = document.kcp_order_info;
-			KCP_Pay_Execute(form);
-		} catch (e) {
-			/* IE 에서 결제 정상종료시 throw로 스크립트 종료 */
-		}
+}
+/* 이 함수를 실행하여 표준웹 실행 */
+function jsf__pay() {
+	try {
+		var form = document.kcp_order_info;
+		KCP_Pay_Execute(form);
+	} catch (e) {
+		/* IE 에서 결제 정상종료시 throw로 스크립트 종료 */
 	}
+}
 </script>
 <body>
 <h1>주문 상세</h1>
-	<div>
+<div>
 		<br>
-		
+
 		<p>responseCode : ${data.responseCode }</p>
 		<p>responseMsg : ${data.responseMsg }</p>
 		<p>good_mny : ${data.good_mny }</p>
@@ -93,12 +90,12 @@
 		<input type="hidden" name="good_mny" value="${data.good_mny }">
 		<input type="hidden" name="buyr_name" value="${data.buyr_name }"> 
 		<input type="hidden" name="site_cd" value="${data.site_cd }">
-	
+
 		<!-- 고정값 -->
 		<input type="hidden" name="req_tx" value="pay">
 		<input type="hidden" name="pay_method" value="100000000000">
 		<input type="hidden" name="site_name" value="payup" />
-	
+
 			<!--
 	 ※ 필 수
 	 필수 항목 : 표준웹에서 값을 설정하는 부분으로 반드시 포함되어야 합니다

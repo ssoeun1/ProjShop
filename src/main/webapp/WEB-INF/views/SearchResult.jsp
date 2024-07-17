@@ -52,11 +52,11 @@
 						</li>
 					</c:forEach>
 				</c:when>
-			
+
 			</c:choose>
-			
+
 		</ul>
-	
+
 	</div>
 </body>
 </html>
