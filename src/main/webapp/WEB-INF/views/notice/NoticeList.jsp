@@ -10,6 +10,7 @@
 <link rel="stylesheet" type="text/css" href="../css/NoticeList.css" />
 <script type="text/javascript" src="../js/jquery-3.7.1.min.js"></script>
 <script src="../js/notice.js" defer="defer"></script>
+<script src="../js/pageNation.js" defer="defer"></script>
 </head>
 <body>
 	
@@ -63,9 +64,9 @@
 			</c:choose>
 		</tbody>
 	</table>
-	
+	<input id="PgInfo" type="hidden" value="${PgInfo}">
 	<!-- 페이지  -->
-     <div align="center">
+     <%-- <div align="center">
      <c:if test="${pgVo.startPg>PBlock}">
 	     <font color="4c5317">
 	         <a href="/noticeFIX?curPg=${pgVo.startPg-PBlock}&curBl=${pgVo.curBl-1}">[이전]</a>
@@ -91,7 +92,7 @@
              </font>
        </c:if> 
      </div>
-     <div style="margin-bottom: 15px;"></div>
+     <div style="margin-bottom: 15px;"></div> --%>
      <!-- 페이지 끝 -->
      
 	<c:if test="${ssKey.getM_role()=='admin'}">

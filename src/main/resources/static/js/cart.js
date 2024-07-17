@@ -2,7 +2,7 @@
  * 
  */
 $().ready(function(){
-	
+	getTotal();
 })
 
 function cartUpdate(f, obj) {
@@ -16,6 +16,7 @@ function cartUpdate(f, obj) {
 	var s = stock.replace(/[,]/g, '');
 	if(f == 'D'){
 		url = 'cartProc?flag=delete';
+		
 		$(obj).closest('li').remove();
 	} else if(f == 'U') {
 		if(parseInt(q)>parseInt(s)) {
@@ -25,7 +26,10 @@ function cartUpdate(f, obj) {
 		var a = parseInt(q)*parseInt(p);
 		$(obj).closest('li').find('input[name=total]').val(numberWithCommas(a));
 		url = 'cartProc?flag=update';
+		getTotal();
 	}
+	
+	
 	$.ajax({
 		async:true,
 		type:'post',
@@ -55,4 +59,22 @@ function fnCalCount(type, ths){
             $input.val(Number(tCount) - 1);
         }
     }
+}
+function getTotal() {
+	var arr = new Array();
+	var total = 0;
+
+	$('input[name=total]').each(function(index, item) {
+		var item_price = $(item).val();
+		item_price = parseInt(item_price.replace(/[,]/g, ""));
+		arr.push(item_price);
+	});
+
+	arr.forEach((element)=> {
+		total += element;
+	});
+	// $('strong[class=total_price_d]').text(numberWithCommas(total+3000));
+	/*alert(total);*/
+	$('strong[class=total_price]').text(numberWithCommas(total));
+	$('input[name=amount]').val(total);
 }

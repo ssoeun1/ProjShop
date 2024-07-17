@@ -29,8 +29,9 @@
 					<input type="hidden" name="p_no" title="상품명" value="${product.p_no}" readonly="readonly"> 
 					<input type="hidden" name="stock" class="chk num" title="재고수량" value="${product.stock}" readonly="readonly"> 
 					<input type="hidden" name="quantity" class="chk inNum" title="구매수량" value="1"> 
+					<input type="hidden" name="price" class="chk inNum" title="구매수량" value="${product.price}">
 					<div data-price-wrapper class="price prd-ProductContent_price">
-						<span data-product-price data-money-format="${product.price}"class>
+						<span data-product-price data-money-format="${product.price}" class>
 						${product.price}원
 						</span>
 					</div>
