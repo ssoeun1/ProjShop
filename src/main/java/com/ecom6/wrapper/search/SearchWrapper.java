@@ -60,11 +60,9 @@ public class SearchWrapper {
 		reSet.put("p_search", p_search);
 		reSet.put("n_search", n_search);
 
-
 		return reSet;
 	}
 
 
 
 }
-

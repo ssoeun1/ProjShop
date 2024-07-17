@@ -67,7 +67,6 @@
 	DELETE FROM CART
 	WHERE MEM_ID = #{mem_id}
 	</delete>
-
 	<select id="getCartTotalPrcie" parameterType="String">
 		SELECT SUM(PRICE * QUANTITY) FROM CART
 		WHERE MEM_ID =  #{mem_id}
