@@ -25,12 +25,12 @@
 			</div>
 			<div class="header__right">
 				<div class="header__search-container hide-phone" id="searchContainer">
-					<form class="search" role="search" action="/search" method="get">
+					<form name="search" class="search" role="search" action="search?bucket=1" method="get">
 						<div class="input-placeholder input-placeholder--search">
 						<label class="search__label search__floating-label screenreader" for="searchInput">Search</label>
 						<div class="search__suggested-text js-search-suggested-text screenreader"></div>
 						<input class="input search__input" id="searchInput-headerSearchDesktop" type="search" role="combobox" 
-						aria-controls="autocompleteItems" aria-owns="autocompleteItems" placeholder="Search" name="q">
+						aria-controls="autocompleteItems" aria-owns="autocompleteItems" placeholder="Search" name="text">
 						</div>
 						<button class="search__input-button js-search btn-icon" 
 							id="searchMenuBtn" type="button" title="Search">
@@ -48,17 +48,16 @@
 					<c:choose>
 						 <c:when test="${ssKey!=null and ssKey.m_role=='admin'}">
 						 	<li class="--nav-item dropdown"><a href="/admin/info">AdminPage</a></li>
-						 	<li class="--nav-item dropdown"><a href="/memberFIX">MemberFIX</a></li>
-							<li class="--nav-item dropdown"><a href="/orderFIX">OrderFIX</a></li>
 							<li class="--nav-item dropdown"><a href="/productFIX">ProductFIX</a></li>
 							<li class="--nav-item dropdown"><a href="/noticeFIX">NoticeFIX</a></li>
+						 	<li class="--nav-item dropdown"><a href="/memberFIX">MemberFIX</a></li>
 						  	<li class="--nav-item dropdown"><a href="/logoutProc">Logout</a></li>
 						 </c:when>
 					     <c:when test="${ssKey!=null and ssKey.m_role=='mem'}">
-					      	<li class="--nav-item dropdown"><a href="/logoutProc">Logout</a></li>
-					      	<li class="--nav-item dropdown"><a href="/orderList">Order</a></li>
 							<li class="--nav-item dropdown"><a href="/info">MyPage</a></li>
+					      	<li class="--nav-item dropdown"><a href="/orderList">Order</a></li>
 							<li class="--nav-item dropdown"><a href="/notice">Notice</a></li>
+					      	<li class="--nav-item dropdown"><a href="/logoutProc">Logout</a></li>
 					     </c:when>
 					     <c:otherwise>
 							<li class="--nav-item dropdown"><a href="/login">Login</a></li>
@@ -69,9 +68,23 @@
 				    </div>
 				</div>
 				<div class="header__cart-btn-wrapper">
-					<a class="header__cart-btn btn btn-icon" href="/orderFIX" aria-label="0 item(s) in your bag">
-						<img class="cart-icon" src="../images/cart2.svg">
-					</a>
+					<c:choose>
+						 <c:when test="${ssKey!=null and ssKey.m_role=='admin'}">
+							<a class="header__cart-btn btn btn-icon" href="/orderFIX" aria-label="0 item(s) in your bag">
+							<img class="cart-icon" src="../images/cart2.svg">
+							</a>
+						 </c:when>
+					     <c:when test="${ssKey!=null and ssKey.m_role=='mem'}">
+							<a class="header__cart-btn btn btn-icon" href="/cartlist" aria-label="0 item(s) in your bag">
+							<img class="cart-icon" src="../images/cart2.svg">
+							</a>
+					     </c:when>
+					     <c:otherwise>
+							<a class="header__cart-btn btn btn-icon" href="/cartlist" aria-label="0 item(s) in your bag">
+							<img class="cart-icon" src="../images/cart2.svg">
+							</a>
+					     </c:otherwise>
+					</c:choose>
 					<span class="header__cart-count" id="bagBtnCount" style="display: none;">
 					 	0
 					</span>

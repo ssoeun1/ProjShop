@@ -20,6 +20,7 @@
 			<div class="article_Title">
 				<div class="title_area">
    					<h2>제목 : ${notice.subject}</h2>
+   					<input type="hidden" name="noti_no" value="${notice.noti_no}">
    					<input name="subject" type="hidden" value="${notice.subject}">
 				</div>
 			</div>
@@ -28,7 +29,6 @@
 					프로필 이미지?
 				</div>
 				<div class="profile_area">
-					${notice.writer}
 					<input type="hidden" name="writer" class="chk" title="작성자" value="${notice.writer}" readonly="readonly"> 
 				</div>
 			</div>
@@ -36,8 +36,10 @@
 			</div>
 		</div>
 		<div class="article_container mb-4">
-			${notice.content}
-			<input class="textaread" name="content" class="chk" title="내용" type="hidden" readonly="readonly">${notice.content}</input>
+			<textarea class="textaread" name="content" class="chk" title="내용" type="hidden"
+			           readonly="readonly">${notice.content}</textarea>
+			<input type="date" name="vdate" title="종료일자" value="${notice.vdate}" readonly="readonly">
+			<input type="date" name="regdate" title="작성일자" value="${notice.regdate}" readonly="readonly">  
 		</div>
 	</div>
 	
@@ -47,9 +49,9 @@
 				<input type="hidden" name="noti_no" value="${notice.noti_no}">
 				<th class="">
 					<label>종료일자</label>
-					<input type="date" name="vdate" value="${notice.vdate}" readonly="readonly">
+				<input type="date" name="vdate" value="${notice.vdate}" readonly="readonly">
 					<label>작성일자</label>
-					<input type="date" name="regdate" value="${notice.regdate}" readonly="readonly">  
+					<input type="date" name="regdate" value="${notice.regdate}" readonly="readonly"> 
 				</th>
   			</tr>
 			<tr>
@@ -72,8 +74,8 @@
    		</c:if>
    		<c:if test='${ssKey.m_role=="admin"}'>
    			<button type="button" class="btn btn-outline-dark" onclick="location.href='/noticeFIX'">공지사항목록</button>
-   			<button type="button" name="update" class="btn btn-dark">수정</button>
-   			<button type="button" name="delete" class="btn btn-dark">삭제</button>
+   			<button type="button" name="update" class="btn btn-dark notisubmit">수정</button>
+   			<button type="button" name="delete" class="btn btn-dark notisubmit">삭제</button>
    		</c:if>
    	</div>
 	</form>

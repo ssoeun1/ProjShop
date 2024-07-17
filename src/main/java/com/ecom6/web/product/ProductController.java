@@ -79,6 +79,7 @@ public class ProductController {
 			session.setAttribute("ssKey", ssKey);
 		}
 		Map<String, Object> reSet =productService.getProductsList(pvo, pgVo);
+		log.info("test PRoduct =============> "+reSet.get("productList"));
 		content = "custom/productList.jsp";
 		model.addAttribute("content", content);
 		model.addAttribute("pcnt", reSet.get("pcnt"));
@@ -155,7 +156,7 @@ public class ProductController {
 							msg="상품수정실패!";							
 						}
 					}
-					url = "productList";
+					url = "productDetail?p_no="+pvo.getP_no();
 				}
 			} else {
 				url = "redirect:/";	// 최초 화면으로 이동

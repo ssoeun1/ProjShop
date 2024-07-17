@@ -1,6 +1,7 @@
 package com.ecom6.service.product;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Hashtable;
 import java.util.Map;
 
@@ -26,5 +27,7 @@ public interface ProductService {
 	int deleteProduct(ProductVO pvo) throws Exception;
 
 	int updateStock(OrderVO ovo);
+
+	int getSearch(HashMap<String, String> param);
 
 }

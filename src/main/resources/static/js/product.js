@@ -157,7 +157,7 @@
 			async:false,
 			type:'post',
 			data:{tdArr},
-			url:'/orderMgtProc',
+			url:'/orderFIXProc',
 			dataType:'json',
 			success: setInterval(), /* 콜백 함수 : 성공시 처리되어야 할 일 지정 */
 		});
