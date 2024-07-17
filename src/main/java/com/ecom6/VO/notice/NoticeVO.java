@@ -19,7 +19,6 @@ public class NoticeVO {
 	private String vdate;
 	private String regdate;
 	private String state;
-	private String text;
 	private int start;
 	private int end;
-}   
+}

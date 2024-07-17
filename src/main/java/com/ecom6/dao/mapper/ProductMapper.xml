@@ -4,10 +4,7 @@
 	<select id="getProductCnt" resultType="int">
 		SELECT COUNT(P_NO) FROM PRODUCT
 	</select>
-    <select id="getSearch" resultType="int" parameterType="String">
-		SELECT COUNT(P_NO) FROM PRODUCT
-		WHERE P_NAME LIKE '%'||#{text}||'%'
-	</select>
+
 	<select id="getProductList" resultType="pvo" parameterType="pvo">
 		  SELECT * FROM ( 
 	      SELECT ROWNUM RN, A.* FROM (
@@ -18,11 +15,7 @@
 	       )
 		  <![CDATA[       
 	       WHERE RN  >= #{start} AND RN <= #{end}
-	       
-	      ]]>  
-	      <if test="text!=null and text!=''">
-		    	AND P_NAME LIKE '%'||#{text}||'%'
-		   </if>		 
+	      ]]>  		 
 	</select>
 	
 	<insert id="insertProduct" parameterType="pvo">

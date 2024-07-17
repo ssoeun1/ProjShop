@@ -7,13 +7,6 @@
 	AND STATE = 'A'
 	<!-- 유효일자에 따라 지난 것은 나오지 않게 하기 -->
 </select>
-<select id="getSearch" resultType="int" parameterType="String">
-	SELECT COUNT(NOTI_NO) FROM NOTICET	
-	WHERE TO_DATE(VDATE) >= SYSDATE
-	AND STATE = 'A' 
-	AND SUBJECT LIKE '%'||#{text}||'%'
-	<!-- 유효일자에 따라 지난 것은 나오지 않게 하기 -->
-</select>
 <select id="getNoticeList" parameterType="nvo" resultType="nvo">
 	 SELECT * FROM (
 	 SELECT ROWNUM RN, A.* FROM(
@@ -26,11 +19,7 @@
 	       ) 
 		<![CDATA[
 		WHERE RN >= #{start} AND RN <= #{end}
-		 ]]>
-		<if test="text!=null and text!=''">
-	    	AND SUBJECT LIKE '%'||#{text}||'%'
-	   </if> 
-		 
+		 ]]> 
 </select>
 
 <insert id="noticeProc" parameterType="nvo">

@@ -26,5 +26,4 @@ public interface NoticeDao {
 
 	int deleteNotice(NoticeVO nvo);
 
-	int getSearch(String string);
 }

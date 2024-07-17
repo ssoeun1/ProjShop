@@ -11,12 +11,15 @@ function cartUpdate(f, obj) {
 	var price = $(obj).closest('div').parent().find('input[name=price]').val();
 	var pno = $(obj).closest('div').parent().find('input[name=p_no]').val();
 	var stock = $(obj).closest('div').parent().find('input[name=stock]').val();
+	console.log(quantity);
+	console.log(price);
+	console.log(pno);
+	console.log(stock);
 	var q = quantity.replace(/[,]/g, '');
 	var p = price.replace(/[,]/g, '');
 	var s = stock.replace(/[,]/g, '');
 	if(f == 'D'){
 		url = 'cartProc?flag=delete';
-		
 		$(obj).closest('li').remove();
 	} else if(f == 'U') {
 		if(parseInt(q)>parseInt(s)) {
@@ -24,12 +27,14 @@ function cartUpdate(f, obj) {
 			return false;
 		}
 		var a = parseInt(q)*parseInt(p);
-		$(obj).closest('li').find('input[name=total]').val(numberWithCommas(a));
+		$(obj).closest('div').parent().parent().find('strong[class=total]').text(numberWithCommas(a));
+		$(obj).closest('div').parent().parent().find('strong[class=total_price_d]').text(numberWithCommas(a));
+		$(obj).closest('div').parent().parent().find('input[name=total]').val(numberWithCommas(parseInt(a)));
+		
 		url = 'cartProc?flag=update';
 		getTotal();
+		
 	}
-	
-	
 	$.ajax({
 		async:true,
 		type:'post',
@@ -48,33 +53,40 @@ function cartUpdate(f, obj) {
 
 
 
-function fnCalCount(type, ths){
-    var $input = $(ths).closest(".cart_item_detail").find("input[name='quantity']");
+function fnCalCount(type, ths) {
+    var $input = $(ths).parents("span").find("input[name='quantity']");
     var tCount = Number($input.val());
-    
-    if(type == 'p'){
+    var $priceInput = $(ths).parents("tr").find("input[name='amount']");
+    var pricePerUnit = parseFloat($(ths).parents("tr").data("price")); // 각 행에 가격이 저장되어 있다고 가정
+
+    if (type == 'p') {
         $input.val(Number(tCount) + 1);
     } else {
-        if(tCount > 1) {
+        if (tCount > 1) {
             $input.val(Number(tCount) - 1);
         }
     }
+    
+    // 총 가격 업데이트
+	var updatedCount = Number($input.val());
+    var totalPrice = (updatedCount * pricePerUnit).toFixed(2);
+    $priceInput.val(totalPrice);
 }
+
 function getTotal() {
 	var arr = new Array();
 	var total = 0;
-
+	
 	$('input[name=total]').each(function(index, item) {
 		var item_price = $(item).val();
 		item_price = parseInt(item_price.replace(/[,]/g, ""));
 		arr.push(item_price);
 	});
-
+	
 	arr.forEach((element)=> {
 		total += element;
 	});
-	// $('strong[class=total_price_d]').text(numberWithCommas(total+3000));
+	$('strong[class=total_price_d]').text(numberWithCommas(total+3000));
 	/*alert(total);*/
 	$('strong[class=total_price]').text(numberWithCommas(total));
-	$('input[name=amount]').val(total);
 }

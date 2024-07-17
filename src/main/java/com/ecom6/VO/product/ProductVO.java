@@ -16,7 +16,6 @@ public class ProductVO {
 	private String pr_date;
 	private String image;
 	private String path;
-	private String text;
 	private int start;
 	private int end;
 	}
