@@ -73,6 +73,7 @@ public class ProductServiceimpl implements ProductService {
 		pgVo.setStartPg(startPg);
 		pgVo.setEndPg(endPg);
 		
+		log.info("pvo logging =====> "+pvo);
 		List<ProductVO> productList = productDao.getProductList(pvo);
 		
 		reSet.put("pgVo", pgVo);
@@ -193,6 +194,11 @@ public class ProductServiceimpl implements ProductService {
 			list.add(order);			
 		}
 		productDao.updateProdStock(cartList);
+	}
+
+	@Override
+	public int getSearch(HashMap<String, String> param) {
+		return productDao.getSearch(param.get("text"));
 	}
 
 	

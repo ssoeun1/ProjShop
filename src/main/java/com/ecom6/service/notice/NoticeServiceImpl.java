@@ -36,6 +36,8 @@ public class NoticeServiceImpl implements NoticeService {
 				noticeTot : pgVo.getCurPg()*PageInfo.ROW_OF_PAGE;
 		nvo.setStart(start);
 		nvo.setEnd(end);
+		log.info("start =====> "+start+", end =====> "+end);
+		
 		// 페이지 수 계산
 		int pgCnt = ((noticeTot % PageInfo.ROW_OF_PAGE) == 0) ?
 					(noticeTot / PageInfo.ROW_OF_PAGE) :
@@ -54,10 +56,10 @@ public class NoticeServiceImpl implements NoticeService {
 					pgCnt : pgVo.getCurBl()*PageInfo.PAGE_OF_BLOCK;
 		pgVo.setStartPg(startPg);
 		pgVo.setEndPg(endPg);
-		log.info("pgCnt =====> "+pgCnt);
-		log.info("blCnt =====> "+blCnt);
-		log.info("endPg =====> "+endPg);
-		log.info("startPg =====> "+startPg);
+//		log.info("pgCnt =====> "+pgCnt);
+//		log.info("blCnt =====> "+blCnt);
+//		log.info("endPg =====> "+endPg);
+//		log.info("startPg =====> "+startPg);
 		
 		List<NoticeVO> NoticeList = noticeDao.getNoticeList(nvo);
 		
@@ -93,6 +95,20 @@ public class NoticeServiceImpl implements NoticeService {
 	public int deleteNotice(NoticeVO nvo) {
 		return noticeDao.deleteNotice(nvo);
 	}
+
+
+	@Override
+	public List<NoticeVO> getNotice(NoticeVO nvo) {
+		log.info("nvo =====> "+nvo);
+		List<NoticeVO> NoticeList = noticeDao.getNoticeList(nvo);
+		return NoticeList;
+	}
+
+	@Override
+	public int getSearch(HashMap<String, String> param) {
+		return noticeDao.getSearch(param.get("text"));
+	}
+
 
 //	@Override
 //	public int noticeDelProc(NoticeVO nvo) {

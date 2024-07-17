@@ -25,12 +25,12 @@
 			</div>
 			<div class="header__right">
 				<div class="header__search-container hide-phone" id="searchContainer">
-					<form class="search" role="search" action="/search" method="get">
+					<form name="search" class="search" role="search" action="search?bucket=1" method="get">
 						<div class="input-placeholder input-placeholder--search">
 						<label class="search__label search__floating-label screenreader" for="searchInput">Search</label>
 						<div class="search__suggested-text js-search-suggested-text screenreader"></div>
 						<input class="input search__input" id="searchInput-headerSearchDesktop" type="search" role="combobox" 
-						aria-controls="autocompleteItems" aria-owns="autocompleteItems" placeholder="Search" name="q">
+						aria-controls="autocompleteItems" aria-owns="autocompleteItems" placeholder="Search" name="text">
 						</div>
 						<button class="search__input-button js-search btn-icon" 
 							id="searchMenuBtn" type="button" title="Search">

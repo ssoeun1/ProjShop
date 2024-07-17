@@ -31,5 +31,7 @@ public interface CartDao {
 
 	int getCartItemCnt(String mem_id);
 
+	int getCartTotalPrcie(String mem_id);
+
 
 }

@@ -7,9 +7,11 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.ecom6.VO.mem.MemberVO;
 import com.ecom6.VO.notice.NoticeVO;
+import com.ecom6.common.vo.PageInfo;
 import com.ecom6.common.vo.PageVO;
 import com.ecom6.service.notice.NoticeService;
 
@@ -50,6 +52,7 @@ public class NoticeController {
 			page = "Main";
 		}
 		model.addAttribute("content", content);	
+		model.addAttribute("PgInfo", PageInfo.ROW_OF_PAGE);	
 		model.addAttribute("nvo", reSet.get("NoticeList"));	
 		model.addAttribute("pgVo", reSet.get("pgVo"));	
 		model.addAttribute("noticeTot", reSet.get("noticeTot"));	
@@ -174,8 +177,9 @@ public class NoticeController {
 		HttpSession session = req.getSession();
 		MemberVO ssKey = (MemberVO) session.getAttribute("ssKey");
 		if (ssKey != null && ssKey.getM_role().equals("admin")) {
-			session.setAttribute("ssKey", ssKey);
+		session.setAttribute("ssKey", ssKey);
 			int r = noticeService.noticeUpProc(nvo);
+			/* log.info("nvo==>"+nvo); */
 			if (r > 0) {
 				msg="공지사항 수정 성공!";
 			} else {

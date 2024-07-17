@@ -1,5 +1,7 @@
 package com.ecom6.service.notice;
 
+import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import com.ecom6.VO.notice.NoticeVO;
@@ -19,6 +21,9 @@ public interface NoticeService {
 
 	int deleteNotice(NoticeVO nvo);
 
+	List<NoticeVO> getNotice(NoticeVO nvo); // 스크롤 페이징 용
+
+	int getSearch(HashMap<String, String> param);
 
 
 }
