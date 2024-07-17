@@ -87,7 +87,7 @@
 	});
 
 	$('.pDetail').on('click', function() {
-		var p_no = $(this).closest('h3').find('input[name=p_no]').val();
+		var p_no = $(this).closest('div').find('input[name=p_no]').val();
 		location.href='/productDetail?p_no='+p_no;
 	});
 
@@ -157,7 +157,7 @@
 			async:false,
 			type:'post',
 			data:{tdArr},
-			url:'/orderMgtProc',
+			url:'/orderFIXProc',
 			dataType:'json',
 			success: setInterval(), /* 콜백 함수 : 성공시 처리되어야 할 일 지정 */
 		});

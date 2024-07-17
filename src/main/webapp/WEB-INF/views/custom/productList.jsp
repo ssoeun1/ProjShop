@@ -15,30 +15,49 @@
 </head>
 <body>
   <div style="width:100%">
-
-     <%-- <h3>상품목록</h3>
-     <div style="text-align:right; margin-right:200px;">
-       <button class="btn btn-secondary">상품수: ${pcnt}</button>
-     </div> --%>
-     <table>
-     <div class="w3-row-padding w3-padding-16 w3-center" id="food">
-     	<c:forEach var="product" items="${productList}">
-		   <div class="w3-quarter text-center">
-		     <img src="/upload/${product.image}" alt="Sandwich" style="width:100%; height: 18rem;">
-		     <h3>
-		     <input type="hidden" name="p_no" value="${product.p_no}" 
-                     class="form-control-plaintext textBold alignCenter" readonly="readonly">
-		     <input type="text" name="p_name" value=" ${product.p_name}" 
-	          class="form-control-plaintext text-center textBold pDetail" readonly="readonly">
-	         </h3>
-		     <p>
-		     	<input type="text" name="detail" class="form-control-plaintext text-center textBold pDetail" title="상품설명" value="${product.detail}" readonly="readonly"> 
-		     </p>
-		   </div>
-	   </c:forEach>
-	 </div>
-     </table>
-     
+       <div class="xans-element- xans-product xans-product-listnormal ec-base-product">
+         <ul class="prdList grid4" data-ez-role="layout ez-discount-tag">
+		  <c:forEach var="product" items="${productList}">
+           <li id="anchorBoxId_102" class="xans-record-">
+             <div class="prdList__item">
+               <div class="thumbnail">
+                <input type="hidden" name="p_no" value="${product.p_no}">
+                   <img src="/upload/${product.image}" alt="Sandwich" style="width:100%; height: 18rem;" class="pDetail">
+               </div>
+               <div class="description">
+                 <div class="name">
+                   <a href="" class="">
+                     <span class="title displaynone">
+                       <span style="font-size:13px;color:#3f6498;font-weight:bold;">상품명</span>
+                       " :"
+                     </span>
+                     <span style="font-size:13px;color:#3f6498;font-weight:bold;">${product.p_name}</span>
+                   </a>
+                 </div>
+                 <ul class="xans-element- xans-product xans-product-listitem spec">
+                   <li class=" xans-record-">
+                     <strong class="title displaynone">
+                       <span style="font-size:13px;color:#3f6498;">상품요약정보</span>
+                       " :"
+                     </strong>
+                     <span style="font-size:13px;color:#3f6498;">${product.detail}</span>
+                   </li>
+                   <li class=" xans-record-">
+					<strong class="title displaynone">
+					  <span style="font-size:12px;color:#555555;">판매가</span>
+					  " :"
+					</strong>
+					<input type="text" name="price" value="${product.price}원" class="form-control-plaintext alignRight num">
+			       </li>
+                 </ul>
+                 <ul class="icon"></ul>
+               </div>
+             </div>
+           </li>
+           </c:forEach>
+         </ul>
+       </div>
+     </div>
      <!-- 페이지  -->
      <div align="center">
      <c:if test="${pgVo.startPg>PBlock}">
@@ -68,53 +87,5 @@
      </div>
      <div style="margin-bottom: 15px;"></div>
      <!-- 페이지 끝 -->
-     
-     <%-- <table class="table table-hover text-center table-bordered">
-       <thead>
-         <tr>
-            <th class = "pcol1 textBold alignCenter">상품번호</th>
-		    <th class = "textBold alignCenter">상품명</th>
-		    <th class = "pcol3 textBold alignCenter">상품가격</th>
-		    <th class = "pcol4 textBold alignCenter">등록일</th>
-		    <th class = "pcol5 textBold alignCenter">재고</th>
-         </tr>
-       </thead>
-       <tbody>
-        <c:choose>
-          <c:when test="${fn:length(productList)==0}">
-            <tr>
-              <th colspan="5">등록된 상품이 없습니다.</th>
-            </tr>
-          </c:when>
-          <c:when test="${fn:length(productList)>0}">
-            <c:forEach var="product" items="${productList}">
-             <tr>
-                <th class = "pcol1">
-                 <input type="text" name="p_no" value="${product.p_no}" 
-                     class="form-control-plaintext textBold alignCenter" readonly="readonly">
-                 </th>
-			    <th class = "pcol2">
-			     <input type="text" name="p_name" value=" ${product.p_name}" 
-                     class="form-control-plaintext textBold pDetail" readonly="readonly">
-                </th>
-			    <th class = "pcol3" >
-			     <input type="text" name="price" value="${product.price}" 
-                     class="form-control-plaintext alignRight textBold num" readonly="readonly">
-			   </th>
-			    <th class = "pcol4">
-			     <input type="text" name="pr_date" value=" ${product.pr_date}" 
-                     class="form-control-plaintext textBold alignCenter" readonly="readonly">
-			   </th>
-			    <th class = "pcol5">
-			     <input type="text" name="stock" value=" ${product.stock}" 
-                     class="form-control-plaintext textBold alignRight num" readonly="readonly">
-			    </th>
-             </tr>
-            </c:forEach>
-          </c:when>
-        </c:choose>
-       </tbody>
-     </table> --%>
-  </div>
 </body>
 </html>

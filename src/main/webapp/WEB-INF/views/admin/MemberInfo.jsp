@@ -10,7 +10,6 @@
 <script type="text/javascript" src="../js/common.js"></script>
 </head>
 <body>
-
 <form name="form1" action="" method="post">
 	<table class="signup-main">
 		<tr class="sign-title">

@@ -94,6 +94,7 @@ public class MemberController {
 		
 		model.addAttribute("url", url);
 		model.addAttribute("msg", msg);
+		log.info("mvo check =======> "+mvo);
 		return "MsgPage";
 	}
 	

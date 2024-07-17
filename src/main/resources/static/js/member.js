@@ -127,7 +127,7 @@ $().ready(function(){
 		$("form[name=tabForm1]").submit();
 	});
 
-    $('.submit2').on('click',function(){
+    $('.pwCheck2').on('click',function(){
 		var flen = $("form[name=tabForm2] .chk2").length;
 	 	for(var i=0; i<flen; i++){
 			if($('.chk2').eq(i).val()=="" ||
@@ -145,6 +145,14 @@ $().ready(function(){
 			}
 
 		});
+	
+	$('#mobile1, #mobile2, #mobile3').on('propertychange change paste input', function(){
+		let n1 = $('#mobile1').val();
+		let n2 = $('#mobile2').val();
+		let n3 = $('#mobile3').val();
+
+		$('input[name=m_phone]').val(n1+n2+n3);
+	});
 })
 
 function chkValidate(formNm) {
@@ -179,4 +187,8 @@ function chkValidate(formNm) {
 		}
 	}
 	return true;
+
+
+
+        
 }
