@@ -1,26 +1,25 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
-<!-- <link rel="stylesheet" href="../css/bootstrap.min.css" /> -->
-<link rel="stylesheet" href="../css/layouts.css" />
-<link rel="stylesheet" href="../css/footer.css" />
-<script type="text/javascript" src="../js/jquery-3.7.1.min.js"></script>
-<script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
-<script type="text/javascript" src="../js/zipCheck.js"></script>
-<script type="text/javascript" src="../js/member.js"></script>
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" href="../css/bootstrap.min.css" />
+<script type="text/javascript" src="../js/jquery-3.7.1.min.js"></script>    
 <script type="text/javascript" src="../js/layout.js"></script>
-<title>폰케이스</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ShopTest</title>
 
 </head>
 <body>
 <div class="large-container">
-	<div class="container">
+	<div class="container" style="">
 		<c:import url="./header.jsp" />
 		<div class="content">
 			<c:import url="./swiper.jsp" />	
 			<div class="site-desc">
-			<!-- 	<section class="site-desc-direction">
+				<section class="site-desc-direction">
 					<div class="TwoColumn-Sec">
 						<div class="TwoColumn-Sec-Col">
 							<div class="TwoCol-Sec-MediaContainer">
@@ -63,21 +62,39 @@
 							</div>
 						</div>
 					</div>
-				</section> -->
+				</section>
 			</div>
 			<div>
+				<div class="Item-container">
+					<div class="Item-card iDetail" th:each="item : ${items}">
+						<input name="iid" type="hidden" th:value="${item.getId()}">
+						<!-- <a class="goto-item" th:href="@{itemView/{id}(id=${item.getId()})}"></a> -->
+						<div class="item-img-contain">
+							<img class="item-img" th:src="@{${item.getImgPath()}}" alt="..." />
+						</div>
+						<div class="item-text">
+							<p class="item-kind item-context" th:text="${item.getKind()}"></p>
+							<p class="item-name item-context" th:text="${item.getName()}"></h3>
+							<p class="item-value item-context" th:text="'$'+${item.getItem_price()}"></p>
+						</div>
+						
+					</div>
+					
+					
+				</div>
 				<div align="right">
 					<!-- <a href="/itemNew">
 						<button type="button" id="AddItem">Add Item</button>
 					</a> -->
 				</div>
 			</div>
+			<p>Ads</p>	
 		</div>
 	</div>
 	<c:import url="./footer.jsp" />
 </div>
-<!-- <div class="load" id="load">
+<div class="load" id="load">
 	<img src="images/loading2.webp">
-</div> -->
+</div>
 </body>
 </html>

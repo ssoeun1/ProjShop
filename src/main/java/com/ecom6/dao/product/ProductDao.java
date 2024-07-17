@@ -28,6 +28,4 @@ public interface ProductDao {
 	int deleteProduct(ProductVO pvo);
 
 	int updateStock(OrderVO ovo);
-	
-	int getSearch(String string);
 }

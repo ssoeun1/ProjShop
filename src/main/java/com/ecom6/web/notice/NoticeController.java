@@ -7,9 +7,11 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.ecom6.VO.mem.MemberVO;
 import com.ecom6.VO.notice.NoticeVO;
+import com.ecom6.common.vo.PageInfo;
 import com.ecom6.common.vo.PageVO;
 import com.ecom6.service.notice.NoticeService;
 
