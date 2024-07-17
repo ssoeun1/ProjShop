@@ -37,5 +37,5 @@ public class RestApiController {
 		List<NoticeVO> noticeList = noticeService.getNotice(nvo);
 		return noticeList;
 	}
-	
+
 }

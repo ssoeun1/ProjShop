@@ -71,10 +71,12 @@ public class CartServiceImpl implements CartService {
 		 if (cnt != 0) {
 			 total = cartDao.getCartTotalPrcie(mem_id);
 		 }
+
 		 // 페이지 계산로직 
 		 List<OrderVO> cartList = cartDao.getCartItemList(mem_id);
 		 log.info("total ======> " +total);
 		 reSet.put("subTotal", total);
+
 		 reSet.put("cartTot", cnt);
 		 reSet.put("cartList", cartList);
 

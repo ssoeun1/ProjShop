@@ -25,5 +25,4 @@ public interface NoticeService {
 
 	int getSearch(HashMap<String, String> param);
 
-
 }

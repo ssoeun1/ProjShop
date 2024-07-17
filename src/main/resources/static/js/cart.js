@@ -16,6 +16,7 @@ function cartUpdate(f, obj) {
 	var s = stock.replace(/[,]/g, '');
 	if(f == 'D'){
 		url = 'cartProc?flag=delete';
+		
 		$(obj).closest('li').remove();
 	} else if(f == 'U') {
 		if(parseInt(q)>parseInt(s)) {
@@ -25,10 +26,8 @@ function cartUpdate(f, obj) {
 		var a = parseInt(q)*parseInt(p);
 		$(obj).closest('li').find('input[name=total]').val(numberWithCommas(a));
 		url = 'cartProc?flag=update';
-			
 		getTotal();
 	}
-	
 	
 	
 	$.ajax({
@@ -61,17 +60,16 @@ function fnCalCount(type, ths){
         }
     }
 }
-
 function getTotal() {
 	var arr = new Array();
 	var total = 0;
-	
+
 	$('input[name=total]').each(function(index, item) {
 		var item_price = $(item).val();
 		item_price = parseInt(item_price.replace(/[,]/g, ""));
 		arr.push(item_price);
 	});
-	
+
 	arr.forEach((element)=> {
 		total += element;
 	});

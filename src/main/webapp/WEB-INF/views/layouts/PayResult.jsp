@@ -53,7 +53,7 @@
 		<p>${responseMsg}</p>
 		<p>처리 실패</p>
 	</c:if>
-	
+
 	<!-- <a href="/cancelForm">취소하기</a> -->
 	<a href="/cancelProc2">취소하기2</a>
 </body>

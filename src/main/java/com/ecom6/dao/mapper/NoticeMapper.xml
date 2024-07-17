@@ -29,7 +29,10 @@
 		 ]]>
 		<if test="text!=null and text!=''">
 	    	AND SUBJECT LIKE '%'||#{text}||'%'
-	   </if>
+
+	   </if> 
+		 
+
 </select>
 
 <insert id="noticeProc" parameterType="nvo">

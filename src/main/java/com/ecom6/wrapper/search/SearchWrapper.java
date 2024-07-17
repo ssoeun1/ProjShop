@@ -19,10 +19,10 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 @Service("searchWrapper")
 public class SearchWrapper {
-	
+
 	@Autowired
 	private ProductService productService;
-	
+
 	@Autowired
 	private NoticeService noticeService;
 
@@ -40,7 +40,7 @@ public class SearchWrapper {
 				search_item = (HashMap<String, Object>) productService.getProductsList(pvo, pgVo);
 
 				reSet.put("search_list", (List<Object>) search_item.get("productList"));
-				
+
 			} else if (Integer.parseInt(param.get("bucket")) == 2) {
 				NoticeVO nvo = new NoticeVO();
 				nvo.setText(param.get("text"));
@@ -54,15 +54,17 @@ public class SearchWrapper {
 
 			reSet.put("search_list", (List<Object>) search_item.get("productList"));
 		}
-		
+
 		log.info("찾은 아이템 항목 수 PRODUCT: "+p_search);
 		log.info("찾은 아이템 항목 수 NOTICET: "+n_search);
 		reSet.put("p_search", p_search);
 		reSet.put("n_search", n_search);
-		
+
+
 		return reSet;
 	}
-	
-	
+
+
 
 }
+

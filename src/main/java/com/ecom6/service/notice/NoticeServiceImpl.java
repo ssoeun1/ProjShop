@@ -95,7 +95,17 @@ public class NoticeServiceImpl implements NoticeService {
 	public int deleteNotice(NoticeVO nvo) {
 		return noticeDao.deleteNotice(nvo);
 	}
+	@Override
+	public List<NoticeVO> getNotice(NoticeVO nvo) {
+		log.info("nvo =====> "+nvo);
+		List<NoticeVO> NoticeList = noticeDao.getNoticeList(nvo);
+		return NoticeList;
+	}
 
+	@Override
+	public int getSearch(HashMap<String, String> param) {
+		return noticeDao.getSearch(param.get("text"));
+	}
 
 	@Override
 	public List<NoticeVO> getNotice(NoticeVO nvo) {

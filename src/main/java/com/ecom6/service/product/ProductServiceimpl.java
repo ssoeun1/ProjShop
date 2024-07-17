@@ -72,6 +72,7 @@ public class ProductServiceimpl implements ProductService {
 				    pgCnt:pgVo.getCurBl()*PageInfo.PAGE_OF_BLOCK;
 		pgVo.setStartPg(startPg);
 		pgVo.setEndPg(endPg);
+		log.info("pvo logging =====> "+pvo);
 		
 		log.info("pvo logging =====> "+pvo);
 		List<ProductVO> productList = productDao.getProductList(pvo);
