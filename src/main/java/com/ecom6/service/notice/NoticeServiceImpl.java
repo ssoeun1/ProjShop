@@ -96,6 +96,7 @@ public class NoticeServiceImpl implements NoticeService {
 		return noticeDao.deleteNotice(nvo);
 	}
 
+
 	@Override
 	public List<NoticeVO> getNotice(NoticeVO nvo) {
 		log.info("nvo =====> "+nvo);

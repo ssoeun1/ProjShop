@@ -153,9 +153,13 @@
 				</span>
 			</div>
 			<p class="cart__total-note">Shipping &amp; taxes calculated at checkoutIncl. VAT, Free shipping and handling.</p>
+
 			<input class="btn btn-dark" type="submit" value="주문하기">
 			
 			<!-- <input class="btn btn-dark" type="button" onclick="javascript:location.href='orderProc'" value="주문하기"> -->
+
+			<input class="btn btn-dark" type="button" onclick="javascript:location.href='orderProc'" value="주문하기">
+
 			<input class="btn btn-dark" type="button" onclick="javascript:location.href='productList'" value="상품목록으로">
 		</div>
 		</form>
