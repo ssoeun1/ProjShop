@@ -13,7 +13,7 @@
 	<div class="container">
 			<div class="loginform">
 			<div id="Large-login-box">
-			<h1 class="login-title">LOGIN</h1>
+			<div class="login-title">회원로그인</div>
 			<form action="loginProc" method="post" name="LoginForm">
 				<ul class="large-login-input">
 					<li>
@@ -29,7 +29,7 @@
 			</div>
 		</div>
 		<div id="join_search" style="display: flex; justify-content: center;">
-     <a href="/memSearch" style="color: gray; font-size: 20px; text-decoration: none; padding-left: 270px;">Find ID </a>
+     <a href="/memSearch" style="color: gray; font-size: 16px; text-decoration: none; padding-left: 270px;">Find ID </a>
   </div>
 	</div>
 </div>

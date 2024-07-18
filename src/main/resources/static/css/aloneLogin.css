@@ -12,7 +12,12 @@
 
 .login-title {
 	text-align: center;
-	margin-bottom: 40px;
+	margin-bottom: 20px;
+	margin-top: 160px;
+	margin-right: 50px;
+	text-align: center;
+	font-weight: bold;
+	font-size: 20px;
 }
 
 form {
@@ -45,23 +50,27 @@ form {
 	margin-top: 15px;
 	margin-right: 50px;
 	border: 1px solid #000;
-	border-radius: 10px;
-	font-size: 25px;
+	border-color: #d17c2e;
+	font-size: 20px;
 	padding: 10px 20px;
 }
-
+input::placeholder {
+	font-size: 11px;
+}
 
 
 .login-btn {
 	text-align: center;
 	margin-top: 20px;
 	margin-right: 50px;
-	font-size: 25px; 
+	font-size: 20px; 
 }
 
-.login-btn:hover {
-	background-color: #fff;
-	color: #000;
+.login-btn{
+	background-color: #54c8a7;
+	color: white;
+	padding: 10px 0;
+	border: none;
 }
 .large-login-input li{
 	list-style: none;
