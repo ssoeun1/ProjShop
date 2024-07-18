@@ -18,7 +18,10 @@
 	       )
 		  <![CDATA[       
 	       WHERE RN  >= #{start} AND RN <= #{end}
-	      ]]>  		 
+	      ]]>
+	      <if test="text!=null and text!=''">
+		    AND P_NAME LIKE '%'||#{text}||'%'
+		  </if>		 
 	</select>
 	
 	<insert id="insertProduct" parameterType="pvo">

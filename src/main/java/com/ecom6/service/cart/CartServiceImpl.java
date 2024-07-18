@@ -67,10 +67,15 @@ public class CartServiceImpl implements CartService {
 
 		 Map<String, Object> reSet = new HashMap<String, Object>(); 
 		 int cnt = cartDao.getCartItemCnt(mem_id);
-
+		 
+		 int total = 0;
+		 if (cnt != 0) {
+			 total = cartDao.getCartTotalPrcie(mem_id);
+		 }
+		 
 		 // 페이지 계산로직 
 		 List<OrderVO> cartList = cartDao.getCartItemList(mem_id);
-		 log.info("CartList ====> "+cartList); 
+		 reSet.put("subTotal", total);
 
 		 reSet.put("cartTot", cnt);
 		 reSet.put("cartList", cartList);

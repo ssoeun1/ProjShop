@@ -8,6 +8,7 @@
 <title>USER INFO</title>
 <script type="text/javascript" src="js/member.js"></script>
 <script type="text/javascript" src="js/common.js"></script>
+<link rel="stylesheet" type="text/css" href="css/signup.css" />
 </head>
 <body>
 <form action="" name="form1" method="post">
