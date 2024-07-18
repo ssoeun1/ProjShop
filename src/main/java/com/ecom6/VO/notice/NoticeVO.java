@@ -22,4 +22,4 @@ public class NoticeVO {
 	private String text;
 	private int start;
 	private int end;
-}   
+}

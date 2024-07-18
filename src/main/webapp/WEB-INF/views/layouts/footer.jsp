@@ -115,12 +115,7 @@
 	    <div class="bt_dummy">
 	      <div class="bt_escrow" data-ez-escrow style="display:none;">
 	        <a href="#" data-ez-link="#link">
-	          <div class="escrow_img">
-	            <img src="/SkinImg/img/bt_ew_allat.png" class="bt_ew_allat"
-	                 data-ez-escrow-id="allat">"&nbsp;"
-	            <img src="/SkinImg/img/bt_ew_iniapy.png" class="bt_ew_iniapy"
-	                 data-ez-escrow-id="inicis">"&nbsp;"
-	          </div>
+	          
 	          <span>
 	          고객님은 안전거래를 위해 결제시 저희 쇼핑몰에서 가입한 구매안전 
 	          서비스를 이용하실 수 있습니다. [서비스가입정보확인]

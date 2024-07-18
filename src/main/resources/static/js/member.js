@@ -145,6 +145,14 @@ $().ready(function(){
 			}
 
 		});
+	
+	$('#mobile1, #mobile2, #mobile3').on('propertychange change paste input', function(){
+		let n1 = $('#mobile1').val();
+		let n2 = $('#mobile2').val();
+		let n3 = $('#mobile3').val();
+
+		$('input[name=m_phone]').val(n1+n2+n3);
+	});
 })
 
 function chkValidate(formNm) {
@@ -179,4 +187,8 @@ function chkValidate(formNm) {
 		}
 	}
 	return true;
+
+
+
+        
 }

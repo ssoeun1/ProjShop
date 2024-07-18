@@ -2,6 +2,11 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
 <link rel="stylesheet" href="../css/layouts.css" />
+<link rel="stylesheet" href="../css/swiper.css" />
+<script type="text/javascript" src="../js/jquery-3.7.1.min.js"></script>
+<script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+<script type="text/javascript" src="../js/zipCheck.js"></script>
+<script type="text/javascript" src="../js/member.js"></script>
 
 <body class="theme03" data-ez-theme="theme03" monica-locale="ko" monica-version="5.8.0" monica-id=
       "ofpnmcalabcbjgholdjcjblkibolbppb">

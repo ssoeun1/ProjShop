@@ -23,7 +23,7 @@
             	<c:import url="layouts/header.jsp" />
        		</c:otherwise>
 		</c:choose>
-			<div class="content">
+			<div class="contents">
 				<c:import url="${content}"></c:import>			
 			</div>
 		</div>

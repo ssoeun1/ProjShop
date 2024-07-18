@@ -25,6 +25,6 @@ public interface NoticeDao {
 //	int noticeDelProc(NoticeVO nvo);
 
 	int deleteNotice(NoticeVO nvo);
-
+	
 	int getSearch(String string);
 }
