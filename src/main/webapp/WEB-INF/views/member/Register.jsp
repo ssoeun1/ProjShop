@@ -5,7 +5,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="stylesheet" type="text/css" href="css/signup.css" />
+<link rel="stylesheet" type="text/css" href="../css/signup.css" />
+<script type="text/javascript" src="js/member.js"></script>
 </head>
 <body>
 <form action="registerProc" name="form1" method="post">
@@ -18,38 +19,48 @@
 	</colgroup>
 	<tr>
       <th class="col1"><img src="/images/blue_dot.gif"> 아이디</th>
-      <th class="col2"><input type="text"  name="mem_id" id="idchk" title="아이디" 
-         class="chk form-control">
-      <span class="txtInfo">(영문소문자/숫자, 4~16자)</span>
+      <th class="col2">
+      <div class="input-container">
+	      <input type="text"  name="mem_id" id="idchk" title="아이디" class="chk form-control">
+	      <span class="txtInfo">(영문소문자/숫자, 4~16자)</span>
+      </div>
       </th>
       <th class="col3">&nbsp;<font id="warning" size="2" color="red"></font></th>
     </tr>
     <tr>
       <th class="col1"><img src="/images/blue_dot.gif"> 패스워드</th>
       <th class="col2">
-        <input type="password" name="m_passwd" id="check1" title="패스워드" class="chk form-control">
-        <span class="txtInfo">(영문 대소문자/숫자/특수문자 중 2가지 이상 조합, 8자~16자)</span>
+      	<div class="input-container">
+	        <input type="password" name="m_passwd" id="check1" title="패스워드" class="chk form-control">
+	        <span class="txtInfo">(영문 대소문자/숫자/특수문자 중 2가지 이상 조합, 8자~16자)</span>
+      	</div>
       </th>
       <th class="col3">&nbsp;<font id="check" size="2" color="green"></font></th>
     </tr>
     <tr>
       <th class="col1"><img src="/images/blue_dot.gif"> 패스워드 확인</th>
-      <th class="col2"><input type="password"  name="m_repasswd" id="check2" 
-          title="패스워드 확인" class="chk form-control">
+      <th class="col2">
+      	<div class="input-container">
+      	  <input type="password"  name="m_repasswd" id="check2" title="패스워드 확인" class="chk form-control">
+      	</div>
       </th>
       <th class="col3">&nbsp;</th>
     </tr>
      <tr>
        <th class="col1"><img src="/images/blue_dot.gif"> 이름</th>
        <th class="col2">
-         <input type="text" name="m_name" class="chk form-control" title="이름">
+         <div class="input-container">
+           <input type="text" name="m_name" class="chk form-control" title="이름" placeholder="홍길동">
+         </div>
        </th>
        <td class="col3">&nbsp;</td>
       </tr>
       <tr>
        <th class="col1"><img src="/images/blue_dot.gif"> 이메일</th>
        <td class="col2">
-         <input type="text" name="m_email" class ="form-control">
+       	 <div class="input-container">	
+           <input type="text" name="m_email" class ="form-control" placeholder="user123@naver.com">
+       	 </div>
        </td>
 	  <td class="col3"><font class="emailNm" size="2"></font></td>
       </tr>
@@ -86,7 +97,7 @@
             <input type="text" name="address" class="chk form-control" 
                readonly="readonly" id="sample6_address" title="우편번호검색">
             <input type="text" name="address2"  class="chk form-control"  
-             id="sample6_detailAddress">
+             id="sample6_detailAddress" placeholder="상세주소">
             <input type="hidden" id="sample6_extraAddress">
         </td>
         <td class="col3"></td>
@@ -94,7 +105,7 @@
 		<tfoot>
 		<tr>
 			<td colspan="3">
-				<a href="/" type="button" class="btnBack">취소</a>
+				<button type="button" class="btnBack" onclick="location.href='/'">취소</button>
 				<button type="button" id="submit1" class="btnJoin">가입하기</button>
 			</td>
 		</tr>

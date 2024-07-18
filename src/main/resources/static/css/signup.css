@@ -44,7 +44,7 @@ table{
 .input-container {
     display: flex;
     align-items: center; /* 수직 정렬 */
-    gap: 10px; /* 요소 사이 간격 */
+    gap: 5px; /* 요소 사이 간격 */
 }
 input[type=text], input[type=password] {
     height: 35px;
@@ -96,16 +96,16 @@ td{
     padding-right: 10px;
 }
 .btnBack{
-    width: 345px;
+    /* width: 345px; */
     padding: 12px 12px 10px 10px;
     border: 1px solid #54c8a7;
     line-height: 20px;
     font-weight: normal;
     text-align: center;
-    color: #d17c2e;
+    color: #000;
 }
 .btnJoin{
-    width: 345px;
+    /* width: 345px; */
     padding: 12px 12px 10px 10px;
     border: 1px solid transparent;
     line-height: 20px;

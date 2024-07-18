@@ -18,6 +18,12 @@ ul {
 	padding-bottom: 50px;
 }
 
+div.contents {
+	width: 1200px;
+	margin: 0 auto;
+}
+
+
 :root {
     --font-color-base: #000;
     --font-color-heading: #000;

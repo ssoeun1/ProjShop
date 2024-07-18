@@ -98,6 +98,21 @@
 							</tr>
 						</tbody>
 					</table>
+					<form action="cartProc?flag=add" name="form1" method="post">
+						<input type="hidden" name="p_no" title="상품명" value="${product.p_no}" readonly="readonly"> 
+						<input type="hidden" name="stock" class="chk num" title="재고수량" value="${product.stock}" readonly="readonly"> 
+						<input type="hidden" name="quantity" class="chk inNum" title="구매수량" value="1"> 
+						<input type="hidden" name="price" class="chk inNum" title="구매수량" value="${product.price}"> 
+						<div class="prd-ProductContent_Buy">
+							<div class="prd-DetailForm_Buttons">
+								<button type="submit" name="add" class="prd-DetailForm_Button btn-Button btn-Button-primary btn-Button-fullWidth fz-13_18" data-ajaxadd-button="">
+	                 	 			<span data-ajaxadd-button-text="" class="product__actions-button-text">
+									장바구니 담기
+									</span>
+	                			</button>
+							</div>
+						</div>
+					</form>
 				</div>
 			</div>
 			<div id="detail" class="cboth">
