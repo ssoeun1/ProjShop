@@ -9,6 +9,7 @@
 <title>쇼핑몰</title>
 <!-- <link rel="stylesheet" type="text/css" href="./css/ProductList.css" /> -->
 <link rel="stylesheet" type="text/css" href="../css/OrderList.css" />
+<script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 <script type="text/javascript" src="./js/jquery-3.7.1.min.js"></script>
 <script src="./js/product.js" defer="defer"></script>
 <script src="./js/cart.js" defer="defer"></script>
@@ -22,7 +23,7 @@
 		<div id="ec-orderform-header-head"></div>
 		<div class="header">
 			<h1 class="xans-element- xans-layout xans-layout-logotop ">
-				<a href="/index.html">Modi studio</a>
+				<a href="/">Modi studio</a>
 			</h1>
 			<div class="headerMenu gLeft">
 				<span class="xans-element- xans-layout xans-layout-mobileaction btnBack ">
@@ -42,7 +43,7 @@
 						</span>
 					</a>
 				</span>
-				<a href="/myshop/index.html" class="xans-element- xans-layout xans-layout-statelogon btnMy ">
+				<a href="/" class="xans-element- xans-layout xans-layout-statelogon btnMy ">
 				마이쇼핑
 				</a>
 			</div>
@@ -393,21 +394,21 @@
 											                </span>
 											            </li>
 											            <li id="receiver_zipcode_wrap" class="ec-address-zipcode" style="">
-											                <input type="text" name="zipcode" id="rzipcode1" class="chk form-control" value="${mvo.zipcode}">
+											                <input type="text" name="zipcode" id="sample6_postcode" class="chk form-control" value="${mvo.zipcode}"placeholder="우편번호">
 											                  <button class="btnBasic" type="button" onclick="zipCheck()">주소검색</button> 
 							               				      <span class="ec-base-label">
 							                                      <input id="no_rzipcode0" name="no_rzipcode0" class="displaynone" type="checkbox" disabled="" fw-filter="" style="display: none; cursor: unset;">
-							                                      <label id="receiver_zipcode_check_label" for="no_rzipcode0" class="displaynone" disabled="" style="display: none;" fw-filter="">우편번호 없음</label>
+							                                      <label id="receiver_zipcode_check_label" for="no_rzipcode0" class="dis0playnone" disabled="" style="display: none;" fw-filter="">우편번호 없음</label>
 							                                  </span>
 							                                  <span id="receiver_zipcodeNotFoundMsg_wrap" class="ec-base-label displaynone">
 							                                    우편번호가 정확하지 않습니다. 다시 확인해 주세요.
 							                                  </span>
 							                             </li>
-							                             <li id="sample6_address" class="" style="">
+							                             <li id="" class="" style="">
 													          <input id="sample6_address" name="raddr1" value="${mvo.address}" placeholder="기본주소" fw-filter="isFill" class="inputTypeText" type="text" size="60" maxlength="100" readonly="" fw-label="기본주소" style="">
 													     </li>
 													     <li id="sample6_extraAddress" class="" style="">
-													          <input id="sample6_extraAddress" name="raddr2"  value="${mvo.address2}" placeholder="나머지 주소(선택 입력 가능)" fw-filter="" class="inputTypeText" type="text" size="60" maxlength="255" fw-label="나머지 주소(선택 입력 가능)" style="">
+													          <input id="sample6_detailAddress" name="raddr2"  value="${mvo.address2}" placeholder="나머지 주소(선택 입력 가능)" fw-filter="" class="inputTypeText" type="text" size="60" maxlength="255" fw-label="나머지 주소(선택 입력 가능)" style="">
 													     </li>
 												 </ul> 
 											 </td>
@@ -443,10 +444,10 @@
 												</th>
 												<td>
 													<div class="ec-base-mail">
-														<input id="oemail1" name="oemail1" fw-filter="isFill" fw-label="주문자 이메일" fw-alone="N" fw-msg class="mailId" value type="text">
+														<input id="oemail1" name="oemail1" class="mailId" value type="text">
 														@ 
 														<span class="mailAddress">
-															<select id="oemail3" fw-filter="isFill" fw-label="주문자 이메일" fw-alone="N" fw-msg>
+															<select id="oemail3">
 																<option value selected="selected">
 																-이메일 선택-
 																</option>
@@ -456,7 +457,7 @@
 																<option value="etc">직접입력</option>
 															</select>
 															<span class="directInput ec-compact-etc">
-																<input id="oemail2" name="oemail2" fw-filter="isFill" fw-label="주문자 이메일" fw-alone="N" fw-msg placeholder="직접입력" readonly="readonly" value type="text">
+																<input id="oemail2" name="oemail2" placeholder="직접입력" readonly="readonly" value type="text">
 															</span>
 														</span>
 													</div>
@@ -502,8 +503,8 @@
 					                                <span class="displaynone">₩18,000원</span>
 					                                <span class="displaynone"></span>
 					                                <span class="display">
-					                                    <span id="">₩18,000원 </span>
-					                                    <span class="displaynone">()</span>
+					                                    <span id="">₩17,000원</span>
+					                                     <span class="displaynone">()</span>
 					                                </span>
 					                            </div>
 					                        </div>

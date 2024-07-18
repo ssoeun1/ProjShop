@@ -670,11 +670,11 @@ input, select, textarea {
     }
 }
 @media screen and (max-width: 767px) {
-    #mCafe24Order #ozipcode1, #mCafe24Order #rzipcode1, #mCafe24Order #fzipcode, #mCafe24Order #tax_request_zipcode {
+    #mCafe24Order #ozipcode1, #mCafe24Order #sample6_postcode, #mCafe24Order #fzipcode, #mCafe24Order #tax_request_zipcode {
         width: 100%;
     }
 }
-#mCafe24Order #ozipcode1, #mCafe24Order #rzipcode1, #mCafe24Order #fzipcode, #mCafe24Order #tax_request_zipcode {
+#mCafe24Order #ozipcode1, #mCafe24Order #sample6_postcode, #mCafe24Order #fzipcode, #mCafe24Order #tax_request_zipcode {
     width: 160px;
     text-align: left;
 }

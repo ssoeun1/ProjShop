@@ -271,6 +271,36 @@ div.ec-base-help .inner, .xans-myshop-couponserial .couponSerial, .xans-myshop-s
     font-size: 1px;
     line-height: 1px;
 }
+@media screen and (max-width: 1024px) {
+    .titleArea h2 {
+        font-size: 22px;
+    }
+}
+@media screen and (max-width: 1024px) {
+    .titleArea h2 {
+        width: 80%;
+    }
+}
+.titleArea h2 {
+    word-break: keep-all;
+    word-wrap: break-word;
+    width: 100%;
+}
+.titleArea h2 {
+    font-weight: 700;
+    font-size: 32px;
+    color: #1a1a1a;
+}
+@media (max-width: 1024px) {
+    .titleArea h2 {
+        display: inline-block;
+        color: var(--font-color-heading);
+        font-size: 22px;
+    }
+}
+.titleArea h2 {
+    font-weight: normal;
+}
 .ec-base-button {
         margin-left: 16px;
         margin-right: 16px;
