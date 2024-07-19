@@ -1,12 +1,19 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <link rel="stylesheet" href="../css/layouts.css" />
 <link rel="stylesheet" href="../css/swiper.css" />
 <script type="text/javascript" src="../js/jquery-3.7.1.min.js"></script>
 <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 <script type="text/javascript" src="../js/zipCheck.js"></script>
 <script type="text/javascript" src="../js/member.js"></script>
+
+<!-- <input type="text" id="sample6_postcode" placeholder="우편번호">
+<input type="button" onclick="sample6_execDaumPostcode()" value="우편번호 찾기"><br>
+<input type="text" id="sample6_address" placeholder="주소"><br>
+<input type="text" id="sample6_detailAddress" placeholder="상세주소">
+<input type="hidden" id="sample6_extraAddress" placeholder="참고항목"> -->
 
 <body class="theme03" data-ez-theme="theme03" monica-locale="ko" monica-version="5.8.0" monica-id=
       "ofpnmcalabcbjgholdjcjblkibolbppb">
@@ -20,8 +27,15 @@
 	       </div>
 	     </div>
 	     <div class="toparea_state" data-ez-group="top-util-menu" data-ez-role="list">
-	       <a href="/join">회원가입  &nbsp;|</a>
-	       <a href="/login">로그인</a>
+			<c:choose>
+				<c:when test="${ssKey!=null}">
+	     			<a href="/logoutProc">로그아웃</a>
+	     		</c:when>
+	     		<c:otherwise>	     		
+			       <a href="/join">회원가입  &nbsp;|</a>
+			       <a href="/login">로그인</a>
+	     		</c:otherwise>
+	     	</c:choose>
 	       
          </div>
        </div>  
@@ -99,12 +113,11 @@
 			   <!-- </a> -->
 			   <div class="dropdown">
 				   <a href="/info">
-				      <svg xmins="http://www.w3.org/2000/svg" width="24;" height="24" fill="none"
-				           viewBox="0 0 24 24" class="icon" role="img">
-				         <circle cx="11.5" cy="6.5" r="3.75" stroke="#000" stroke-width="1.5"></circle>  
-				         <path stroke="#000" d="M1.78 21.25c.382-4.758 4.364-8.5 9.22-8.5h1c4.856 0 8.838 3.742 9.22 8.5H1.78z">
-				         </path>    
-				      </svg>
+				      <button class="btn-icon" 
+						id="searchMenuBtn" type="button" title="">
+						<img class="icon" src="../images/user.svg">
+						<span class="screenreader">Search</span>
+					  </button>
 				   </a>
 				   <div class="dropdown-content">
 				   	<c:choose>

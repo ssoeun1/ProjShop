@@ -1,30 +1,57 @@
 @charset "UTF-8";
 
-.tbcol > input, select {
-	overflow: hidden;
-	outline: none;
-	border: none;
-	padding: 2px 4px;
-	background-color: transparent;
-/* 	width: 100px; */
+#productMgt .btnArea{
+	margin-top: 20px;
+	text-align: center;
+	width:80%;
 }
 
-.adcol0 { width: 3%; align-content: center; }	/* checkBox */
-.adcol1 { width: 3%; }
-.adcol2 { width: 20%; }
-.adcol3 { width: 5%; }
-.adcol4 { width: 10%; }
-.adcol5 { width: 5%; }
-.adcol6 { width: 5%; }
-.adcol7 { width: 9%; }
-.adcol8 { width: 5%; }
+#productMgt h3{
+	color:#0e6d1d;
+	text-align: center;
+	margin-top: 10px;
+	margin-bottom: 20px;
+}
 
+#productMgt table{
+	margin-top: 20px;
+	margin-left: 100px;
+	width:80%;
+}
 
-.adcol1 input{ width: 100%; }
-.adcol2 input{ width: 100%; }
-.adcol3 input{ width: 100%; }
-.adcol4 input{ width: 100%; }
-.adcol5 input{ width: 100%; }
-.adcol6 input{ width: 100%; }
-.adcol7 input{ width: 100%; }
-.adcol8 select{ width: 100%; }
+/* #productMgt .pcol1{
+	width: 10%;
+	text-align: center;
+	vertical-align: middle;
+	padding: 3px 3px 3px 3px; 
+}
+#productMgt .pcol2{
+	padding: 3px 3px 3px 10px;
+	text-align: left; 
+	vertical-align: middle;
+}
+#productMgt .pcol3{
+	width: 15%;
+	vertical-align: middle;
+}
+#productMgt .pcol4{
+	width: 25%;
+	vertical-align: middle;
+}
+#productMgt .pcol5{
+	width: 10%;
+	vertical-align: middle;
+} */
+
+table, th, tr, td {
+	border-collapse: collapse;
+}
+
+thead {
+	background-color: #7083ae;
+	color: #fff;
+}
+
+.ocol {
+	padding: 12px;
+} 
