@@ -89,16 +89,17 @@
         <th class="col1"><img src="/images/blue_dot.gif"> 주소</th>
         <td class="col2">
           <div class="input-container">
+          	<div>
              <input type="text" name="zipcode" id="sample6_postcode" readonly="readonly"
-           class="chk form-control"  title="우편번호">
-             <button class="btn" 
-          type="button" onclick="zipCheck()">우편번호</button>
-          </div>
+           		class="chk form-control"  title="우편번호">
+             <button class="btn" type="button" onclick="zipCheck()">우편번호</button>
+          	</div>
             <input type="text" name="address" class="chk form-control" 
                readonly="readonly" id="sample6_address" title="우편번호검색">
             <input type="text" name="address2"  class="chk form-control"  
              id="sample6_detailAddress" placeholder="상세주소">
             <input type="hidden" id="sample6_extraAddress">
+          </div>
         </td>
         <td class="col3"></td>
       </tr>

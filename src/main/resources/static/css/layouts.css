@@ -308,6 +308,7 @@ button, input, optgroup, select, textarea {
 .icon {
     width: 2em;
     height: 2em;
+    margin-bottom: 1px;
 }
 
 
@@ -329,9 +330,6 @@ a:-webkit-any-link {
     margin-top: 100px;
 }
 
-img {
-    -webkit-perspective: 1;
-}
 audio, canvas, img, svg, video {
     max-width:100%;
     height: auto;

@@ -43,16 +43,16 @@
 	    <div class="top_adjust">
 	     <div class="xans-element- xans-layout xans-layout-logotop top_logo ">
 		   <a href="/">
-		     <img class="logo" src="../images/logo-header-background.png">
+		     <img class="logo" src="../images/logo-header-background.svg">
 		   </a>
 		 </div>
 		 <div data-ez-module="menu-main/1" data-ez-mode="manual">
 		   <div class="xans-element- xans-layout xans-layout-category top_category">
 		     <ul>
 			   <li class="dropdown">
-			     <a href="/productList" style="color: #00716a; font-weight: bold;
-			        font-family: Poppins, Noto Sans KR, Arial, sans-serif !important;
-			        text-decoration: none; font-size: 20px;">갤럭시</a>
+			     <a href="/productList" style="color: #ce4a4a; font-weight: bold;
+					font-family: Poppins, Noto Sans KR, Arial, sans-serif !important;
+					text-decoration: none; font-size: 20px;">갤럭시</a>
 			     <ul class="sub_cate01 dropdown-content">
 			       <li class="noChild">
 			         <a href="/productList">갤럭시 버전</a>
@@ -69,9 +69,9 @@
 			     </ul>
 			   </li> 
 			   <li class="dropdown">
-			     <a href="/productList" style="color: #00716a; font-weight: bold;
-			        font-family: Poppins, Noto Sans KR, Arial, sans-serif !important;
-			        text-decoration: none; font-size: 20px;">아이폰</a>
+			     <a href="/productList" style="color: #ce4a4a; font-weight: bold;
+					font-family: Poppins, Noto Sans KR, Arial, sans-serif !important;
+					text-decoration: none; font-size: 20px;">아이폰</a>
 			      <ul class="sub_cate01 dropdown-content">
 			       <li class="noChild">
 			         <a href="/category/Hard/28/">아이폰 버전</a>

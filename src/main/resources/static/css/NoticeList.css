@@ -31,3 +31,28 @@ table, tr, td, th {
 /* .ncol6 input{ width: 100%; }
 .ncol7 input{ width: 100%; }
 .ncol8 select{ width: 100%; } */
+
+thead {
+	background-color: #de7575;
+	color: #fff;
+	height: 30px;
+}
+
+.tbcol {
+	padding: 12px;
+} 
+
+.btnJoin{
+    width: 100px;
+    padding: 12px 12px 10px 10px;
+    border: 1px solid transparent;
+    line-height: 20px;
+    font-weight: bold;
+    text-align: center;
+    color: #fff;
+    background-color: #de7575;
+}
+
+.btnArea {
+	margin-top: 20px;
+}

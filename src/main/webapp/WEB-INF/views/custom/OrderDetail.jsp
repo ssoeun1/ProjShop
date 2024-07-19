@@ -75,7 +75,7 @@ function jsf__pay() {
 		<div id="ec-orderform-header-head"></div>
 		<div class="header">
 			<h1 class="xans-element- xans-layout xans-layout-logotop ">
-				<a href="/">Modi studio</a>
+				<a href="/">Dimple Case</a>
 			</h1>
 			<div class="headerMenu gLeft">
 				<span class="xans-element- xans-layout xans-layout-mobileaction btnBack ">

@@ -44,7 +44,7 @@
           </style>
         <a href="javascript:void(0)%5C;" style="cursor:default">
             <picture>
-              <img src="images/backB3.jpg">
+              <img src="../images/backB3.jpg">
             </picture>
           </a>
         </div>
