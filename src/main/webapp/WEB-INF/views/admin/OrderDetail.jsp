@@ -84,9 +84,9 @@
    			</tr>
    		</table>
    		<div align="center" style="margin-top: 20px;">
-  			<input name="stateUpdate" type="button" class="psubmit" value="상태수정">
-  			<input name="Orderdelete" type="button" class="psubmit" value="주문삭제">
-  			<input type="button" onclick="javascript:location.href='orderFIX'" value="주문목록">
+  			<input name="stateUpdate" type="button" class="btnJoin" value="상태수정">
+  			<input name="Orderdelete" type="button" class="btnJoin" value="주문삭제">
+  			<input type="button" onclick="javascript:location.href='orderFIX'" class="btnJoin" value="주문목록">
    			
    		</div>
 	</form>

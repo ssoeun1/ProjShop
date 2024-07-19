@@ -23,7 +23,7 @@
 		    <div class="bt_info_list" data-ez-role="list">
 		      <div data-ez-item="company_name">
 		        <span data-ez-role="field">상호명</span>
-		        <span data-ez-role="value">dimple case</span>
+		        <span data-ez-role="value">Dimple Case</span>
 		      </div>
 		      <div data-ez-item="president_name">
 		        <span data-ez-role="field">대표자명</span>
@@ -44,7 +44,7 @@
 		      <div data-ez-item="network_regno">
 		        <span data-ez-role="field">통신판매업 신고번호</span>
 		        <span data-ez-role="value">2020-성남시-1364
-		          <a href="#none" style="text-decoration-line: none; color: #aaa;"
+		          <a href="#none" style="text-decoration-line: none; color: #000;"
 		              >[사업자정보확인]</a>
 		        </span>
 		      </div>

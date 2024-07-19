@@ -6,6 +6,7 @@
         border-bottom: 1px solid #ebebeb;
     }
 }
+
 table{
     border-top: 2px solid #dfdfdf;
 }
@@ -14,6 +15,7 @@ table{
     border: 2.5px solid #ff0000;
     width: 0;
     height: 0;
+    margin: 9px;
 }
 .txtInfo{
     color: #868686;
@@ -26,6 +28,7 @@ table{
     font-size: 16px;
     color: #1a1a1a;
     background-color: #f6f6f6;
+    text-align: left;
 }
 .col2{
 	padding-left: 16px;
@@ -33,6 +36,7 @@ table{
     font-size: 14px;
     color: #1a1a1a;
     border-bottom: 1px solid #ebebeb;
+    text-align: left;
 }
 .col3{
 	padding-left: 16px;
@@ -43,7 +47,8 @@ table{
 }
 .input-container {
     display: flex;
-    align-items: center; /* 수직 정렬 */
+    flex-direction: column;
+    align-items: flex-start;
     gap: 5px; /* 요소 사이 간격 */
 }
 input[type=text], input[type=password] {
@@ -84,7 +89,8 @@ select {
     padding-left: 10px;
 }
 #mobile2, #mobile3{
-    width: 113px;
+    width: 105px;
+    height: 29px;
 }
 td{
 	padding: 10px 0;
@@ -92,25 +98,26 @@ td{
 }
 #sample6_postcode{
     width: 70px;
+    height: 29px;
     text-align: left;
     padding-right: 10px;
 }
 .btnBack{
-    /* width: 345px; */
+    width: 355px;
     padding: 12px 12px 10px 10px;
-    border: 1px solid #54c8a7;
+    border: #de7575;
     line-height: 20px;
     font-weight: normal;
     text-align: center;
     color: #000;
 }
 .btnJoin{
-    /* width: 345px; */
+    width: 355px;
     padding: 12px 12px 10px 10px;
     border: 1px solid transparent;
     line-height: 20px;
     font-weight: bold;
     text-align: center;
     color: #fff;
-    background-color: #54c8a7;
+    background-color: #de7575;
 }

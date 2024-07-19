@@ -39,42 +39,42 @@
 						<tbody>
 							<tr class=" xans-record-">
 								<th scope="row">
-									<span style="font-size:16px;color:#555555;">상품명</span>
+									<span style="font-size:16px;color:#9f1414;font-weight:bold;">상품명</span>
 								</th>
 								<td>
-									<span style="font-size:16px;color:#555555;">Wave of the sea</span>
+									<span style="font-size:16px;color:#000;font-weight:bold;">Wave of the sea</span>
 								</td>
 							</tr>
 							<tr class=" xans-record-">
 								<th scope="row">
-									<span style="font-size:16px;color:#446499;font-weight:bold;">판매가</span>
+									<span style="font-size:16px;color:#c92727;font-weight:bold;">판매가</span>
 								</th>
 								<td>
-									<span style="font-size:16px;color:#446499;font-weight:bold;">
+									<span style="font-size:16px;color:#555555;font-weight:bold;">
 										<strong id="span_product_price_text">18,000원</strong>
 										<input id="product_price" name="product_price" value="" type="hidden">
 									</span>
 								</td>
 							</tr>
-							<tr class=" xans-record-">
+							<tr class="xans-record-">
 								<th scope="row">
-									<span style="font-size:14px;color:#3f6499;">상품간략설명</span>
+									<span style="font-size:14px;color:#c92727;font-weight:bold;">상품간략설명</span>
 								</th>
 								<td>
-									<span style="font-size:14px;color:#3f6499;">
-										"* PC 젤하드 케이스 (맥세이프)"
+									<span style="font-size:14px;color:#555555;font-weight:bold;">
+										* PC 젤하드 케이스 (맥세이프)
 										<br>
 										<br>
-										"핸드폰 보호, 후면 변색에 강함"
+										핸드폰 보호, 후면 변색에 강함
 										<br>
-										"안쪽 보호 필름을 제거해주세요."
+										안쪽 보호 필름을 제거해주세요.
 										<br>
 										<br>
-										"* 배송"
+										* 배송
 										<br>
-										"영업일 기준 3-5일 후 발송됩니다."
+										영업일 기준 3-5일 후 발송됩니다.
 										<br>
-										"* 하단 유의사항을 읽어주세요."
+										* 하단 유의사항을 읽어주세요.
 										<br>
 										<br>
 										<br>
@@ -84,14 +84,14 @@
 							</tr>
 							<tr class=" xans-record-">
 								<th scope="row">
-									<span style="font-size:14px;color:#555555;">배송비</span>
+									<span style="font-size:14px;color:#555555;font-weight:bold;">배송비</span>
 								</th>
 								<td>
-									<span style="font-size:14px;color:#555555;">
+									<span style="font-size:14px;color:#555555;font-weight:bold;">
 										<span class="delv_price_B">
 											<input id="delivery_cost_prepaid" name="delivery_cost_prepaid" value="P" type="hidden">
 											<strong>3,000원</strong>
-											" (50,000원 이상 구매 시 무료)"
+											(50,000원 이상 구매 시 무료)
 										</span>
 									</span>
 								</td>

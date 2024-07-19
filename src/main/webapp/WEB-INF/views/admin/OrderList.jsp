@@ -23,15 +23,15 @@
 		<table class="table table-hover text-center table-bordered border-dark">
 			<thead>
 				<tr>
-					<th class="adcol0"><input type="checkbox" id="checkAll" name="all"></th>
-					<th class="adcol1">순서</th>
-					<th class="adcol2">상품명</th>
-					<th class="adcol3">주문수량</th>
-					<th class="adcol4">구매자</th>
-					<th class="adcol5">단가</th>
-					<th class="adcol6">결제금액</th>
-					<th class="adcol7">결제일</th>
-					<th class="adcol8">주문상태</th>
+					<th class="ocol ocol0"><input type="checkbox" id="checkAll" name="all"></th>
+					<th class="ocol ocol1">순서</th>
+					<th class="ocol ocol2">상품명</th>
+					<th class="ocol ocol3">주문수량</th>
+					<th class="ocol ocol4">구매자</th>
+					<th class="ocol ocol5">단가</th>
+					<th class="ocol ocol6">결제금액</th>
+					<th class="ocol ocol7">결제일</th>
+					<th class="ocol ocol8">주문상태</th>
 				</tr>
 			</thead>
 			<tbody>
@@ -44,13 +44,13 @@
 				<c:when test="${fn:length(orders)>0}">
 					<c:forEach items="${orders}" var="order" varStatus="i">
 						<tr>
-							<th class="adcol0">
+							<th class="ocol0">
 			    				<input type="checkbox" name="ck" value="${i.index}">
 			    			</th>
-							<th class="tbcol adcol1 orderDetail">
+							<th class="ocol ocol1 orderDetail">
 			    				<input type="text" name="rn" value="${order.rn}" class="num " readonly="readonly">
 			    			</th>
-							<th class="tbcol adcol2 orderDetail">
+							<th class="ocol ocol2 orderDetail">
 								<input type="text" name="p_name" value="${order.p_name}"
 			    					class="" readonly="readonly" 
 			    					onclick="javascript:orderDetail(this)">
@@ -58,28 +58,28 @@
 								<input type="hidden" name="o_no" value="${order.o_no}" readonly="readonly">
 								<input type="hidden" name="mem_id" value="${order.mem_id}" readonly="readonly">
 			    			</th>
-			    			<th class="tbcol adcol3 orderDetail">
+			    			<th class="ocol ocol3 orderDetail">
 			    				<input type="text" name="quantity" value="${order.quantity}"
 			    					class="num " readonly="readonly">
 			    			</th>
-			    			<th class="tbcol adcol4 orderDetail">
+			    			<th class="ocol ocol4 orderDetail">
 			    				<input type="text" name="m_name" value="${order.m_name}(${order.mem_id})"
 			    					class="num " readonly="readonly">
 								<input type="hidden" name="mem_id" value="${order.mem_id}" readonly="readonly">
 			    			</th>
-			    			<th class="tbcol adcol5 orderDetail">
+			    			<th class="ocol ocol5 orderDetail">
 			    				<input type="text" name="price" value="${order.price}"
 			    					class="num " readonly="readonly">
 			    			</th>
-			    			<th class="tbcol adcol6 orderDetail">
+			    			<th class="ocol ocol6 orderDetail">
 			    				<input type="text" name="amount" value="${order.amount}"
 			    					class="num " readonly="readonly">
 			    			</th>
-			    			<th class="tbcol adcol7 orderDetail">
+			    			<th class="ocol ocol7 orderDetail">
 			    				<input type="text" name="o_regdate" value="${order.o_regdate}"
 			    					class="" readonly="readonly">
 			    			</th>
-			    			<th class="tbcol adcol8">
+			    			<th class="ocol ocol8">
 			    				<select name="state" class="state${i.count} ">
 				                  <option value="1">결재중</option>
 				                  <option value="2">배송준비</option>
@@ -128,8 +128,8 @@
 	       </c:if> 
 	     </div>
 	     <!-- 페이지 끝 -->
-	     <div class="btnArea">
-		     <input name="s" type="button" class="btn btn-dark mt-2 orderChange" value="상태수정">
+	     <div class="btnArea" align="right">
+		     <input name="s" type="button" class="btnJoin orderChange" value="상태수정">
 	     </div>
 		<!-- <table style="text-align: center">
 			<tr>

@@ -13,7 +13,7 @@ table, tr, td, th {
 /* 	width: 100px; */
 }
 
-.mcol1 { width: 25%; }
+.mcol1 { width: 15%; }
 .mcol2 { width: 25%; }
 .mcol3 { width: 25%; }
 .mcol4 { width: 25%; }
@@ -31,6 +31,16 @@ table, tr, td, th {
 /* .mcol6 input{ width: 100%; }
 .mcol7 input{ width: 100%; }
 .mcol8 select{ width: 100%; } */
+
+thead {
+	background-color: #de7575;
+	color: #fff;
+	height: 30px;
+}
+
+.tbcol {
+	padding: 12px;
+} 
 
 
 

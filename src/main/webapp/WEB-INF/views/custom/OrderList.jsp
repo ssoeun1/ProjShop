@@ -8,8 +8,8 @@
 <meta charset="UTF-8">
 <title>쇼핑몰</title>
 <link rel="icon" href="data;,">
-<!-- <link rel="stylesheet" type="text/css" href="./css/ProductList.css" /> -->
-<link rel="stylesheet" type="text/css" href="./css/CartList.css" />
+
+<link rel="stylesheet" type="text/css" href="./css/OrderList.css" />
 <script type="text/javascript" src="./js/jquery-3.7.1.min.js"></script>
 <script src="./js/product.js" defer="defer"></script>
 <script src="./js/cart.js" defer="defer"></script>
@@ -20,15 +20,19 @@
 	<h2 class="head-title">주문리스트</h2>
 	<div class="totalitem" align="right">주문 건 : ${orderTot}</div>
 	<table>
+		<thead>
 		<tr>
-			<th class="pcol3">상품명</th>
-			<th class="pcol3">주문수량</th>
-			<th class="pcol3">단가</th>
-			<th class="pcol5">결제금액</th>
-			<th class="pcol5">결제일</th>
-			<th class="pcol6">주문상태</th>
+			<th class="ocol ocol1">상품명</th>
+			<th class="ocol ocol2">주문수량</th>
+			<th class="ocol ocol3">단가</th>
+			<th class="ocol ocol4">결제금액</th>
+			<th class="ocol ocol5">결제일</th>
+			<th class="ocol ocol6">주문상태</th>
 
 		</tr>
+		</thead>
+		<tbody>
+		
 		<c:choose>
 			<c:when test="${fn:length(orders)==0}">
 				<tr>
@@ -38,31 +42,36 @@
 			<c:when test="${fn:length(orders)>0}">
 				<c:forEach items="${orders}" var="order">
 				<tr>
-					<th class="pcol3">
-						<input type="text" name="p_name" value="${order.p_name}"
+					<th class="ocol ocol1">
+						<p>${order.p_name}</p>
+						<input type="hidden" name="p_name" value="${order.p_name}"
 	    					class="" readonly="readonly" 
 	    					onclick="javascript:orderDetail(this)">
 						<input type="hidden" name="p_no" value="${order.p_no}" readonly="readonly">
 						<input type="hidden" name="o_no" value="${order.o_no}" readonly="readonly">
 						<input type="hidden" name="mem_id" value="${order.mem_id}" readonly="readonly">
 	    			</th>
-	    			<th class="pcol3">
-	    				<input type="text" name="quantity" value="${order.quantity}"
+	    			<th class="ocol ocol2">
+	    				<p>${order.quantity}</p>
+	    				<input type="hidden" name="quantity" value="${order.quantity}"
 	    					class="num" readonly="readonly">
 	    			</th>
-	    			<th class="pcol3">
-	    				<input type="text" name="price" value="${order.price}"
+	    			<th class="ocol ocol3">
+	    				<p>${order.price}</p>
+	    				<input type="hidden" name="price" value="${order.price}"
 	    					class="" readonly="readonly">
 	    			</th>
-	    			<th class="pcol5">
-	    				<input type="text" name="amount" value="${order.amount}"
+	    			<th class="ocol ocol4">
+	    				<p>${order.amount}</p>
+	    				<input type="hidden" name="amount" value="${order.amount}"
 	    					class="" readonly="readonly">
 	    			</th>
-	    			<th class="pcol5">
-	    				<input type="text" name="o_regdate" value="${order.o_regdate}"
+	    			<th class="ocol ocol5">
+	    				<p>${order.o_regdate}</p>
+	    				<input type="hidden" name="o_regdate" value="${order.o_regdate}"
 	    					class="" readonly="readonly">
 	    			</th>
-	    			<th class="pcol6">
+	    			<th class="ocol ocol6">
 	    				<c:choose>
 	    					<c:when test="${order.state==1}">결재중</c:when>
 	    					<c:when test="${order.state==2}">배송준비</c:when>
@@ -75,6 +84,7 @@
 				</c:forEach>
 			</c:when>
 		</c:choose>
+		</tbody>
 	</table>
 	
 	<!-- 페이지  -->

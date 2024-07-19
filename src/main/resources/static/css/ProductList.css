@@ -17,7 +17,7 @@ ul{
 .ec-base-product .prdList > li {
     display: inline-block;
     margin: 0 0 18px;
-    color: #757575;
+    color: #862323; 
     vertical-align: top;
     
 }
@@ -122,7 +122,6 @@ ul{
     padding: 7px 5px 6px 0;
     text-align: left;
     vertical-align: top;
-    border: 0;
 }
 table {
     width: 100%;
@@ -138,11 +137,11 @@ table {
 }
 .detail_tab li.tab_open {
 	padding-top: 130px;
-    border-bottom: 1px solid #7083ae;
+    border-bottom: 1px solid #592a2a;
 }
 .detail_tab li strong {
     height: 60px;
-    color: #9a9a9a;
+    color: #592a2a;
     font-size: 18px;
     line-height: 80px;
 }
@@ -150,4 +149,62 @@ table {
     display: flex;
     justify-content: center; /* 중앙에 배치 */
     align-items: center; /* 수직 중앙 정렬 */
+}
+
+/* ProductFIX PArt */
+
+.pcol1 { width: 5%; }
+.pcol2 { width: 10%; }
+.pcol3 { width: 10%; }
+.pcol4 { width: 10%; }
+.pcol5 { width: 10%; }
+
+
+.pcol1 input{ width: 100%; }
+.pcol2 input{ width: 100%; }
+.pcol3 input{ width: 100%; }
+.pcol4 input{ width: 100%; }
+.pcol5 input{ width: 100%; }
+
+
+table, th, tr, td {
+	border-collapse: collapse;
+}
+
+thead {
+	background-color: #de7575;
+	color: #fff;
+}
+
+.pcol {
+	padding: 12px;
+} 
+
+input:focus, input {
+	border: 0;
+	outline: none;
+}
+
+.btnBack{
+    width: 355px;
+    padding: 12px 12px 10px 10px;
+    border: #de7575;
+    line-height: 20px;
+    font-weight: normal;
+    text-align: center;
+    color: #000;
+}
+.btnJoin{
+    width: 100px;
+    padding: 12px 12px 10px 10px;
+    border: 1px solid transparent;
+    line-height: 20px;
+    font-weight: bold;
+    text-align: center;
+    color: #fff;
+    background-color: #de7575;
+}
+
+.btnArea {
+	margin-top: 20px;
 }

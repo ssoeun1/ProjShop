@@ -1,0 +1,1249 @@
+@charset "UTF-8";
+
+html {
+    width: 100%;
+    height: 100%;
+}
+html, body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, code, form, fieldset, legend, input, textarea, p, blockquote, th, td, img {
+    margin: 0;
+    padding: 0;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+ul, ol, dl, li {
+    list-style: none;
+}
+a {
+    text-decoration: none;
+    color: #000;
+}
+th, td {
+    border: 0;
+}
+table {
+    table-layout: fixed;
+    width: 100%;
+    border: 0;
+    border-spacing: 0;
+    border-collapse: collapse;
+}
+button {
+    overflow: visible;
+    padding: 0;
+    margin: 0;
+    border: 0;
+    outline: 0;
+    cursor: pointer;
+    -webkit-user-select: none;
+    background: transparent;
+}
+.displaynone {
+    display: none !important;
+}	
+body, code {
+    min-width: 320px;
+    font-size: 16px;
+    font-family: 'NotoSansKR', "맑은 고딕", Malgun Gothic, AppleSDGothicNeo, "돋움", Dotum, sans-serif;
+    font-weight: 400;
+    line-height: 1.4em;
+    letter-spacing: -0.4px;
+    color: #666;
+    background: #EDEDED;
+    -webkit-text-size-adjust: none;
+}
+@media (min-width: 1024px) {
+    #header {
+        max-width: 898px;
+        width: inherit;
+        margin: 0 auto;
+    }
+}
+#header {
+    position: fixed;
+    z-index: 120;
+    top: 0;
+    left: 0;
+    right: 0;
+    min-width: 320px;
+}
+@media screen and (max-width: 767px) {
+    #header .header {
+        border-bottom: 1px solid #D7D7D7;
+    }
+}
+#header .header {
+    position: relative;
+    padding: 18px 0;
+    text-align: center;
+    vertical-align: top;
+    background: #fff;
+}
+#header .header h1 {
+    margin: 0 95px;
+    font-size: 18px;
+    text-align: center;
+    color: #000;
+}
+#header .headerMenu.gLeft {
+    left: 0;
+}
+#header .headerMenu {
+    position: absolute;
+    top: 50%;
+    margin-top: -15px;
+}
+#header .headerMenu.gLeft [class*="btn"] {
+    margin-left: 10px;
+}
+#header .headerMenu [class*="btn"] {
+    float: left;
+}
+#header .headerMenu [class*="btn"], #header .headerMenu [class*="btn"] a {
+    display: inline-block;
+    overflow: hidden;
+    font-size: 1px;
+    line-height: 0;
+    color: transparent;
+}
+#header .headerMenu [class*="btn"], #header .headerMenu .btnBasket > a {
+    position: relative;
+    width: 30px;
+    height: 30px;
+}
+#header .headerMenu .btnBack a {
+    display: block;
+    position: relative;
+    height: 30px;
+}
+#header .headerMenu.gRight {
+    right: 0;
+}
+#header .headerMenu.gRight [class*="btn"] {
+    margin-right: 10px;
+}
+#header .headerMenu .btnMy {
+    background: url(//img.echosting.cafe24.com/skin/mobile/common/sfix_header.png) no-repeat -60px 0;
+    background-size: 90px auto;
+}
+#header .headerMenu .btnBasket > a {
+    background: url(//img.echosting.cafe24.com/skin/mobile/common/sfix_header.png) no-repeat -30px 0;
+    background-size: 90px auto;
+}
+#header .headerMenu .btnBasket .count {
+    overflow: hidden;
+    position: absolute;
+    right: 0;
+    top: 2px;
+    min-width: 10px;
+    padding: 0 2px;
+    height: 14px;
+    border-radius: 14px;
+    font-weight: bold;
+    font-size: 9px;
+    line-height: 13px;
+    color: #fff;
+    text-align: center;
+    background: #ff0000;
+}
+@media screen and (max-width: 767px) {
+    #header .titleArea {
+        display: none;
+    }
+}
+#userStyle #header .titleArea h1 {
+    background-color: #54c8a7;
+}
+#mCafe24Order .ec-base-fold > .title:after {
+    position: absolute;
+    top: 22px;
+    right: 20px;
+    content: '';
+    width: 12px;
+    height: 12px;
+    display: inline-block;
+    border: 2px solid #BCBCBC;
+    border-right: 0;
+    border-bottom: 0;
+    -webkit-transform: rotate(-135deg);
+    -moz-transform: rotate(-135deg);
+    -ms--moz-transform: rotate(-135deg);
+    transform: rotate(-135deg);
+    -webkit-transition: .3s ease-out;
+    -moz-transition: .3s ease-out;
+    -ms-transition: .3s ease-out;
+    -o-transition: .3s ease-out;
+    transition: .3s ease-out;
+}
+#mCafe24Order .ec-base-fold.selected > .title:after {
+    top: 29px;
+    -webkit-transform: rotate(45deg);
+    -moz-transform: rotate(45deg);
+    -ms--moz-transform: rotate(45deg);
+    transform: rotate(45deg);
+}
+#mCafe24Order .ec-base-prdInfo .btnRemove:before {
+    position: absolute;
+    top: 50%;
+    left: 4px;
+    content: "";
+    width: 14px;
+    height: 1px;
+    background: #7b7d8a;
+    -webkit-transform: rotate(-45deg);
+    -moz-transform: rotate(-45deg);
+    -ms-transform: rotate(-45deg);
+    -o-transform: rotate(-45deg);
+    transform: rotate(-45deg);
+}
+#mCafe24Order .ec-base-prdInfo .btnRemove:after {
+    position: absolute;
+    top: 50%;
+    left: 4px;
+    content: "";
+    width: 14px;
+    height: 1px;
+    background: #7b7d8a;
+    -webkit-transform: rotate(-135deg);
+    -moz-transform: rotate(-135deg);
+    -ms-transform: rotate(-135deg);
+    -o-transform: rotate(-135deg);
+    transform: rotate(-135deg);
+}
+#header .titleArea h1 {
+    position: relative;
+    padding: 0 42px;
+    line-height: 61px;
+    color: #fff;
+    font-size: 20px;
+    font-weight: 500;
+    text-align: center;
+    border: 1px solid #D7D7D7;
+    border-right: 0;
+    border-left: 0;
+    background: #595959;
+}
+#mCafe24Order .agreeArea {
+    border-width: 1px 0;
+    background: #fff;
+}
+#mCafe24Order .agreeArea .allAgree {
+    padding: 20px 0px 16px;
+    margin: 0 16px;
+    border-bottom: 1px solid #eaeaea;
+    font-size: 18px;
+    color: #333;
+}
+@media screen and (max-width: 767px) {
+    #titleArea.titleArea {
+        display: block;
+        margin-top: 58px;
+        background-color: #fff;
+        border-top: 0;
+    }
+}
+#titleArea.titleArea {
+    display: none;
+}
+#titleArea > h1 {
+    position: relative;
+    padding: 0 42px;
+    line-height: 61px;
+    color: #fff;
+    font-size: 20px;
+    text-align: center;
+    border: 1px solid #D7D7D7;
+    background: #595959;
+}
+input, select, textarea {
+    font-size: 14px;
+    font-family: 'NotoSansKR', "맑은 고딕", Malgun Gothic, AppleSDGothicNeo, "돋움", Dotum;
+    font-weight: 400;
+    color: #000;
+    vertical-align: middle;
+    outline: 0;
+    border-radius: 0;
+}
+@media screen and (max-width: 767px) {
+    #mCafe24Order.typeHeader {
+        padding-top: 0px;
+    }
+}
+#mCafe24Order.typeHeader {
+    padding-top: 122px;
+}
+#mCafe24Order {
+    overflow: hidden;
+    padding: 73px 0 0;
+}
+#mCafe24Order #ec-jigsaw-area-productdetail {
+    margin-top: 10px;
+}
+#mCafe24Order .billingNshipping {
+    margin-top: 10px;
+}
+#mCafe24Order .ec-base-fold {
+    position: relative;
+    margin: 0 0 10px;
+    padding: 0;
+    border-bottom: 1px solid #d7d5d5;
+    border-width: 1px 0;
+    background: #fff;
+}
+#mCafe24Order .ec-base-fold > .title {
+    position: relative;
+    padding-right: 48px;
+    cursor: pointer;
+}
+#mCafe24Order .ec-base-table .ec-address .ec-address-zipcode {
+        position: relative;
+    }
+#mCafe24Order .ec-base-table .ec-address .ec-address-zipcode {
+    display: flex;
+    flex-wrap: wrap;
+}
+#mCafe24Order .title {
+    padding: 20px 16px;
+    word-wrap: break-word;
+    word-break: break-all;
+    -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
+    display: -webkit-flex;
+    display: -ms-flex;
+    display: -moz-flex;
+    display: flex;
+    -webkit-flex-wrap: wrap;
+    -ms-flex-wrap: wrap;
+    -moz-flex-wrap: wrap;
+    flex-wrap: wrap;
+    -webkit-justify-content: space-between;
+    -ms-justify-content: space-between;
+    -moz-justify-content: space-between;
+    justify-content: space-between;
+}
+#mCafe24Order .title h2 {
+    margin: 0 10px 0 0;
+    font-size: 18px;
+    color: #000;
+    font-weight: 500;
+    line-height: 27px;
+}
+#userStyle #mCafe24Order .txtEm, #userStyle #mCafe24Order .txtStrong {
+    color: #111;
+}
+#mCafe24Order .totalPay.paymentPrice .txtStrong {
+    font-size: 22px;
+    font-weight: 700;
+}
+#mCafe24Order .txtStrong {
+    color: #3971FF;
+    font-size: 17px;
+}
+#mCafe24Order #total_price {
+    width: 90px;
+    padding-top: 4px;
+}
+#mCafe24Order .ec-base-fold > .title .gRight {
+    -webkit-flex: 1;
+    -moz-flex: 1;
+    -ms-flex: 1;
+    flex: 1;
+    text-align: right;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    font-size: 15px;
+    font-weight: 400;
+}
+#mCafe24Order .txtEm {
+    color: #3971FF;
+}
+#mCafe24Order .ec-base-fold.selected > .contents {
+    overflow: visible;
+    opacity: 1;
+    height: auto;
+    -webkit-transition: height .3s ease, opacity .3s ease-out;
+    -moz-transition: height .3s ease, opacity .3s ease-out;
+    -ms-transition: height .3s ease, opacity .3s ease-out;
+    -o-transition: height .3s ease, opacity .3s ease-out;
+    transition: height .3s ease, opacity .3s ease-out;
+}
+#mCafe24Order .ec-base-fold > .contents {
+    overflow: hidden;
+    opacity: 0;
+    height: 0;
+    border-top-width: 0;
+}
+#mCafe24Order .segment {
+    position: relative;
+    padding: 20px 16px 20px;
+}
+#mCafe24Order .segment .ec-base-table {
+    padding: 0;
+}
+#mCafe24Order .segment > .ec-base-table:first-child, #mCafe24Order .segment > .ec-base-table:last-child {
+    margin: 0;
+}
+#mCafe24Order #ec-jigsaw-area-payment .segment {
+    padding: 0px 16px 20px;
+}
+#mCafe24Order .ec-area-shipping-companies .ec-base-help {
+    margin-bottom: 5px;
+}
+#mCafe24Order .ec-base-help {
+    font-size: 13px;
+    color: #797979;
+    text-align: left;
+    line-height: 18px;
+}
+@media (min-width:1024px){
+	#mCafe24Order {
+        width: 900px;
+        margin: 0 auto;
+        border-left: 1px solid #d7d5d5;
+        border-right: 1px solid #d7d5d5;
+        box-sizing: border-box;
+        background: #EDEDED;
+    }
+}
+#mCafe24Order {
+    overflow: hidden;
+    padding: 73px 0 0;
+}
+#mCafe24Order .ec-area-shipping-companies .segment > span {
+    margin-right: 30px;
+}
+#mCafe24Order .ec-base-label, #mCafe24Order label {
+    font-size: 15px;
+    margin-right: 0px;
+}
+#mCafe24Order .ec-base-button.gFull {
+    margin: 14px 14px 18px;
+}
+#orderFixItem.ec-base-button.gFull {
+    margin: 0;
+}
+.ec-base-label {
+    display: inline-block;
+    margin-right: 5px;
+}
+#mCafe24Order .ec-area-shipping-companies .segment ul.ec-base-help {
+    padding-top: 12px;
+}
+#mCafe24Order .agreeArea .checkNone .agree-msg {
+    font-size: 16px;
+    font-weight: 500;
+    color: #000;
+    text-align: center;
+}
+#mCafe24Order label {
+    display: inline-block;
+    min-height: 29px;
+    line-height: 29px;
+    vertical-align: middle;
+    cursor: pointer;
+    color: #383838;
+}
+#mCafe24Order .ec-area-shipping-companies .segment ul.ec-base-help li:first-child {
+    padding: 0;
+}
+#mCafe24Order .ec-area-shipping-companies .segment ul.ec-base-help li.txtEm {
+    color: #3971FF;
+}
+@media screen and (max-width: 767px) {
+    #mCafe24Order .ec-base-table .ec-address .ec-address-zipcode {
+        position: relative;
+    }
+}
+#mCafe24Order .agreeArea .checkNone ul {
+    background-color: #FAFAFD;
+    padding: 10px 16px;
+    margin-bottom: 20px;
+}
+#mCafe24Order .agreeArea .checkNone label {
+    line-height: 22px;
+    min-height: 22px;
+}
+#mCafe24Order .agreeArea .checkNone ul li {
+    margin: 6px 0;
+}
+#mCafe24Order .agreeArea .agreement.displaynone ~ .checkNone {
+    border: 0;
+    padding: 20px 0 20px;
+}
+#mCafe24Order .agreeArea .checkNone {
+    padding: 15px 0 20px;
+    border-top: 1px dashed #d7d5d5;
+    margin: 0px 16px 0 16px;
+}
+
+#mCafe24Order .agreeArea .allAgree > label > strong {
+    font-size: 16px;
+    font-weight: 700;
+}
+#mCafe24Order .agreeArea .allAgree {
+    padding: 20px 0px 16px;
+    margin: 0 16px;
+    border-bottom: 1px solid #eaeaea;
+    font-size: 18px;
+    color: #333;
+}
+#mCafe24Order .ec-base-table .ec-address .ec-address-zipcode {
+    display: flex;
+    flex-wrap: wrap;
+}
+#mCafe24Order .ec-area-shipping-companies .segment ul.ec-base-help li {
+    font-size: 14px;
+    color: #383838;
+}
+#mCafe24Order p.ec-base-help, #mCafe24Order ul.ec-base-help li, #mCafe24Order ol.ec-base-help li {
+    padding: 4px 0 0;
+    word-break: break-word;
+    letter-spacing: -1px;
+}
+#mCafe24Order .segment:first-child, #mCafe24Order .segment:first-child[class*='displaynone'] + .segment, #mCafe24Order .segment:first-child[style*='display: none'] + .segment {
+    border-top-width: 0;
+}
+#ec-jigsaw-area-hopeShippingDate .segment, #ec-jigsaw-area-hopeShippingTime .segment, #mCafe24Order .ec-area-shipping-companies .segment {
+    padding: 0 16px 20px;
+}
+#mCafe24Order p.ec-base-help.typeDash, #mCafe24Order ul.ec-base-help.typeDash li {
+    position: relative;
+    padding-left: 9px;
+}
+#mCafe24Order .ec-base-button + .helpArea li {
+    padding: 0 0 23px 9px;
+}
+
+#mCafe24Order .ec-area-shipping-companies .ec-base-help {
+    margin-bottom: 5px;
+}
+#mCafe24Order .helpArea .ec-base-help.typeDash li:before {
+    top: 8px;
+}
+#mCafe24Order p.ec-base-help.typeDash:before, #mCafe24Order ul.ec-base-help.typeDash li:before {
+    display: inline-block;
+    content: "";
+    position: absolute;
+    top: 12px;
+    left: 0;
+    width: 5px;
+    height: 1px;
+    background: #999;
+}
+#mCafe24Order .gIndent10 {
+    margin-left: 10px;
+}
+#mCafe24Order .shippingList {
+    margin-top: 59px;
+}
+#mCafe24Order .shippingList .description {
+    position: relative;
+    padding: 9px 60px 0 0;
+}
+#mCafe24Order .shippingList .description .address {
+    font-size: 15px;
+    font-weight: 400;
+    line-height: 22px;
+}
+#mCafe24Order .shippingList + .sideRight {
+    top: -42px;
+}
+#mCafe24Order .sideRight {
+    position: absolute;
+    top: 20px;
+    right: 15px;
+}
+#mCafe24Order .shippingList .button {
+    position: absolute;
+    top: 20px;
+    right: 0;
+}
+#mCafe24Order .shippingList .button .btnText:first-child {
+    margin-left: 0;
+}
+@media screen and (max-width: 767px) {
+    #mCafe24Order .ec-base-table .ec-address .ec-address-zipcode .ec-base-label {
+        margin: 8px 0 0 0;
+    }
+}
+#mCafe24Order .ec-base-table .ec-address .ec-address-zipcode .ec-base-label {
+    font-size: 12px;
+    color: #797979;
+    margin: 8px 0 0 10px;
+}
+#mCafe24Order .shippingList .button .btnText {
+    position: relative;
+    margin: 0 0 0 14px;
+    font-size: 15px;
+    font-weight: 400;
+    color: #797979;
+    line-height: 22px;
+    letter-spacing: -0.4px;
+}
+#mCafe24Order .shippingList .choice {
+    position: absolute;
+    top: 50%;
+    right: 0;
+    margin: -17px 0 0;
+}
+#mCafe24Order .fRadio[type="radio"] {
+    width: 28px;
+    height: 28px;
+    background-image: url(//img.echosting.cafe24.com/skin/mobile/common/bg_newFradio.png);
+    background-size: 28px 28px;
+}
+#mCafe24Order input[type="radio"] {
+    margin: 0;
+    width: 22px;
+    height: 22px;
+    border: 0;
+    cursor: pointer;
+    background: url(//img.echosting.cafe24.com/skin/mobile/common/bg_newRadio.png) no-repeat 0 0;
+    background-size: 22px 22px;
+    -webkit-appearance: none;
+}
+#mCafe24Order input[type="radio"] + label {
+    font-size: 16px;
+    margin: 0 16px 0 6px;
+}
+#mCafe24Order input:not(:disabled):checked[type="radio"] {
+    background-image: url(//img.echosting.cafe24.com/skin/mobile/common/bg_newRadio_checked.png);
+    -webkit-appearance: none;
+}
+#mCafe24Order .ec-base-button {
+    margin: 10px auto;
+    text-align: right;
+}
+#userStyle #mCafe24Order .btnSubmit {
+    background-color: #54c8a7 !important;
+    border: 1px solid #54c8a7 !important;
+}
+#mCafe24Order .btnSubmit {
+    height: 36px;
+    line-height: 36px;
+    padding: 0 10px;
+    font-size: 15px;
+    color: #fff;
+    border: 1px solid #4a5164;
+    background: #000;
+}
+#orderFixItem.ec-base-button.gFull [class*="btn"] {
+    font-size: 18px;
+    font-weight: 400;
+    height: 50px;
+    line-height: 50px;
+    color: #fff;
+    background-color: #3971FF;
+    margin: 0;
+    border: 0;
+}
+#mCafe24Order .ec-base-button.gFull [class*="btn"], [class*="btn"].gFull {
+    width: 100%;
+}
+#mCafe24Order .ec-base-button.gFull [class*="btn"] {
+    margin: 0 0 7px;
+    height: 48px;
+    line-height: 48px;
+    padding: 0 4px;
+    font-size: 18px;
+    font-weight: normal;
+}
+
+#mCafe24Order [class*="btn"].mini {
+    height: 42px;
+    padding: 0 10px;
+    font-size: 14px;
+    font-weight: 400;
+}
+#mCafe24Order .btnNormal {
+    color: #000;
+    border: 1px solid #b5b5b5;
+    background: #fff;
+}
+#mCafe24Order .ec-base-tab:first-child {
+    margin: -1px 0 0;
+}
+#mCafe24Order .ec-base-tab ul {
+    display: -webkit-flex;
+    display: -ms-flex;
+    display: -moz-flex;
+    display: flex;
+    margin-bottom: 22px;
+    border-top: 1px solid #d7d5d5;
+    font-size: 16px;
+    line-height: 24px;
+    font-weight: 400;
+    word-break: break-all;
+}
+#mCafe24Order .ec-base-tab li:first-child {
+    border-left: 0;
+}
+#mCafe24Order .ec-base-tab li {
+    display: -webkit-flex;
+    display: -ms-flex;
+    display: -moz-flex;
+    display: flex;
+    -webkit-flex: 1;
+    -ms-flex: 1;
+    -moz-flex: 1;
+    flex: 1;
+    border-left: 1px solid #d7d5d5;
+    border-bottom: 1px solid #d7d5d5;
+    text-align: center;
+    background: #f8f9fa;
+}
+#mCafe24Order .ec-base-tab li.selected {
+    border-bottom-color: #fff;
+}
+#mCafe24Order .ec-base-tab a {
+    display: -webkit-flex;
+    display: -ms-flex;
+    display: -moz-flex;
+    display: flex;
+    -webkit-flex-basis: 100%;
+    -ms-flex-basis: 100%;
+    -moz-flex-basis: 100%;
+    flex-basis: 100%;
+    -webkit-justify-content: center;
+    -ms-justify-content: center;
+    -moz-justify-content: center;
+    justify-content: center;
+    -webkit-flex-wrap: nowrap;
+    -ms-flex-wrap: nowrap;
+    -moz-flex-wrap: nowrap;
+    flex-wrap: nowrap;
+    -webkit-align-items: center;
+    -ms-align-items: center;
+    -moz-align-items: center;
+    align-items: center;
+    padding: 15px 10px 14px;
+    color: #797979;
+}
+#mCafe24Order .ec-base-tab li.selected a {
+    border-left: 0;
+    font-weight: 500;
+    color: #000;
+    background: #fff;
+}
+#mCafe24Order .ec-base-table:last-child {
+    padding-bottom: 13px;
+}
+#mCafe24Order .ec-base-table {
+    word-break: break-all;
+    word-wrap: break-word;
+    color: #383838;
+}
+#mCafe24Order .ec-base-table tbody th {
+    font-size: 15px;
+    padding: 8px 0 7px 14px;
+    font-weight: 400;
+    text-align: left;
+    vertical-align: top;
+    word-break: break-word;
+}
+#mCafe24Order #ec-jigsaw-area-payment tbody > tr > th .info {
+    font-size: 14px;
+}
+#mCafe24Order .ec-base-table:first-child, #mCafe24Order .displaynone + .ec-base-table {
+    margin-top: 0;
+}
+#mCafe24Order .icoRequired {
+    display: inline-block;
+    width: 6px;
+    height: 6px;
+    margin: -2px 0 0;
+    vertical-align: middle;
+    text-indent: 150%;
+    font-size: 0;
+    line-height: 0;
+    white-space: nowrap;
+    background: url(//img.echosting.cafe24.com/skin/mobile/common/bg_required.png) no-repeat 0 0;
+    background-size: auto 6px;
+}
+#mCafe24Order .ec-base-table .ec-address {
+    margin: -5px -14px -5px -8px;
+}
+#mCafe24Order .ec-base-table .ec-address > li select {
+    width: 100%;
+}
+#mCafe24Order .ec-base-table .ec-address > li {
+    padding: 8px 16px 7px 8px;
+    line-height: 22px;
+}
+#mCafe24Order .ec-base-table.typeWrite tbody th {
+    padding: 16px 0 12px 16px;
+}
+#mCafe24Order .ec-base-table.typeWrite td {
+    padding: 8px 16px 7px 4px;
+}
+#mCafe24Order .ec-base-table td {
+    padding: 8px 14px 7px 8px;
+    vertical-align: middle;
+}
+@media screen and (max-width: 767px) {
+    #mCafe24Order .ec-base-table .ec-address .ec-address-zipcode .btnBasic {
+        position: absolute;
+        top: 8px;
+        right: 16px;
+    }
+}
+@media screen and (max-width: 767px) {
+    #mCafe24Order #ozipcode1, #mCafe24Order #sample6_postcode, #mCafe24Order #fzipcode, #mCafe24Order #tax_request_zipcode {
+        width: 100%;
+    }
+}
+#mCafe24Order #ozipcode1, #mCafe24Order #sample6_postcode, #mCafe24Order #fzipcode, #mCafe24Order #tax_request_zipcode {
+    width: 160px;
+    text-align: left;
+}
+#mCafe24Order .totalPay .heading {
+    margin: 0 4px 0 0;
+    font-size: 18px;
+    font-weight: 500;
+}
+#mCafe24Order .totalPay {
+    padding: 15px 16px;
+    color: #000;
+    font-size: 18px;
+    font-weight: 700;
+    word-wrap: break-word;
+    word-break: break-all;
+    background: #F6F6F6;
+    display: -webkit-flex;
+    display: -ms-flex;
+    display: -moz-flex;
+    display: flex;
+    -webkit-flex-wrap: wrap;
+    -ms-flex-wrap: wrap;
+    -moz-flex-wrap: wrap;
+    flex-wrap: wrap;
+    -webkit-justify-content: space-between;
+    -ms-justify-content: space-between;
+    -moz-justify-content: space-between;
+    justify-content: space-between;
+}
+#mCafe24Order .totalPay.paymentPrice {
+    background-color: #F4F7FF;
+}
+#mCafe24Order .ec-base-table .ec-base-mail {
+    display: flex;
+    justify-content: space-between;
+    gap: 4px;
+    align-items: center;
+}
+
+#mCafe24Order select {
+    max-width: 100%;
+    height: 42px;
+    margin: 0;
+    padding: 0 20px 0 10px;
+    line-height: 40px;
+    color: #333;
+    word-break: break-all;
+    border: 1px solid #C5C5C5;
+    background: #fff url(//img.echosting.cafe24.com/skin/mobile/common/ico_select.gif) no-repeat 100% 50%;
+    background-size: auto 40px;
+    -webkit-appearance: none;
+}
+#mCafe24Order .ec-base-mail .mailAddress .directInput input {
+    border-color: #fff;
+    height: 100%;
+    padding: 0 7px 0 0;
+}
+
+#mCafe24Order .ec-base-mail .mailAddress .directInput {
+    overflow: hidden;
+    position: absolute;
+    top: 1px;
+    left: 8px;
+    right: 20px;
+    bottom: 1px;
+}
+#mCafe24Order .recentShipArea {
+    line-height: 24px;
+}
+#mCafe24Order .recentShipArea .segment {
+    padding: 0 16px 20px;
+}
+#mCafe24Order .recentShipArea .contact {
+    margin: 8px 0 0 -14px;
+    font-size: 0;
+    line-height: 0;
+}
+#mCafe24Order .recentShipArea .recent {
+    overflow: hidden;
+    padding: 9px 0 0;
+}
+#mCafe24Order .sideRight {
+    position: absolute;
+    top: 20px;
+    right: 15px;
+}
+#mCafe24Order .recentShipArea .recent + .sideRight {
+    top: 0;
+}
+#mCafe24Order .recentShipArea .recent .name {
+    padding-right: 110px;
+}
+#mCafe24Order .recentShipArea .name {
+    display: block;
+    padding: 0 76px 0 0;
+    color: #333;
+    font-size: 16px;
+    font-weight: 500;
+}
+#mCafe24Order .recentShipArea .recent .address {
+    font-size: 15px;
+    color: #383838;
+    margin-top: 18px;
+}
+#mCafe24Order .recentShipArea .contact dt {
+    display: inline-block;
+    overflow: hidden;
+    white-space: nowrap;
+    text-indent: 120%;
+    left: -120%;
+    width: 0;
+    height: 0;
+}
+#mCafe24Order .recentShipArea .contact dd {
+    display: inline-block;
+    vertical-align: middle;
+    font-size: 15px;
+    line-height: 22px;
+}
+#mCafe24Order .gBlank10 {
+    display: block;
+    margin-top: 10px;
+}
+#mCafe24Order .btnNormal, #mCafe24Order .btnStrong, #mCafe24Order .btnBasic, #mCafe24Order .btnBase {
+    height: 42px;
+    line-height: 38px;
+    padding: 0 12px;
+    vertical-align: middle;
+    font-size: 14px;
+    font-weight: 400;
+}
+#mCafe24Order .segment.ec-shippingInfo-sameaddr {
+    padding: 0 16px 15px;
+}
+#mCafe24Order .btnNormal, #mCafe24Order .btnStrong, #mCafe24Order .btnBasic, #mCafe24Order .btnSubmit, #mCafe24Order .btnEm, #mCafe24Order .btnBase {
+    display: inline-block;
+    letter-spacing: -0.4px;
+    text-align: center;
+    font-family: 'NotoSansKR', "맑은 고딕", Malgun Gothic, AppleSDGothicNeo, "돋움", Dotum;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+.ec-base-table tr:first-child {
+    border-top: 1px solid #e5e5e5;
+}
+#mCafe24Order .ec-base-button + .helpArea {
+    padding: 30px 16px;
+    margin-bottom: -25px;
+}
+#mCafe24Order .helpArea {
+    margin: 0;
+    padding: 0px 10px 0px;
+    background-color: #FAFAFD;
+}
+#mCafe24Order .helpArea .ec-base-help {
+    padding-bottom: 13px;
+}
+
+caption {
+    overflow: hidden;
+    width: 1px;
+    font-size: 1px;
+    line-height: 0;
+    text-indent: 150%;
+    white-space: nowrap;
+}
+#mCafe24Order .ec-base-button:after {
+    content: "";
+    display: block;
+    clear: both;
+}
+#mCafe24Order .ec-base-table.gCellNarrow td {
+    padding: 5px 14px 5px 5px;
+}
+#mCafe24Order .ec-base-table td {
+    padding: 8px 14px 7px 8px;
+    vertical-align: middle;
+}
+#mCafe24Order .segment .ec-base-table .price {
+    font-weight: 700;
+}
+#mCafe24Order .ec-base-table .right {
+    text-align: right;
+}
+#mCafe24Order .segment .ec-base-table tbody tr:first-child th, #mCafe24Order .segment .ec-base-table tbody tr:first-child td {
+    padding: 0 0 5px 0;
+}
+#mCafe24Order .segment .ec-base-table tbody th, #mCafe24Order .segment .ec-base-table tbody td {
+    font-size: 16px;
+    padding: 5px 0;
+}
+#mCafe24Order .ec-base-table tbody th {
+    font-size: 15px;
+    padding: 8px 0 7px 14px;
+    font-weight: 400;
+    text-align: left;
+    vertical-align: top;
+    word-break: break-word;
+}
+#mCafe24Order .ec-base-table.gCellNarrow tbody th {
+    padding: 5px 0 5px 14px;
+}
+#mCafe24Order input[type="button"], #mCafe24Order input[type="text"], #mCafe24Order input[type="password"], #mCafe24Order input[type="tel"], #mCafe24Order input[type="image"], #mCafe24Order textarea {
+    -webkit-appearance: none;
+}
+#mCafe24Order #ophone1_1, #mCafe24Order #ophone2_1, #mCafe24Order #rphone1_1, #mCafe24Order #rphone2_1, #mCafe24Order #tax_request_phone1 {
+    width: 30%;
+    margin: 0 3px 0 0;
+}
+#mCafe24Order .ec-base-table .ec-base-mail select, #mCafe24Order .ec-base-table .ec-base-mail input {
+    width: 100% !important;
+    margin: 0 !important;
+}
+#mCafe24Order .orderArea .xans-order-normallist, #mCafe24Order .orderArea .xans-order-individuallist, #mCafe24Order .orderArea .xans-order-supplierlist, #mCafe24Order .orderArea .xans-order-oversealist {
+    margin-bottom: 20px;
+}
+#mCafe24Order .ec-base-fold .ec-base-prdInfo, #mCafe24Order .pannelArea .ec-base-prdInfo {
+    margin: 0;
+    border: 0;
+}
+#mCafe24Order .ec-base-prdInfo {
+    position: relative;
+    margin: 0 0 7px;
+    padding: 20px 16px 4px;
+    border: 1px solid #d7d5d5;
+    box-sizing: border-box;
+    background: #fff;
+}
+#mCafe24Order .contents > .orderArea > .xans-order > .ec-base-prdInfo:first-child {
+    border-top: 0;
+}
+#mCafe24Order .orderArea .ec-base-prdInfo {
+    margin: 0 16px 15px 16px;
+    padding: 15px 0 0;
+    border-top: 1px dashed #D5D5D5;
+}
+#mCafe24Order .contents > .orderArea > .xans-order:first-child > .ec-base-prdInfo:first-child {
+    padding: 0;
+    border-top: 0;
+}
+#mCafe24Order .btnBasic {
+    color: #000;
+    border: 1px solid #A7A7A7;
+    background: #fff;
+    min-width: 80px;
+}
+#mCafe24Order .ec-base-mail .mailId {
+    width: 100%;
+}
+#mCafe24Order .ec-base-table .ec-address .ec-address-zipcode .btnBasic {
+    margin: 0 0 0 -6px;
+}
+@media screen and (max-width: 767px) {
+    #mCafe24Order .ec-base-table .ec-address .ec-address-zipcode .btnBasic {
+        position: absolute;
+        top: 8px;
+        right: 16px;
+    }
+}
+#mCafe24Order .ec-base-mail .mailAddress {
+    position: relative;
+    display: inline-block;
+    width: 100%;
+    margin: 0;
+    vertical-align: top;
+}
+#mCafe24Order .ec-base-mail .mailAddress > select {
+    width: 100%;
+}
+#mCafe24Order .ec-base-prdInfo .prdBox {
+    display: -webkit-flex;
+    display: -ms-flex;
+    display: flex;
+    min-height: 104px;
+}
+#mCafe24Order input:disabled {
+    cursor: default;
+}
+#mCafe24Order input:disabled[type="checkbox"] {
+    background-image: url(//img.echosting.cafe24.com/skin/mobile/common/bg_checkbox_disabled.png);
+    -webkit-appearance: none;
+}
+#mCafe24Order .ec-base-label input[type="radio"] + label, #mCafe24Order .ec-base-label input[type="checkbox"] + label {
+    font-size: 14px;
+    margin: 0;
+}
+#mCafe24Order input:disabled + label, #mCafe24Order input:disabled + label + label, #mCafe24Order input:disabled + label [class*="txt"], #mCafe24Order input:disabled + label + label [class*="txt"] {
+    color: #bcbcbc;
+    cursor: default;
+}
+#mCafe24Order input[type="checkbox"] + label {
+    font-size: 15px;
+    margin: 0 16px 0 6px;
+}
+
+#mCafe24Order input[type="checkbox"] {
+    margin: 0;
+    width: 20px;
+    height: 20px;
+    border: 0;
+    cursor: pointer;
+    background: url(//img.echosting.cafe24.com/skin/mobile/common/bg_newCheckbox.png) no-repeat 0 0;
+    background-size: 20px 20px;
+    -webkit-appearance: none;
+    margin-bottom: 1px;
+}
+#mCafe24Order .ec-base-prdInfo .description .prdName {
+    display: block;
+    margin: 0 0 9px;
+    font-size: 14px;
+    font-weight: 400;
+    color: #000;
+}
+#mCafe24Order .agreeArea .allAgree > label {
+    margin: 0 16px 0 9px;
+}
+
+#mCafe24Order .ec-base-label:last-child, #mCafe24Order label:last-child {
+    margin-right: 0;
+}
+
+#mCafe24Order .ec-base-prdInfo .description .proPrice {
+    font-size: 15px;
+    font-weight: 400;
+    line-height: 22px;
+    color: #000;
+}
+#mCafe24Order .ec-base-prdInfo .description .info {
+    margin: 0 0 14px;
+}
+#mCafe24Order .ec-base-prdInfo .description .info li {
+    margin: 0 0 2px;
+    font-size: 14px;
+    color: #606060;
+}
+#mCafe24Order .orderArea .totalPrice {
+    margin: 0;
+    border: 0;
+    padding: 0;
+}
+#mCafe24Order .title {
+    padding: 20px 16px;
+    word-wrap: break-word;
+    word-break: break-all;
+    -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
+    display: -webkit-flex;
+    display: -ms-flex;
+    display: -moz-flex;
+    display: flex;
+    -webkit-flex-wrap: wrap;
+    -ms-flex-wrap: wrap;
+    -moz-flex-wrap: wrap;
+    flex-wrap: wrap;
+    -webkit-justify-content: space-between;
+    -ms-justify-content: space-between;
+    -moz-justify-content: space-between;
+    justify-content: space-between;
+}
+#mCafe24Order .orderArea .totalPrice .title h3 {
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 20px;
+    color: #606060;
+}
+#mCafe24Order .title h3 {
+    font-size: 15px;
+    font-weight: 500;
+    color: #000;
+    line-height: 22px;
+}
+#mCafe24Order .orderArea .totalPrice .title {
+    padding: 11px 16px 11px 16px;
+    background: #F8F9FA;
+}
+#mCafe24Order .orderArea .totalPrice .deliveryFee {
+    font-size: 14px;
+    font-weight: 500;
+    color: #000;
+}
+#mCafe24Order .ec-base-prdInfo .btnRemove {
+    position: relative;
+    width: 24px;
+    height: 24px;
+    border: 1px solid #b5b5b5;
+    border-radius: 2px;
+    margin: 0 0 0 4px;
+    text-indent: 150%;
+    font-size: 0;
+    line-height: 0;
+    white-space: nowrap;
+}
+#mCafe24Order .ec-base-prdInfo .description {
+    overflow: hidden;
+    -webkit-flex: 1;
+    -ms-flex: 1;
+    flex: 1;
+    margin-top: -2px;
+}
+#mCafe24Order .ec-base-prdInfo .thumbnail {
+    overflow: hidden;
+    width: 90px;
+    height: 90px;
+    margin-right: 20px;
+    border: 1px solid #d7d5d5;
+    box-sizing: border-box;
+}
+#mCafe24Order input[type="text"], #mCafe24Order input[type="password"], #mCafe24Order input[type="number"], #mCafe24Order input[type="tel"] {
+    height: 42px;
+    width: 100%;
+    padding: 10px 11px 10px 10px;
+    font-weight: inherit;
+    border: 1px solid #E1E1E1;
+    outline-style: none;
+    line-height: 14px;
+    color: #000;
+    font-weight: 400;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+#mCafe24Order select.disabled, #mCafe24Order select:disabled, #mCafe24Order textarea.disabled, #mCafe24Order textarea:disabled {
+    color: #bcbcbc;
+}
+
+
+/* .tbcol > input, select {
+	overflow: hidden;
+	outline: none;
+	border: none;
+	padding: 2px 4px;
+	background-color: transparent;
+	width: 100px;
+}
+
+.adcol0 { width: 3%; align-content: center; }	checkBox
+.adcol1 { width: 3%; }
+.adcol2 { width: 20%; }
+.adcol3 { width: 5%; }
+.adcol4 { width: 10%; }
+.adcol5 { width: 5%; }
+.adcol6 { width: 5%; }
+.adcol7 { width: 9%; }
+.adcol8 { width: 5%; }
+
+
+.adcol1 input{ width: 100%; }
+.adcol2 input{ width: 100%; }
+.adcol3 input{ width: 100%; }
+.adcol4 input{ width: 100%; }
+.adcol5 input{ width: 100%; }
+.adcol6 input{ width: 100%; }
+.adcol7 input{ width: 100%; }
+.adcol8 select{ width: 100%; } */

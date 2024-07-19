@@ -58,6 +58,10 @@ input::placeholder {
 	font-size: 11px;
 }
 
+input:focus {
+	outline: none;
+}
+
 
 .login-btn {
 	text-align: center;
@@ -67,7 +71,7 @@ input::placeholder {
 }
 
 .login-btn{
-	background-color: #54c8a7;
+	background-color: #de7575;
 	color: white;
 	padding: 10px 0;
 	border: none;

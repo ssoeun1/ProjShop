@@ -371,7 +371,7 @@ public class OrderController {
 	public ModelAndView orderProc(HttpServletRequest req, 
 								@RequestParam HashMap<String, String> param) throws NoSuchAlgorithmException {
 		ModelAndView mav =  new ModelAndView();
-		mav.setViewName("Main");
+		mav.setViewName("custom/OrderDetail");
 		log.info("param CHECK : ===> "+param);
 		HttpSession session = req.getSession();
 		String page = null;
@@ -420,7 +420,6 @@ public class OrderController {
 			
 			Map<String, Object> reSet = cartService.getCartItemList(ssKey.getMem_id());
 			
-			mav.addObject("content", "custom/OrderDetail.jsp");
 			mav.addObject("cart",reSet.get("cartList"));
 			mav.addObject("SubTot",reSet.get("subTotal"));
 			mav.addObject("url", url);

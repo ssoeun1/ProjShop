@@ -19,35 +19,34 @@
          <ul class="prdList grid4" data-ez-role="layout ez-discount-tag">
 		  <c:forEach var="product" items="${productList}">
            <li id="anchorBoxId_102" class="xans-record-">
-             <div class="prdList__item">
+             <div class="prdList__item pDetail">
+               <input type="hidden" name="p_no" value="${product.p_no}">
                <div class="thumbnail">
-                <input type="hidden" name="p_no" value="${product.p_no}">
-                   <img src="/upload/${product.image}" alt="Sandwich" style="width:100%; height: 18rem;" class="pDetail">
+                   <img src="/upload/${product.image}" alt="Sandwich" style="width:100%; height: 18rem;">
                </div>
                <div class="description">
                  <div class="name">
-                   <a href="" class="">
                      <span class="title displaynone">
-                       <span style="font-size:13px;color:#3f6498;font-weight:bold;">상품명</span>
+                       <span style="font-size:13px;color:#8f1f1f;font-weight:bold;">상품명</span>
                        " :"
                      </span>
-                     <span style="font-size:13px;color:#3f6498;font-weight:bold;">${product.p_name}</span>
-                   </a>
+                     <span style="font-size:13px;color:#d95200;font-weight:bold;">${product.p_name}</span>
                  </div>
                  <ul class="xans-element- xans-product xans-product-listitem spec">
                    <li class=" xans-record-">
                      <strong class="title displaynone">
-                       <span style="font-size:13px;color:#3f6498;">상품요약정보</span>
+                       <span style="font-size:13px;color:#8f1f1f;">상품요약정보</span>
                        " :"
                      </strong>
-                     <span style="font-size:13px;color:#3f6498;">${product.detail}</span>
+                     <span style="font-size:13px;color:#ff3636;">${product.detail}</span>
                    </li>
                    <li class=" xans-record-">
 					<strong class="title displaynone">
 					  <span style="font-size:12px;color:#555555;">판매가</span>
 					  " :"
 					</strong>
-					<input type="text" name="price" value="${product.price}원" class="form-control-plaintext alignRight num">
+					${product.price}원
+					<input type="hidden" name="price" value="${product.price}원" class="form-control-plaintext alignRight num">
 			       </li>
                  </ul>
                  <ul class="icon"></ul>
