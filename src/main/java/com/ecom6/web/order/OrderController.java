@@ -1,26 +1,32 @@
 package com.ecom6.web.order;
 
+import java.security.NoSuchAlgorithmException;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.Hashtable;
-import java.util.List;
+import java.util.Iterator;
 import java.util.Map;
+import java.util.UUID;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.ModelAndView;
 
 import com.ecom6.VO.cart.CartVO;
 import com.ecom6.VO.mem.MemberVO;
-import com.ecom6.VO.notice.NoticeVO;
+
 import com.ecom6.VO.order.OrderVO;
-import com.ecom6.VO.product.ProductVO;
+
 import com.ecom6.common.vo.PageInfo;
 import com.ecom6.common.vo.PageVO;
+import com.ecom6.service.PaymentSys.PgApiService;
 import com.ecom6.service.cart.CartService;
 import com.ecom6.service.order.OrderService;
 import com.ecom6.wrapper.order.OrderWrapper;
@@ -38,6 +44,9 @@ public class OrderController {
 	// 규칙 1. 서비스에서 트랜잭션을 걸어야 한다.
 	// 규칙 2. 서로 다른 업무에서 해당 업무 이외의 업무를 호출하지 않는다.
 	// 규칙 3. 타 업무가 필요할 때는 Wrapper 클래스를 만들어서 사용한다
+	
+	@Autowired
+	private PgApiService apiService;
 	
 	@Autowired
 	private CartService cartService;
@@ -60,7 +69,7 @@ public class OrderController {
 		if(ssKey!=null) {
 			Map<String, Object> reSet = cartService.getCartItemList(ssKey.getMem_id());
 			ArrayList<CartVO> CartList = (ArrayList<CartVO>) reSet.get("cartList");
-			log.info("cartList=======> "+CartList);
+		
 			HashMap<String, Object> reMap = 
 					orderWrapper.orderProc(ovo, CartList);
 			msg = (String) reMap.get("msg");
@@ -327,24 +336,142 @@ public class OrderController {
 			  }
 		return page;
 	}
-	@GetMapping("/orderDetail")
-	public String getorderDetail(HttpServletRequest req, 
-							HttpServletResponse res, 
-							Model model) {
+//	@GetMapping("/orderDetail")
+//	public String getorderDetail(HttpServletRequest req, 
+//							HttpServletResponse res, 
+//							Model model) {
+//		HttpSession session = req.getSession();
+//		String page = null;
+//		String url = null;
+//		String msg = null;
+//		MemberVO ssKey = (MemberVO) session.getAttribute("ssKey");
+//		if(ssKey!=null) {
+//			session.setAttribute("ssKey", ssKey);
+//			Map<String, Object> reSet = cartService.getCartItemList(ssKey.getMem_id());
+//			// 주문하고 재고는 하나 줄고
+//			model.addAttribute("subTotal", req.getAttribute("subTotal"));
+//			model.addAttribute("content", "custom/OrderDetail.jsp");
+//			model.addAttribute("cart", reSet.get("cartList"));
+//			model.addAttribute("SubTot", reSet.get("subTotal"));	
+//			model.addAttribute("url", url);
+//			page = "Main";
+//		} else {
+//			session.removeAttribute("ssKey");
+//			session.invalidate();
+//			msg="세션이 종료되었습니다.\\n 재로그인 필요합니다.";
+//		    url = "/login";
+//		    page="MsgPage";
+//		    model.addAttribute("msg", msg);
+//		    model.addAttribute("url", url);
+//		}
+//		return page;
+//	}
+
+	@RequestMapping("/orderDetail")
+	public ModelAndView orderProc(HttpServletRequest req, 
+								@RequestParam HashMap<String, String> param) throws NoSuchAlgorithmException {
+		ModelAndView mav =  new ModelAndView();
+		mav.setViewName("custom/OrderDetail");
+		log.info("param CHECK : ===> "+param);
 		HttpSession session = req.getSession();
 		String page = null;
 		String url = null;
+		String msg = null;
 		MemberVO ssKey = (MemberVO) session.getAttribute("ssKey");
 		if(ssKey!=null) {
+			session.setAttribute("ssKey", ssKey);
+
+			String Apiurl = "https://api.testpayup.co.kr/ap/api/payment/himedia/order";
+			Map<String, String> apiMap = new HashMap<String, String>();
+			Map<String, Object> apiResult = new HashMap<String, Object>();
+
+
+			String orderNumber = UUID.randomUUID().toString().substring(0,8).replace("-", "").toUpperCase();
+			apiMap.put("orderNumber", orderNumber);
+
+			// String amount = "100000";
+			String amount = param.get("amount");
+			String merchantId = "himedia";
+			String apiCertKey = "ac805b30517f4fd08e3e80490e559f8e";
+
+//			apiMap.put("amount", amount);
+//			apiMap.put("itemName", "Test");
+//			apiMap.put("userName", "Testor");
+			Iterator<String> keys = param.keySet().iterator();
+			while (keys.hasNext()) {
+				String key = keys.next();
+				apiMap.put(key, param.get(key));
+			}
+			apiMap.put("userAgent", "WP");
+			apiMap.put("returnUrl", "orderProc");
+
+			LocalDateTime time = LocalDateTime.now();
+			String Formattime = time.format(DateTimeFormatter.ofPattern("yyyyMMddHHmmss"));
+			apiMap.put("timestamp", Formattime);
+
+			String signNotEncode = merchantId+"|"+orderNumber+"|"+amount+"|"+apiCertKey+"|"+Formattime;
+			String sign = apiService.getSHA256Hash(signNotEncode);
+			apiMap.put("signature", sign);
+
+			apiResult = apiService.JsonApi(Apiurl, apiMap);
+
+			System.out.println("API 통신 주문 값: "+apiResult);
+			mav.addObject("data", apiResult);
+			
 			Map<String, Object> reSet = cartService.getCartItemList(ssKey.getMem_id());
-			// 주문하고 재고는 하나 줄고
-			// model.addAttribute("content", "custom/OrderDetail.jsp");
-			model.addAttribute("cart", reSet.get("cartList"));
-			model.addAttribute("url", url);
+			
+			mav.addObject("cart",reSet.get("cartList"));
+			mav.addObject("SubTot",reSet.get("subTotal"));
+			mav.addObject("url", url);
 		} else {
-			url = "/login";
+			session.removeAttribute("ssKey");
+			session.invalidate();
+			msg="세션이 종료되었습니다.\\n 재로그인 필요합니다.";
+		    url = "/login";
+		    mav.setViewName("MsgPage");
+		    mav.addObject("msg", msg);
+		    mav.addObject("url", url);
 		}
-		session.setAttribute("ssKey", ssKey);
-		return "custom/OrderDetail";
+		return mav;
+	}
+
+	@PostMapping("/payProc2")
+	public ModelAndView payProc2(@RequestParam HashMap<String, String> param, 
+								HttpServletRequest req, OrderVO ovo) throws NoSuchAlgorithmException {
+		ModelAndView mav =  new ModelAndView();
+
+//		System.out.println("trace input 내용 : "+param.toString());
+//		System.out.println(param.get("cardNo"));
+//		System.out.println(param.get("expireYear"));
+
+		String url = "https://api.testpayup.co.kr/ap/api/payment/"+param.get("ordr_idxx")+"/pay";
+		Map<String, String> apiMap = new HashMap<String, String>();
+		Map<String, Object> apiResult = new HashMap<String, Object>();
+
+		apiMap.put("res_cd", param.get("res_cd"));	// Res-code
+		apiMap.put("res_msg", param.get("res_msg"));	// Res-msg 
+		apiMap.put("enc_data", param.get("enc_data"));	// 
+		apiMap.put("enc_info", param.get("enc_info"));	// 
+		apiMap.put("tran_cd", param.get("tran_cd"));	// 
+		apiMap.put("buyr_mail", param.get("buyr_mail")); //
+
+		apiResult = apiService.JsonApi(url, apiMap);
+
+		HttpSession session = req.getSession();
+		MemberVO ssKey = (MemberVO) session.getAttribute("ssKey");
+
+		System.out.println("API 통신 값: "+apiResult);
+		if ("0000".equals(apiResult.get("responseCode"))) {
+			Map<String, Object> reSet = cartService.getCartItemList(ssKey.getMem_id());
+			ArrayList<CartVO> CartList = (ArrayList<CartVO>) reSet.get("cartList");
+			HashMap<String, Object> reMap = 
+					orderWrapper.orderProc(ovo, CartList);
+			session.setAttribute("ssKey", ssKey);
+		}
+		mav.setViewName("Main");
+		mav.addObject("content", "layouts/PayResult.jsp");
+		mav.addObject("data", apiResult);
+
+		return mav;
 	}
 }

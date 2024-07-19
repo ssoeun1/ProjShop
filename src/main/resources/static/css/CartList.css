@@ -47,6 +47,8 @@ img, fieldset {
     border: none;
     vertical-align: top;
 }
+
+
 input[type="checkbox"] {
     width: 24px;
     height: 24px;
@@ -125,6 +127,7 @@ li {
 @media (min-width: 1025px) {
     .cart-product {
         flex: 1;
+        width: 66%;
     }
 }
 
@@ -672,10 +675,10 @@ div.ec-base-help .inner, .xans-myshop-couponserial .couponSerial, .xans-myshop-s
     line-height: 24px;
     color: #909090;
 }
-.ec-base-fold.selected > .contents {
+.ec-base-fold.selected > .contents2 {
     display: block;
 }
-.ec-base-fold > .contents {
+.ec-base-fold > .contents2 {
     display: none;
     background: #fff;
 }
@@ -704,9 +707,11 @@ div.ec-base-help .inner, .xans-myshop-couponserial .couponSerial, .xans-myshop-s
     font-weight: normal;
     background-color: #f6f6f6;
 }
-.xans-order-basketpackage .cart-total {
+@media screen and (max-width: 1024px) {
+    .xans-order-basketpackage .cart-total {
         width: 100%;
         margin-top: 30px;
+    }
 }
 .xans-order-basketpackage .cart-total {
     width: 360px;
@@ -735,7 +740,7 @@ div.ec-base-help .inner, .xans-myshop-couponserial .couponSerial, .xans-myshop-s
     font-size: 13px;
     font-weight: normal;
 }
-.xans-order-basketpackage .summary .contents {
+.xans-order-basketpackage .summary .contents2 {
     line-height: 20px;
 }
 .xans-order-basketpackage .summary strong {
@@ -745,13 +750,80 @@ div.ec-base-help .inner, .xans-myshop-couponserial .couponSerial, .xans-myshop-s
     display: block;
     margin: 5px 0 0;
 }
-.xans-order-basketpackage .totalSummary {
+@media screen and (max-width: 1024px) {
+    .xans-order-basketpackage .totalSummary {
         margin: 0 0 24px 0;
+    }
 }
 .xans-order-basketpackage .totalSummary {
     padding: 30px 24px;
 }
+#mCafe24Order .agreeArea .allAgree {
+    padding: 20px 0px 16px;
+    margin: 0 16px;
+    border-bottom: 1px solid #eaeaea;
+    font-size: 18px;
+    color: #333;
+}
+#mCafe24Order input[type="checkbox"] {
+    margin: 0;
+    width: 20px;
+    height: 20px;
+    border: 0;
+    cursor: pointer;
+    background: url(//img.echosting.cafe24.com/skin/mobile/common/bg_newCheckbox.png) no-repeat 0 0;
+    background-size: 20px 20px;
+    -webkit-appearance: none;
+    margin-bottom: 1px;
+}
+#mCafe24Order input[type="checkbox"] + label {
+    font-size: 15px;
+    margin: 0 16px 0 6px;
+}
+#mCafe24Order .agreeArea .agreement.displaynone ~ .checkNone {
+    border: 0;
+    padding: 20px 0 20px;
+}
+#mCafe24Order label {
+    display: inline-block;
+    min-height: 29px;
+    line-height: 29px;
+    vertical-align: middle;
+    cursor: pointer;
+    color: #383838;
+}
+#mCafe24Order .ec-base-label, #mCafe24Order label {
+    font-size: 15px;
+    margin-right: 0px;
+}
+#mCafe24Order .ec-base-label:last-child, #mCafe24Order label:last-child {
+    margin-right: 0;
+}
 
+#mCafe24Order .agreeArea .checkNone label {
+    line-height: 22px;
+    min-height: 22px;
+}
+#mCafe24Order .agreeArea .checkNone ul li {
+    margin: 6px 0;
+}
+#mCafe24Order .agreeArea .checkNone ul {
+    background-color: #FAFAFD;
+    padding: 10px 16px;
+    margin-bottom: 20px;
+}
+#mCafe24Order .agreeArea .checkNone {
+    padding: 15px 0 20px;
+    border-top: 1px dashed #d7d5d5;
+    margin: 0px 16px 0 16px;
+}
+#mCafe24Order .agreeArea .allAgree > label > strong {
+    font-size: 16px;
+    font-weight: 700;
+}
+#mCafe24Order .agreeArea .allAgree > label {
+    margin: 0 16px 0 9px;
+}
 .xans-order-basketpackage .totalSummary {
     padding: 20px;
     border: 1px solid #000;
@@ -855,9 +927,7 @@ div.ec-base-help .inner, .xans-myshop-couponserial .couponSerial, .xans-myshop-s
 .xans-order-basketpackage .xans-order-tabinfo {
         margin: 0 0 40px;
 }
-.xans-order-basketpackage .ec-base-button {
-        margin: 0;
-}
+
 .xans-order-basketpackage .ec-base-button > div {
         display: flex;
         width: 100%;

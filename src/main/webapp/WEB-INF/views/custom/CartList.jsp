@@ -40,7 +40,7 @@ class="xans-element- xans-order xans-order-basketpackage section ">
 		<ul class="menu">
 			<li class="selected ">
 				<a href="/order/basket.html">
-					국내배송상품 (1)
+					국내배송상품 (${cartTot})
 				</a>
 			</li>
 			<li class=" ">
@@ -61,10 +61,10 @@ class="xans-element- xans-order xans-order-basketpackage section ">
 				<div class="title">
 					<h3>장바구니 상품</h3>
 				</div>
-				<div class="contents">
+				<div class="contents2">
 					<div class="xans-element- xans-order
 					xans-order-normtitle title subTitle ">
-						<h4>일반상품 (1)</h4>
+						<h4>일반상품 (${cartTot})</h4>
 					</div>
 					<div class="xans-element- xans-order
 					xans-order-normnormal xans-record-">
@@ -89,7 +89,8 @@ class="xans-element- xans-order xans-order-basketpackage section ">
 										${cart.p_name}
 											<a href="/product/mini-checker-board/49/category/24/"
 											class="ec-product-name">
-											<input type="hidden" name="image" class="chk" title="상품명" value="${cart.p_name}" readonly="readonly"> 
+											<input type="hidden" name="itemName" value="${cart.p_name}" class="" readonly="readonly">
+											<input type="hidden" name="userName" value="${cart.mem_id}" class="" readonly="readonly"> 
 											</a>
 										</strong>
 										<ul class="price">
@@ -141,6 +142,7 @@ class="xans-element- xans-order xans-order-basketpackage section ">
 											<div class="name">
 												<span class="product displaynone">
 												mini checker board
+													
 												</span>
 												<span class="optionStr">
 												[옵션: black/아이폰 13 mini]
@@ -180,6 +182,10 @@ class="xans-element- xans-order xans-order-basketpackage section ">
 											onclick="cartUpdate('U', this)">
 											변경
 											</a>
+											<a href="javascript:;" class="btnNormal sizeQty"
+											onclick="cartUpdate('D', this)">
+											삭제
+											</a>
 										</div>
 										<div class="displaynone">
 										1
@@ -216,37 +222,44 @@ class="xans-element- xans-order xans-order-basketpackage section ">
 								<h5>[기본배송]</h5>
 							</div>
 							<div class="contents">
-								<span class="label">
+							<c:choose>
+								<c:when test="${cartTot != 0}">
+									<span class="label">
 										상품주문금액
 										</span>
 											₩&nbsp;
 										<strong class="total_price">
 										</strong>원
-								<span class="displaynone">()</span>
-								<span class="displaynone"></span>
-								<span class="displaynone">
-								+ 부가세
-								<strong></strong>
-								<span class="displaynone"></span>
-								</span>
-								+ 배송비 ₩
-								<strong id="normal_normal_ship_fee" class="num">3,000
-								</strong>
-								<span class="displaynone"></span>
-								<span id="normal_normal_benefit_price_area"
-								class="sale displaynone">
-								- 상품할인금액
-									<strong id="normal_normal_benefit_price">
-									0
-									</strong>
-								</span>
-								<span class="total">
-								합계 : ₩
-									<strong id="normal_normal_ship_fee_sum" class="total_price_d">
-									</strong>
-									<input type="hidden" name="total" value="${cart.price * cart.quantity}" class="number" readonly="readonly">
+									<span class="displaynone">()</span>
 									<span class="displaynone"></span>
-								</span>
+									<span class="displaynone">
+									+ 부가세
+									<strong></strong>
+									<span class="displaynone"></span>
+									</span>
+									+ 배송비 ₩
+									<strong id="normal_normal_ship_fee" class="num">3,000
+									</strong>
+									<span class="displaynone"></span>
+									<span id="normal_normal_benefit_price_area"
+									class="sale displaynone">
+									- 상품할인금액
+										<strong id="normal_normal_benefit_price">
+										0
+										</strong>
+									</span>
+									<span class="total">
+									합계 : ₩
+										<strong id="normal_normal_ship_fee_sum" class="total_price_d">
+										</strong>
+										<input type="hidden" name="total" value="${cart.price * cart.quantity}" class="number" readonly="readonly">
+										<span class="displaynone"></span>
+									</span>
+								</c:when>
+								<c:otherwise>
+									<p>장바구니에 담긴 상품이 없습니다.</p>
+								</c:otherwise>
+							</c:choose>
 							</div>
 						</div>
 					</div>
@@ -389,25 +402,55 @@ class="xans-element- xans-order xans-order-basketpackage section ">
 				</p>
 				
 				<div class="total">
-					<h3 class="title">결제예정금액</h3>
-					<div class="paymentPrice">
-					₩
-						<strong id="normal_normal_ship_fee_sum" class="total_price_d">
-						</strong>
-						<input type="hidden" name="total" value="${cart.price * cart.quantity}" class="number" readonly="readonly">
-						원
-						<span class="refer displaynone">
-							<span id="total_order_price_back"></span>
-						</span>
-					</div>
+					<c:choose>
+						<c:when test="${cartTot != 0}">
+							<h3 class="title">결제예정금액</h3>
+							<div class="paymentPrice">
+							₩
+								<strong id="normal_normal_ship_fee_sum" class="total_price_d">
+								</strong>
+								<input type="hidden" name="total" value="${cart.price * cart.quantity}" class="number" readonly="readonly">
+								원
+								<span class="refer displaynone">
+									<span id="total_order_price_back"></span>
+								</span>
+							</div>
+						</c:when>
+						<c:otherwise>
+							<p>장바구니에 담긴 상품이 없습니다.</p>
+						</c:otherwise>
+					</c:choose>
 				</div>
 			</div>
 			
+			<%-- <form action="/orderDetail">
+			<div class="cart__summary">
+				<div class="cart__subtotal">
+					<span class="cart__total-label">Subtotal:</span>
+					<span class="cart__total-value">
+						<strong class="total_price"></strong>원
+						<input type="text" class="num" name="amount" value="">
+						<input type="hidden" name="itemName" value="test">
+						<input type="hidden" name="userName" value="${ssKey.mem_id}">
+					</span>
+				</div>
+				<p class="cart__total-note">Shipping &amp; taxes calculated at checkoutIncl. VAT, Free shipping and handling.</p>
+				<input class="btn btn-dark" type="submit" value="주문하기">
+				<input class="btn btn-dark" type="button" onclick="javascript:location.href='productList'" value="상품목록으로">
+			</div>
+			</form> --%>
+
+			<form action="/orderDetail" id="orderDetail">
 			<div id="orderFixItem" 
 			class="xans-element- xans-order xans-order-totalorder ">
 				<div class="ec-base-button">
-					<a onclick="javascript:location.href='orderDetail'" 
-					class="btnSubmit gFull sizeL  ">전체상품주문</a>
+					<input type="hidden" class="num" name="amount" value="">
+					<input type="hidden" class="num" name="cartTot" value="${cartTot}">
+					<input type="hidden" name="itemName" value="test">
+					<input type="hidden" name="userName" value="${ssKey.mem_id}">
+					<input class="btnSubmit gFull sizeL" type="button" value="전체상품주문" id="order">
+					<!-- <a onclick="javascript:location.href='orderDetail'" 
+					class="btnSubmit gFull sizeL  ">전체상품주문</a> -->
 					<a href="#none" onclick="Basket.orderSelectBasket(this)" 
 					link-order="/order/orderform.html?basket_type=all_buy" 
 					link-login="/member/login.html" 
@@ -417,6 +460,7 @@ class="xans-element- xans-order xans-order-basketpackage section ">
 				<div id="NaverChk_Button"></div>
 				<div id="appPaymentButtonBox"></div>
 			</div>
+			</form>
 			<div class="xans-element- xans-order 
 			xans-order-basketpriceinfoguide gInnerMargin  ">
 				<ul class="ec-base-help">
@@ -427,21 +471,7 @@ class="xans-element- xans-order xans-order-basketpackage section ">
 		</div>
 	</div>
 </div>
-<div id="orderFixArea" class="xans-element- xans-order 
-xans-order-totalorder ec-base-button gFixed " 
-style="display: none;">
-	<div class="ec-base-button gColumn">
-		<a href="#none" onclick="Basket.orderSelectBasket(this)" 
-		link-order="/order/orderform.html?basket_type=all_buy" 
-		link-login="/member/login.html" 
-		class="btnNormal sizeM ">선택상품주문</a>
-		<a href="#none" onclick="Basket.orderAll(this)" 
-		link-order="/order/orderform.html?basket_type=all_buy" 
-			link-login="/member/login.html" 
-			class="btnSubmit sizeM  ">전체상품주문</a>
-		</div>
-	</div>
-</div>
+
 		
 
 
@@ -472,154 +502,6 @@ class="xans-element- xans-order xans-order-basketguide section ec-base-help">
 </div>
 
 	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-<%-- <h2 class="head-title">장바구니목록</h2>
-<p>${cartTot}</p>
-<div id="Cart-form">
-	
-	
-	<table>
-		<thead>
-			<tr>
-				<th class="pcol1">상품명</th>
-				<th class="pcol2">상품가격</th>
-				<th class="pcol3">수량</th>
-				<th class="pcol4">결제금액</th>
-				<th class="pcol7">삭제</th>
-				<th class="pcol6">조회</th>
-			</tr>
-		</thead>
-		<tbody>
-			<c:choose>
-				<c:when test="${fn:length(cartList)==0}">
-					<tr>
-						<th colspan="6">장바구니에 등록된 상품이 없습니다.</th>
-					</tr>	
-				</c:when>
-				<c:when test="${fn:length(cartList)>0}">
-					<c:forEach var="cart" items="${cartList}">
-						<tr>
-	    				<td class="pcol1">
-		   					<input type="hidden" name="p_no" value="${cart.p_no}" class="" readonly="readonly">
-							<input type="text" name="p_name" value="${cart.p_name}" class="" readonly="readonly">
-						</td>
-	     				<td class="pcol2">
-     						<input type="text" name="price" value="${cart.price}" class="number" readonly="readonly">
-		   				</td>
-	     				<td class="pcol3">	
-						        <button type ="button" onclick="fnCalCount('p',this);">+</button>
-	     						<input type="text" name="quantity" value="${cart.quantity}">
-						        <button type="button" onclick="fnCalCount('m', this);">-</button>
-	     					<input type="hidden" name="stock" value="${cart.stock}">
-		   				</td>
-		   				<td class="pcol4">
-	   						<input type="text" name="amount" value="${cart.price * cart.quantity}" class="" readonly="readonly">
-		   				</td>
-		   				
-		   				<td class="pcol7">
-		   					<input type="button" onclick="javaScript:cartUpdate('U', this)" value="수정">&nbsp;
-		   					<input type="button" onclick="javaScript:cartUpdate('D', this)" value="삭제">
-		   				</td><!-- 수정/삭제 -->
-		   				<td class="pcol6">
-		   					<input type="button" class="" value="상세" onclick="javascript:location.href='productDetail?p_no=${cart.p_no}'">
-		   				</td><!-- 상세보기 -->
-		   				</tr>
-					</c:forEach> 
-					<tr>
-						<td colspan="6" align="right">
-							<input type="button" onclick="javascript:location.href='orderDetail'" value="주문하기">
-							<input type="button" onclick="javascript:location.href='productList'" value="상품목록으로">
-						</td>
-					</tr>
-				</c:when>
-			</c:choose>
-		</tbody>
-	</table>
-	
-	
-	<div class="cart-content">
-		<ul class="cart-list headings">
-		  <li class="cart-item">
-            <div class="cart_item_detail">
-              <div class="details">
-                <div class="cart-item__price">Price</div>
-
-                <div class="cart-item__quantity">Qty</div>
-
-                <div class="cart-item__quantity">Subtotal</div>
-              </div>
-            </div>
-          </li>
-		</ul>
-		<ul class="cart-list">
-			<c:forEach var="cart" items="${cartList}">
-			<li class="cart-item">
-				<div class="cart_item_img">
-					<a href="/">
-						<div class="rsp-Image">
-							<img src="../upload/${cart.image}" alt="Sandwich" style="width:100%; height: 14rem;">
-						</div>
-					</a>
-				</div>
-				<div class="cart_item_detail">
-					<div class="details">
-						<input type="hidden" name="p_no" value="${cart.p_no}" class="" readonly="readonly">
-						<div class="cart-item-copy">
-							<a class="cart-item__title">
-								<input type="text" name="p_name" value="${cart.p_name}" class="" readonly="readonly">
-							</a>
-						</div>
-						<div class="price">
-							<input type="text" name="price" value="${cart.price}" class="num" readonly="readonly">
-						</div>
-						<div class="plus-minus">
-							<button class="plus-minus__button" onclick="fnCalCount('p',this);">
-								<img class="plus" src="../images/plus.svg">
-							</button>
-							<input type="text" name="quantity" class="num quantity" value="${cart.quantity}">
-							<button class="plus-minus__button" onclick="fnCalCount('m',this);">
-								<img class="minus" src="../images/minus.svg">
-							</button>
-							<input type="hidden" name="stock" value="${cart.stock}">
-						</div>
-						<div class="total-price price">
-							<input type="text" name="total" value="${cart.price * cart.quantity}" class="num" readonly="readonly">
-						</div>
-					</div>
-					<div></div>
-					<div class="remove">
-						<input class="btn btn-dark" type="button" onclick="javascript:cartUpdate('U', this)" value="수정">&nbsp;
-	   					<input class="btn btn-dark" type="button" onclick="javascript:cartUpdate('D', this)" value="삭제">
-					</div>
-				</div>
-			</li>
-			</c:forEach>
-		</ul>
-	</div>
-	<div class="cart__additional">
-		<div class="cart__summary">
-			<div class="cart__subtotal">
-				<span class="cart__total-label">Subtotal:</span>
-				<span class="cart__total-value">$179.90</span>
-			</div>
-			<p class="cart__total-note">Shipping &amp; taxes calculated at checkoutIncl. VAT, Free shipping and handling.</p>
-			<input class="btn btn-dark" type="button" onclick="javascript:location.href='orderProc'" value="주문하기">
-			<input class="btn btn-dark" type="button" onclick="javascript:location.href='productList'" value="상품목록으로">
-		</div>
-	</div>
-	
-	
-</div> --%>
 			
 </body>
 </html>
