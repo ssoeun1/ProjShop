@@ -1,4 +1,29 @@
 @charset "UTF-8";
+
+* {
+	margin: 0;
+	padding: 0;
+}
+
+ul {
+	list-style-type: none; 
+}
+
+#join .signup-main{
+	margin: auto;
+}
+#join h3{
+	text-align: center;
+	font-weight: 700;
+	padding-bottom: 50px;
+}
+
+div.contents {
+	width: 1200px;
+	margin: 0 auto;
+}
+
+
 :root {
     --font-color-base: #000;
     --font-color-heading: #000;
@@ -10,8 +35,13 @@
 .theme03, .theme03 input, .theme03 select, .theme03 textarea, .theme03 code, .theme03 button {
 font-family: "Poppins", "Noto Sans KR",
               Arial,sans-serif !important;
+    
+    border: none;
 }
-
+.btn{
+	background-color: #ffeded;
+	font-weight: bold;
+}
 
 
 body{
@@ -283,6 +313,7 @@ button, input, optgroup, select, textarea {
 .icon {
     width: 2em;
     height: 2em;
+    margin-bottom: 1px;
 }
 
 
@@ -304,9 +335,6 @@ a:-webkit-any-link {
     margin-top: 100px;
 }
 
-img {
-    -webkit-perspective: 1;
-}
 audio, canvas, img, svg, video {
     max-width:100%;
     height: auto;
@@ -405,8 +433,7 @@ a {
 }
 
 #header .inner .top_nav_box .top_category .sub_cate01{
-	margin-top: 200px;
-	margin-left: 30px;
+	top: 83px;	
 }
 
 #header .inner .top_nav_box .top_category .sub_cate01 li, #header .inner .top_nav_box .top_category .sub-category li {
@@ -422,6 +449,7 @@ a {
     display: block;
     padding: 10px 20px 10px 10px;
     white-space: nowrap;
+    
 }
 
 
@@ -513,6 +541,13 @@ style attribute {
     --mobile-height: 850px;
     cursor: default;
 }
+
+.dropdown:hover {
+	margin-bottom: 5px;
+	border-bottom: 1px solid #ce4a4a;
+	color: #000;
+}
+
 .footer_margin {
     margin-top: 100px;
 }

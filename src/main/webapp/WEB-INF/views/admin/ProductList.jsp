@@ -21,11 +21,11 @@
      <table class="table table-hover text-center table-bordered border-dark">
        <thead>
          <tr>
-            <th class="pcol1">상품번호</th>
-		    <th class="pcol2">상품명</th>
-		    <th class="pcol3">상품가격</th>
-		    <th class="pcol4">등록일</th>
-		    <th class="pcol5">재고</th>
+            <th class="pcol pcol1">상품번호</th>
+		    <th class="pcol pcol2">상품명</th>
+		    <th class="pcol pcol3">상품가격</th>
+		    <th class="pcol pcol4">등록일</th>
+		    <th class="pcol pcol5">재고</th>
          </tr>
        </thead>
        <tbody>
@@ -38,23 +38,23 @@
           <c:when test="${fn:length(productList)>0}">
             <c:forEach var="product" items="${productList}">
              <tr>
-                <th class="tbcol pcol1">
+                <th class="pcol pcol1">
                  <input type="text" name="p_no" value="${product.p_no}" 
                      class="">
                  </th>
-			    <th class="tbcol pcol2">
+			    <th class="pcol pcol2">
 			     <input type="text" name="p_name" value=" ${product.p_name}" 
                      class="pDetail2" readonly="readonly">
                 </th>
-			    <th class="tbcol pcol3">
+			    <th class="pcol pcol3">
 			     <input type="text" name="price" value="${product.price}" 
                      class="num">
 			   </th>
-			    <th class="tbcol pcol4">
+			    <th class="pcol pcol4">
 			     <input type="text" name="pr_date" value=" ${product.pr_date}" 
                      class="  ">
 			   </th>
-			    <th class="tbcol pcol5">
+			    <th class="pcol pcol5">
 			     <input type="text" name="stock" value=" ${product.stock}" 
                      class="num">
 			    </th>
@@ -95,8 +95,8 @@
      <div style="margin-bottom: 15px;"></div>
      <!-- 페이지 끝 -->
      
-     <div class="btnArea">
-     	<button type="button" class="btn btn-dark mt-2" onclick="location.href='/productInForm'">
+     <div class="btnArea" align="right">
+     	<button type="button" class="btnJoin" onclick="location.href='/productInForm'">
         상품등록
     	</button>
      </div>

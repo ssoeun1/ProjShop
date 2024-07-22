@@ -1,28 +1,30 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<!DOCTYPE html>
-<html>
-<head>
-<link rel="stylesheet" href="../css/bootstrap.min.css" />
-<script type="text/javascript" src="../js/jquery-3.7.1.min.js"></script>    
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
+<!-- <link rel="stylesheet" href="../css/bootstrap.min.css" /> -->
+<link rel="stylesheet" href="../css/layouts.css" />
+<link rel="stylesheet" href="../css/footer.css" />
+<script type="text/javascript" src="../js/jquery-3.7.1.min.js"></script>
+<script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+<script type="text/javascript" src="../js/zipCheck.js"></script>
+<script type="text/javascript" src="../js/member.js"></script>
 <script type="text/javascript" src="../js/layout.js"></script>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>ShopTest</title>
+<title>폰케이스</title>
 
 </head>
 <body>
 <div class="large-container">
-	<div class="container" style="">
-		<c:import url="../layouts/header.jsp" />
+	<div class="container">
+		<c:import url="./header.jsp" />
 		<div class="content">
+			<c:import url="./swiper.jsp" />	
 			<div class="site-desc">
-				<section class="site-desc-direction">
+			<!-- 	<section class="site-desc-direction">
 					<div class="TwoColumn-Sec">
 						<div class="TwoColumn-Sec-Col">
 							<div class="TwoCol-Sec-MediaContainer">
-								<img class="colimg" src="../images/cont2.jpg">
+								<img class="colimg" src="images/cont2.jpg">
 							</div>
 						</div>
 						<div class="TwoColumn-Sec-Col">
@@ -32,7 +34,7 @@
 								</div>
 								<div class="Cols-event-Item">
 									<div class="Cols-icon">
-										<img src="../images/icon1.png">
+										<img src="images/icon1.png">
 									</div>
 									<div class="Cols-context mb-1">
 										<h2>IMPACT PROTECTION</h2>
@@ -41,7 +43,7 @@
 								</div>
 								<div class="Cols-event-Item">
 									<div class="Cols-icon">
-										<img src="../images/icon2.png">
+										<img src="images/icon2.png">
 									</div>
 									<div class="Cols-context mb-1">
 										<h2>SUSTAINABILITY</h2>
@@ -50,7 +52,7 @@
 								</div>
 								<div class="Cols-event-Item">
 									<div class="Cols-icon">
-										<img src="../images/icon3.png">
+										<img src="images/icon3.png">
 									</div>
 									<div class="Cols-context mb-1">
 										<h2>DESIGN INNOVATION</h2>
@@ -61,23 +63,21 @@
 							</div>
 						</div>
 					</div>
-				</section>
+				</section> -->
 			</div>
 			<div>
-				
 				<div align="right">
 					<!-- <a href="/itemNew">
 						<button type="button" id="AddItem">Add Item</button>
 					</a> -->
 				</div>
 			</div>
-			<p>Ads</p>	
 		</div>
 	</div>
-	<c:import url="../layouts/footer.jsp" />
+	<c:import url="./footer.jsp" />
 </div>
-<div class="load" id="load">
+<!-- <div class="load" id="load">
 	<img src="images/loading2.webp">
-</div>
+</div> -->
 </body>
 </html>

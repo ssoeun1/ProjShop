@@ -20,11 +20,11 @@
 	<table class="table table-hover text-center table-bordered border-dark">
 		<thead>
 			<tr>
-				<th class="ncol1">제목</th>
-				<th class="ncol2">작성자</th>
-				<th class="ncol3">생성일자</th>
-				<th class="ncol4">종료일자</th>
-				<th class="ncol5">조회수</th>
+				<th class="tbcol ncol1">제목</th>
+				<th class="tbcol ncol2">작성자</th>
+				<th class="tbcol ncol3">생성일자</th>
+				<th class="tbcol ncol4">종료일자</th>
+				<th class="tbcol ncol5">조회수</th>
 			</tr>
 		</thead>
 		<tbody>
@@ -98,7 +98,7 @@
 	<c:if test="${ssKey.getM_role()=='admin'}">
 	<div class="btnArea" align="right">
    		<input name="newForm" type="button" 
-   		class="btn-primary" onclick="location.href='/NoticeInForm'" value="공지사항 등록">
+   		class="btnJoin" onclick="location.href='/NoticeInForm'" value="공지사항 등록">
    	</div>
 	</c:if>
 </div>

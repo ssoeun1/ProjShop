@@ -23,7 +23,7 @@
 		    <div class="bt_info_list" data-ez-role="list">
 		      <div data-ez-item="company_name">
 		        <span data-ez-role="field">상호명</span>
-		        <span data-ez-role="value">dimple case</span>
+		        <span data-ez-role="value">Dimple Case</span>
 		      </div>
 		      <div data-ez-item="president_name">
 		        <span data-ez-role="field">대표자명</span>
@@ -44,7 +44,7 @@
 		      <div data-ez-item="network_regno">
 		        <span data-ez-role="field">통신판매업 신고번호</span>
 		        <span data-ez-role="value">2020-성남시-1364
-		          <a href="#none" style="text-decoration-line: none; color: #aaa;"
+		          <a href="#none" style="text-decoration-line: none; color: #000;"
 		              >[사업자정보확인]</a>
 		        </span>
 		      </div>
@@ -115,12 +115,7 @@
 	    <div class="bt_dummy">
 	      <div class="bt_escrow" data-ez-escrow style="display:none;">
 	        <a href="#" data-ez-link="#link">
-	          <div class="escrow_img">
-	            <img src="/SkinImg/img/bt_ew_allat.png" class="bt_ew_allat"
-	                 data-ez-escrow-id="allat">"&nbsp;"
-	            <img src="/SkinImg/img/bt_ew_iniapy.png" class="bt_ew_iniapy"
-	                 data-ez-escrow-id="inicis">"&nbsp;"
-	          </div>
+	          
 	          <span>
 	          고객님은 안전거래를 위해 결제시 저희 쇼핑몰에서 가입한 구매안전 
 	          서비스를 이용하실 수 있습니다. [서비스가입정보확인]

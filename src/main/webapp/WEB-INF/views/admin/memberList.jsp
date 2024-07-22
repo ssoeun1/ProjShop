@@ -7,7 +7,8 @@
 <head>
 <meta charset="UTF-8">
 <title>쇼핑몰</title>
-<link rel="stylesheet" type="text/css" href="./css/MemberList.css" />
+<link rel="stylesheet" type="text/css" href="../css/MemberList.css" />
+
 <script type="text/javascript" src="./js/jquery-3.7.1.min.js"></script>
 <script src="./js/product.js" defer="defer"></script>
 </head>
@@ -22,10 +23,10 @@
 	<table class="table table-hover text-center table-bordered border-dark">
 		<thead>
 			<tr>
-				<th class="mcol1">고객명(고객아이디)</th>
-				<th class="mcol2">고객이메일</th>
-				<th class="mcol3">고객연락처</th>
-				<th class="mcol4">고객가입일</th>
+				<th class="tbcol mcol1">고객명(고객아이디)</th>
+				<th class="tbcol mcol2">고객이메일</th>
+				<th class="tbcol mcol3">고객연락처</th>
+				<th class="tbcol mcol4">고객가입일</th>
 			</tr>
 		</thead>
 		<tbody>
