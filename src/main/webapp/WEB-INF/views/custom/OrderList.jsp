@@ -18,16 +18,18 @@
 	
 <div id="productMgt">
 	<h2 class="head-title">주문리스트</h2>
-	<div class="totalitem" align="right">주문 건 : ${orderTot}</div>
-	<table>
+	<div class="totalitem" align="right">
+		<button class="btn btn-dark">주문 건 : ${orderTot}</button>
+	</div>
+	<table class="table table-hover text-center table-bordered border-dark">
 		<thead>
 		<tr>
-			<th class="ocol ocol1">상품명</th>
-			<th class="ocol ocol2">주문수량</th>
-			<th class="ocol ocol3">단가</th>
-			<th class="ocol ocol4">결제금액</th>
-			<th class="ocol ocol5">결제일</th>
-			<th class="ocol ocol6">주문상태</th>
+			<th class="o_col o_col1">상품명</th>
+			<th class="o_col o_col2">주문수량</th>
+			<th class="o_col o_col3">단가</th>
+			<th class="o_col o_col4">결제금액</th>
+			<th class="o_col o_col5">결제일</th>
+			<th class="o_col o_col6">주문상태</th>
 
 		</tr>
 		</thead>
@@ -88,7 +90,7 @@
 	</table>
 	
 	<!-- 페이지  -->
-     <div align="center">
+     <div id="Pg" align="center">
      <c:if test="${pgVo.startPg>PBlock}">
 	     <font color="4c5317">
 	         <a href="/orderList?curPg=${pgVo.startPg-PBlock}&curBl=${pgVo.curBl-1}">[이전]</a>

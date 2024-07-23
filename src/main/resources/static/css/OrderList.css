@@ -1,5 +1,4 @@
 @charset "UTF-8";
-
 #productMgt .btnArea{
 	margin-top: 20px;
 	text-align: center;
@@ -18,9 +17,7 @@
 }
 
 #productMgt table{
-	margin-top: 20px;
-	margin-left: 100px;
-	width:80%;
+	width:100%;
 }
 
 /* #productMgt .pcol1{
@@ -47,10 +44,11 @@
 	vertical-align: middle;
 } */
 
-.ocol0 { width: 5%; }
+/* OrderFix */
+.ocol0 { width: 2%; }
 .ocol1 { width: 5%; }
-.ocol2 { width: 10%; }
-.ocol3 { width: 10%; }
+.ocol2 { width: 20%; }
+.ocol3 { width: 7%; }
 .ocol4 { width: 10%; }
 .ocol5 { width: 10%; }
 .ocol6 { width: 10%; }
@@ -67,8 +65,25 @@
 .ocol7 input{ width: 100%; }
 .ocol8 input{ width: 100%; }
 
+/* custom Order */
+.o_col1 { width: 25%; }
+.o_col2 { width: 8%; }
+.o_col3 { width: 10%; }
+.o_col4 { width: 10%; }
+.o_col5 { width: 10%; }
+.o_col6 { width: 10%; }
+
+
+.o_col1 input{ width: 100%; }
+.o_col2 input{ width: 100%; }
+.o_col3 input{ width: 100%; }
+.o_col4 input{ width: 100%; }
+.o_col5 input{ width: 100%; }
+.o_col6 input{ width: 100%; }
+
 table, th, tr, td {
 	border-collapse: collapse;
+	border-bottom: 1px solid #e5e5e5;
 }
 
 thead {
@@ -76,15 +91,18 @@ thead {
 	color: #fff;
 }
 
-.ocol {
+.ocol4, .o_col {
 	padding: 12px;
+	/* width: 200px; */
 } 
 
 input:focus, input {
 	border: 0;
 	outline: none;
 }
-
+#Pg{
+	padding-top: 20px;
+}
 .btnJoin{
     width: 100px;
     padding: 12px 12px 10px 10px;
@@ -95,7 +113,10 @@ input:focus, input {
     color: #fff;
     background-color: #de7575;
 }
-
+#textaread{
+	white-space: pre-wrap;
+	text-align: left;
+}
 .btnArea {
 	margin-top: 20px;
 }
