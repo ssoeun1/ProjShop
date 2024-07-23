@@ -53,6 +53,7 @@
 .ocol3 { width: 10%; }
 .ocol4 { width: 10%; }
 .ocol5 { width: 1%; }
+
 .ocol6 { width: 10%; }
 .ocol7 { width: 10%; }
 .ocol8 { width: 10%; }
@@ -62,6 +63,7 @@
 .ocol2 input{ width: 100%; }
 .ocol3 input{ width: 100%; }
 .ocol4 input{ width: 100%; }
+
 /* .ocol5 input{ width: 100%; } */
 .ocol6 input{ width: 100%; }
 .ocol7 input{ width: 100%; }
@@ -95,7 +97,6 @@ input:focus, input {
     color: #fff;
     background-color: #de7575;
 }
-
 .ocol form {
 	margin: 10px 0;
 }
