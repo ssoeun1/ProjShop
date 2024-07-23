@@ -18,10 +18,8 @@
 	
 <div id="productMgt">
 	<h2 class="head-title">주문리스트</h2>
-	<div class="totalitem" align="right">
-		<button class="btn btn-dark">주문 건 : ${orderTot}</button>
-	</div>
-	<table class="table table-hover text-center table-bordered border-dark">
+	<div class="totalitem" align="right">주문 건 : ${orderTot}</div>
+	<table>
 		<thead>
 		<tr>
 			<th class="ocol ocol1">번호</th>
@@ -30,6 +28,7 @@
 			<th class="ocol ocol4">거래번호</th>
 			<th class="ocol ocol5">수정</th>
 			<!-- <th class="ocol ocol6">주문상태</th> -->
+
 		</tr>
 		</thead>
 		<tbody>
