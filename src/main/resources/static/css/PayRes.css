@@ -1,0 +1,45 @@
+@charset "UTF-8";
+
+* {
+	margin: 0;
+	padding: 0;
+}
+
+.fail-article {
+	color: #aaa;
+}
+
+.fail-title, .success-title{
+	margin-bottom: 30px;
+}
+
+.fail-header, .success-header {
+	border-bottom: 1px solid #aaa;
+	margin-bottom: 10px;
+}
+
+.btnArea {
+	margin-top: 60px;
+}
+
+.btnJoin{
+    width: 100px;
+    padding: 12px 12px 10px 10px;
+    border: 1px solid transparent;
+    line-height: 20px;
+    font-weight: bold;
+    text-align: center;
+    color: #999;
+    background-color: #eee;
+}
+
+.btnJoin2{
+    width: 100px;
+    padding: 12px 12px 10px 10px;
+    border: 1px solid transparent;
+    line-height: 20px;
+    font-weight: bold;
+    text-align: center;
+    color: #fff;
+    background-color: #de7575;
+}
