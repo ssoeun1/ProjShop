@@ -67,22 +67,6 @@
 .ocol7 input{ width: 100%; }
 .ocol8 input{ width: 100%; }
 
-/* custom Order */
-.o_col1 { width: 25%; }
-.o_col2 { width: 8%; }
-.o_col3 { width: 10%; }
-.o_col4 { width: 10%; }
-.o_col5 { width: 10%; }
-.o_col6 { width: 10%; }
-
-
-.o_col1 input{ width: 100%; }
-.o_col2 input{ width: 100%; }
-.o_col3 input{ width: 100%; }
-.o_col4 input{ width: 100%; }
-.o_col5 input{ width: 100%; }
-.o_col6 input{ width: 100%; }
-
 table, th, tr, td {
 	border-collapse: collapse;
 	border-bottom: 1px solid #e5e5e5;
