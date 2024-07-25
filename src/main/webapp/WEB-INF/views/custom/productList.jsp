@@ -22,7 +22,7 @@
              <div class="prdList__item pDetail">
                <input type="hidden" name="p_no" value="${product.p_no}">
                <div class="thumbnail">
-                   <img src="/upload/${product.image}" alt="Sandwich" style="width:100%; height: 18rem;">
+                   <img src="/upload/${product.image}" alt="Sandwich" class="product-thumbnail">
                </div>
                <div class="description">
                  <div class="name">
@@ -66,7 +66,7 @@
      </c:if>
      <c:forEach var="pgno" begin="${pgVo.startPg}" end="${pgVo.endPg}" step="1">
          <c:set scope="page" var="list" 
-                  value="./productList?curPg=${pgno}&curBl=${pgVo.curBl}"/> 
+                  value="/productList?curPg=${pgno}&curBl=${pgVo.curBl}&text=${text}"/> 
          <a href="${list}" style=" text-decoration:none;">
           <c:choose>
               <c:when test="${pgVo.curPg==pgno}">

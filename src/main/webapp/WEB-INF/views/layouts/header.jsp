@@ -40,6 +40,50 @@
          </div>
        </div>  
 	   <div class="top_nav_box" id="top_nav_box"> 
+	   	<div class="dropdown-menu">
+		   <a>
+		      <button class="btn-icon" 
+				id="searchMenuBtn" type="button" title="">
+				<img class="icon" src="../images/menu.svg">
+				<span class="screenreader">Search</span>
+			  </button>
+		   </a>
+		   <div class="dropdown-content-menu">
+		   	<c:choose>
+		        <c:when test="${ssKey!=null}">
+					<a href="/"><li class="--nav-item menu">Home</li></a>
+					<a onclick="openSearch();"><li class="--nav-item menu search">Search
+					</li></a>
+					<div class="header__search-containers hide-phone" id="searchContainer">
+						<form name="search" class="search" role="search" action="search?bucket=1" method="get">
+							<div class="input-placeholder input-placeholder--search">
+							<label class="search__label search__floating-label screenreader" for="searchInput">Search</label>
+							<div class="search__suggested-text js-search-suggested-text screenreader"></div>
+							<input class="input search__input" id="searchInput-headerSearchDesktop" type="search" role="combobox" 
+							aria-controls="autocompleteItems" aria-owns="autocompleteItems" placeholder="Search" name="text">
+							</div>
+							<button class="search__input-button js-search btn-icon" 
+								id="searchMenuBtn" type="button" title="Search">
+								<img class="search__icon icon icon--search" src="../images/search2.svg">
+								<span class="screenreader">Search</span>
+							</button>
+						</form>
+					</div>
+					<a href="/productList"><li class="--nav-item menu">Case</li></a>
+					<a href="/orderList"><li class="--nav-item menu">Order</li></a>
+					<a href="/info"><li class="--nav-item menu">MyPage</li></a>
+					<a href="/notice"><li class="--nav-item menu">Notice</li></a>
+					<a href="/logoutProc"><li class="--nav-item menu">Logout</li></a>
+				</c:when>
+				<c:otherwise>
+			 		<a href="/join"><li class="--nav-item menu">Join</li></a>
+      				<a href="/login"><li class="--nav-item menu">Login</li></a>
+					<a href="/notice"><li class="--nav-item menu">Notice</li></a>
+			 	</c:otherwise>
+			 </c:choose>
+			 
+            </div>
+	    </div>
 	    <div class="top_adjust">
 	     <div class="xans-element- xans-layout xans-layout-logotop top_logo ">
 		   <a href="/">
@@ -50,40 +94,40 @@
 		   <div class="xans-element- xans-layout xans-layout-category top_category">
 		     <ul>
 			   <li class="dropdown">
-			     <a href="/productList" style="color: #ce4a4a; font-weight: bold;
+			     <a href="../productList?text=galaxy" style="color: #ce4a4a; font-weight: bold;
 					font-family: Poppins, Noto Sans KR, Arial, sans-serif !important;
 					text-decoration: none; font-size: 20px;">갤럭시</a>
-			     <ul class="sub_cate01 dropdown-content">
+			     <ul class="sub_cate01 dropdown-content-kind">
 			       <li class="noChild">
-			         <a href="/productList">갤럭시 버전</a>
+			         <a href="../productList?text=galaxy S24">갤럭시 S24</a>
 			       </li>
 			       <li class="noChild">
-			         <a href="/category/Hard/29/">갤럭시 버전</a>
+			         <a href="/category/Hard/29/">갤럭시 S23</a>
 			       </li>
 			       <li class="noChild">
-			         <a href="/category/Hard/29/">갤럭시 버전</a>
+			         <a href="/category/Hard/29/">갤럭시노트 20</a>
 			       </li>
 			       <li class="noChild">
-			         <a href="/category/Hard/29/">갤럭시 버전</a>
+			         <a href="/category/Hard/29/">갤럭시Z 플립5</a>
 			       </li>
 			     </ul>
 			   </li> 
 			   <li class="dropdown">
-			     <a href="/productList" style="color: #ce4a4a; font-weight: bold;
+			     <a href="../productList?text=iphone" style="color: #ce4a4a; font-weight: bold;
 					font-family: Poppins, Noto Sans KR, Arial, sans-serif !important;
 					text-decoration: none; font-size: 20px;">아이폰</a>
-			      <ul class="sub_cate01 dropdown-content">
+			      <ul class="sub_cate01 dropdown-content-kind">
 			       <li class="noChild">
-			         <a href="/productList">아이폰 버전</a>
+			         <a href="../productList?text=iphone 14">아이폰 14</a>
 			       </li>
 			       <li class="noChild">
-			         <a href="/category/Hard/28/">아이폰 버전</a>
+			         <a href="/category/Hard/28/">아이폰 13Pro</a>
 			       </li>
 			       <li class="noChild">
-			         <a href="/category/Hard/28/">아이폰 버전</a>
+			         <a href="/category/Hard/28/">아이폰 SE</a>
 			       </li>
 			       <li class="noChild">
-			         <a href="/category/Hard/28/">아이폰 버전</a>
+			         <a href="/category/Hard/28/">아이폰 12</a>
 			       </li>
 			     </ul>
 			   </li>

@@ -11,14 +11,14 @@
 <body>
 <form action="registerProc" name="form1" method="post">
 <div id="join">
-	<h3>회원가입</h3>
+	<h2>회원가입</h2>
 	<table class="signup-main">
 	<colgroup>
 	  <col style="width:220px";>
 	  <col style="width:auto";>
 	</colgroup>
 	<tr>
-      <th class="col1"><img src="/images/blue_dot.gif"> 아이디</th>
+      <th class="col1"><img src="/images/blue_dot.gif">아이디</th>
       <th class="col2">
       <div class="input-container">
 	      <input type="text"  name="mem_id" id="idchk" title="아이디" class="chk form-control">
@@ -28,7 +28,7 @@
       <th class="col3">&nbsp;<font id="warning" size="2" color="red"></font></th>
     </tr>
     <tr>
-      <th class="col1"><img src="/images/blue_dot.gif"> 패스워드</th>
+      <th class="col1"><img src="/images/blue_dot.gif">패스워드</th>
       <th class="col2">
       	<div class="input-container">
 	        <input type="password" name="m_passwd" id="check1" title="패스워드" class="chk form-control">
@@ -38,7 +38,7 @@
       <th class="col3">&nbsp;<font id="check" size="2" color="green"></font></th>
     </tr>
     <tr>
-      <th class="col1"><img src="/images/blue_dot.gif"> 패스워드 확인</th>
+      <th class="col1"><img src="/images/blue_dot.gif">패스워드확인</th>
       <th class="col2">
       	<div class="input-container">
       	  <input type="password"  name="m_repasswd" id="check2" title="패스워드 확인" class="chk form-control">
@@ -47,7 +47,7 @@
       <th class="col3">&nbsp;</th>
     </tr>
      <tr>
-       <th class="col1"><img src="/images/blue_dot.gif"> 이름</th>
+       <th class="col1"><img src="/images/blue_dot.gif">이름</th>
        <th class="col2">
          <div class="input-container">
            <input type="text" name="m_name" class="chk form-control" title="이름" placeholder="홍길동">
@@ -56,7 +56,7 @@
        <td class="col3">&nbsp;</td>
       </tr>
       <tr>
-       <th class="col1"><img src="/images/blue_dot.gif"> 이메일</th>
+       <th class="col1"><img src="/images/blue_dot.gif">이메일</th>
        <td class="col2">
        	 <div class="input-container">	
            <input type="text" name="m_email" class ="form-control" placeholder="user123@naver.com">
@@ -65,7 +65,7 @@
 	  <td class="col3"><font class="emailNm" size="2"></font></td>
       </tr>
       <tr>
-       <th class="col1"><img src="/images/blue_dot.gif"> 전화번호</th>
+       <th class="col1"><img src="/images/blue_dot.gif">전화번호</th>
        <td class="col2">
          <div style="float: left">  
            <select id="mobile1" fw-filter="isNumber&isFill" fw-label="휴대전화" fw-alone="N">
@@ -86,7 +86,7 @@
         <td class="col3">&nbsp;</td>
       </tr>
       <tr>
-        <th class="col1"><img src="/images/blue_dot.gif"> 주소</th>
+        <th class="col1"><img src="/images/blue_dot.gif">주소</th>
         <td class="col2">
           <div class="input-container">
           	<div>
@@ -103,6 +103,34 @@
         </td>
         <td class="col3"></td>
       </tr>
+      <tr>
+			<th class="col1"><img src="/images/blue_dot.gif">직업</th>
+			<th class="col2">
+				<select name="m_job" class="chk selector">
+					 <option value="">선택하시오.</option>
+		             <option value="회사원">회사원</option>
+					 <option value="기술사">기술사</option>
+					 <option value="연구전문직">연구전문직</option>
+					 <option value="학생">학생</option>
+					 <option value="교수">교수</option>
+					 <option value="일반자영업">일반자영업</option>
+					 <option value="공무원">공무원</option>
+					 <option value="의료인">의료인</option>
+					 <option value="전문직">전문직(법률,회계)</option>
+					 <option value="종교,언론,예술인">종교.언론/예술인</option>
+					 <option value="농,축,수산,광업인">농/축/수산/광업인</option>
+					 <option value="주부">주부</option>
+					 <option value="무직">무직</option>
+					 <option value="기타">기타</option>
+				</select>
+				<script type="text/javascript">
+					$(function(){
+						$('select[name="m_job"]').val('${mvo.m_job}')
+					})		
+				</script>
+			</th>
+			<th>&nbsp;</th>
+		</tr>
 		<tfoot>
 		<tr>
 			<td colspan="3">
